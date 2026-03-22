@@ -1,0 +1,1978 @@
+=== lint.sh ヤマダイ記事チェック ===
+対象: articles/宅配弁当おすすめ-article.html
+
+scripts/lint.sh: line 48: [[: 0
+0: syntax error in expression (error token is "0")
+ERROR: H2に【】: 11:<h2>宅配弁当のおすすめの選び方</h2>
+ERROR: H2に【】: 83:<h2>おすすめの冷凍宅配弁当15選を比較</h2>
+ERROR: H2に【】: 857:<h2>宅配弁当を利用するメリット</h2>
+ERROR: H2に【】: 912:<h2>宅配弁当を利用するときの注意点</h2>
+ERROR: H2に【】: 967:<h2>宅配弁当に関するよくある質問</h2>
+ERROR: H2に【】: 1009:<h2>まとめ：おすすめの宅配弁当をお試しから始めよう</h2>
+ERROR: テーブル1の行数が16行（5行固定のはず）
+  H2数: 6 / imgタグ数: 21
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 142: [[: 0
+0: syntax error in expression (error token is "0")
+
+=== 結果: ERROR 0件 / WARNING 0件 ===
+→ パス。
