@@ -253,6 +253,35 @@ if [[ "$TOTAL_SERVICES" -gt 0 ]]; then
   echo "  書き出し「〜宅配弁当です。」: ${PATTERN_A}社 / 「〜サービスです。」: ${PATTERN_B}社 / 全${TOTAL_SERVICES}社"
 fi
 
+# --- 「本記事では」→「この記事では」に統一 ---
+grep -n "本記事" "$FILE" | while read -r l; do error "「本記事」→「この記事」に統一: $l"; done || true
+
+# --- strong締めのパターン集計 ---
+echo ""
+echo "--- strong締めパターンチェック ---"
+STRONG_FUSEGE=$(grep -c "防げます。</strong>" "$FILE" || echo 0)
+STRONG_DEKI=$(grep -c "できます。</strong>" "$FILE" || echo 0)
+STRONG_NARI=$(grep -c "なります。</strong>" "$FILE" || echo 0)
+for PAT in "防げます:$STRONG_FUSEGE" "できます:$STRONG_DEKI" "なります:$STRONG_NARI"; do
+  NAME="${PAT%%:*}"; CNT="${PAT##*:}"
+  if [[ "$CNT" -ge 3 ]]; then
+    warning "strong締め「〜${NAME}」が${CNT}回（3回以上はバリエーション不足）"
+  fi
+done
+echo "  strong締め「〜防げます」: ${STRONG_FUSEGE} / 「〜できます」: ${STRONG_DEKI} / 「〜なります」: ${STRONG_NARI}"
+
+# --- H3の箇条書き/テーブル含有率チェック ---
+echo ""
+echo "--- H3の箇条書き/テーブル率チェック ---"
+TOTAL_H3=$(grep -c "<h3>" "$FILE" || echo 0)
+SERVICE_H3=$(grep -c "<h3>[0-9]" "$FILE" || echo 0)
+CONTENT_H3=$(( TOTAL_H3 - SERVICE_H3 ))
+UL_COUNT=$(grep -c "<ul>" "$FILE" || echo 0)
+if [[ "$CONTENT_H3" -gt 0 && "$UL_COUNT" -eq 0 ]]; then
+  warning "選び方・メリット・注意点のH3に箇条書き(ul)が1つもない。8割のH3にul or テーブルを入れる"
+fi
+echo "  コンテンツH3数: ${CONTENT_H3} / ul数: ${UL_COUNT}"
+
 # ============================================
 # 結果サマリー
 # ============================================
