@@ -1,0 +1,40 @@
+=== lint.sh v2 ヤマダイ記事チェック ===
+対象: articles/宅配弁当-糖尿病-article.html
+
+--- 禁止ワード ---
+--- AI表現 ---
+--- AI臭いナンバリング ---
+--- 比喩表現 ---
+--- 冗長表現 ---
+--- 指示語 ---
+--- 「こと」---
+scripts/lint.sh: line 98: [[: 0
+0: syntax error in expression (error token is "0")
+--- 記号 ---
+--- HTML ---
+--- CTA ---
+--- 追加NG ---
+
+--- ヤマダイ固有チェック ---
+WARNING: 訴求社CTA [タイヘイ] の直前にstrong価格訴求文がない（468行目付近）
+  H2数: 6 / imgタグ数: 16
+
+--- 頻出表現チェック ---
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+
+--- 書き出しパターンチェック ---
+  書き出し「〜宅配弁当です。」: 6社 / 「〜サービスです。」: 3社 / 全10社
+
+=== 結果: ERROR 0件 / WARNING 1件 ===
+→ パス。
