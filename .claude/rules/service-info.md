@@ -19,7 +19,7 @@
 <table style="width: 100%;">
 <tbody>
 <tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">株式会社クロスエッジ</td></tr>
-<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">定期1食710〜787円（税込・送料無料）、都度購入は送料770円</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">定期1食約730〜787円（税込・送料無料）、都度購入は送料770円</td></tr>
 <tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（一部離島を除く）</td></tr>
 <tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">日時指定可、1週〜1か月ごとの配送頻度を選択、ヤマトクール冷凍便</td></tr>
 <tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">なし（定期コースは通常価格から28%OFF・送料無料）</td></tr>
@@ -29,12 +29,12 @@
 
 **画像HTML:**
 ```html
-<img class="size-full wp-image-302 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2025/03/tsurukame-kitchen-1.jpg" alt="" width="800" height="533" />
+<img class="size-full wp-image-302 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2026/03/tsurukame-kitchen-1.jpg" alt="" width="800" height="401" />
 ```
 
 **CTA:** `[Dr.ツルガメキッチン]`
 **strong 1文目:** 専門医の指導のもと管理栄養士が献立を監修した冷凍宅配弁当
-**比較テーブル用単価:** 710円〜
+**比較テーブル用単価:** 約730円〜
 
 ---
 
@@ -45,7 +45,7 @@
 <table style="width: 100%;">
 <tbody>
 <tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">株式会社TANPAC</td></tr>
-<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">定期1食994円〜（税込・20%OFF後・ローカーボ21食の場合）、送料1,640円〜（地域別）</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食約994円〜（税込・ローカーボ21食の場合）、送料1,640円〜（地域別・割引条件は公式サイトで要確認）</td></tr>
 <tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（一部離島を除く）</td></tr>
 <tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">日時指定可、スキップ可、ヤマトクール冷凍便</td></tr>
 <tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">なし（ベーシック7食が初回30%OFF＝5,292円・1食756円）</td></tr>
@@ -55,7 +55,7 @@
 
 **画像HTML:**
 ```html
-<img class="size-full wp-image-235 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2025/01/deli.jpg" alt="" width="800" height="533" />
+<img class="size-full wp-image-235 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2026/03/deli.jpg" alt="" width="800" height="400" />
 ```
 
 **CTA:** `[筋肉食堂DELI]`
@@ -107,7 +107,7 @@
 
 **画像HTML:**
 ```html
-<img class="size-full wp-image-236 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2025/01/meals.jpg" alt="" width="800" height="533" />
+<img class="size-full wp-image-236 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2026/03/meals.jpg" alt="" width="800" height="409" />
 ```
 
 **CTA:** `[Meals]`
@@ -123,7 +123,7 @@
 <table style="width: 100%;">
 <tbody>
 <tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">タイヘイ株式会社</td></tr>
-<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食607円〜（税込・定期購入は送料無料）、都度購入は送料715円〜</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">ヘルシー御膳1食約783円〜（税込・7食セットの場合）、定期購入は送料無料、都度購入は送料715円〜</td></tr>
 <tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（一部離島を除く）</td></tr>
 <tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">日時指定可、5〜28日ごと選択可</td></tr>
 <tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">なし</td></tr>
@@ -138,7 +138,7 @@
 
 **CTA:** `[タイヘイ]`
 **strong 1文目の方向性:** 定期購入で送料無料になる冷凍宅配弁当
-**比較テーブル用単価:** 607円〜
+**比較テーブル用単価:** 約783円〜
 
 ---
 
@@ -150,7 +150,7 @@
 <tbody>
 <tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">株式会社オイシエ</td></tr>
 <tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食690円〜（バリュー）、スタンダード780円〜、プレミアム980円〜（税込・送料別）、送料900円〜（地域別）</td></tr>
-<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（離島を除く）</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（一部離島等を除く）</td></tr>
 <tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">日時指定可（5時間帯）、1〜3週ごと選択可</td></tr>
 <tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">なし（期間限定で送料無料キャンペーンの場合あり）</td></tr>
 </tbody>
@@ -191,7 +191,7 @@
 
 **画像HTML:**
 ```html
-<img class="size-full wp-image-228 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2025/01/watami-takushoku-direct.jpg" alt="" width="800" height="533" />
+<img class="size-full wp-image-228 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2026/03/watami-takushoku-direct.jpg" alt="" width="800" height="389" />
 ```
 
 **CTA:** `[ワタミダイレクト]`
@@ -209,8 +209,8 @@
 <table style="width: 100%;">
 <tbody>
 <tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">nosh株式会社</td></tr>
-<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食620〜719円（税込）、送料1,133円〜（地域別・2025年5月改定後）</td></tr>
-<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（離島を除く）</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食620〜719円（税込）、送料は地域・食数で異なる（公式サイトで要確認）</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（一部離島等を除く）</td></tr>
 <tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">日時指定可、1〜3週ごと選択可</td></tr>
 <tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">なし（初回1,500円OFFクーポン・解約金なし）</td></tr>
 </tbody>
@@ -267,7 +267,7 @@
 <table style="width: 100%;">
 <tbody>
 <tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">日清医療食品株式会社</td></tr>
-<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食約690円〜（税込・おまかせコース5食4,830円・2025年4月改定後）、送料940円（定期便）</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食約966円〜（税込・おまかせコース5食4,830円）、送料1,330円（都度）・940円（定期便）</td></tr>
 <tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（一部離島を除く）</td></tr>
 <tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">日時指定可（最短4日後）、時間帯指定可</td></tr>
 <tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">なし</td></tr>
@@ -277,7 +277,7 @@
 
 **画像HTML:**
 ```html
-<img class="size-full wp-image-124 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2024/11/shokutakubin.jpg" alt="" width="800" height="533" />
+<img class="size-full wp-image-124 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2026/02/shokutakubin.jpg" alt="" width="800" height="400" />
 ```
 
 **CTA:**
@@ -285,7 +285,7 @@
 [btn href="https://shokutakubin.com/" class="raised main-bc strong" target="_blank" rel="nofollow"]食宅便の公式サイトはこちら[/btn]
 ```
 
-**比較テーブル用単価:** 約690円〜
+**比較テーブル用単価:** 約966円〜
 
 ---
 
@@ -296,7 +296,7 @@
 <table style="width: 100%;">
 <tbody>
 <tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">株式会社ニチレイフーズ</td></tr>
-<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食640〜700円程度（税込）、定期購入は送料無料、都度購入は本州7,500円以上で送料無料</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">定期8食6,400円（税込・送料込み・1食800円）、都度購入の送料条件は注文金額と地域で異なる</td></tr>
 <tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（佐川またはヤマト）</td></tr>
 <tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">日時指定可</td></tr>
 <tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">送料無料のお試しセットあり（内容は時期により異なる・公式サイトで要確認）</td></tr>
@@ -306,7 +306,7 @@
 
 **画像HTML:**
 ```html
-<img class="size-full wp-image-249 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2025/01/nichirei.jpg" alt="" width="800" height="533" />
+<img class="size-full wp-image-249 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2026/03/nichirei.jpg" alt="" width="800" height="534" />
 ```
 
 **CTA:**
@@ -314,7 +314,7 @@
 [btn href="https://wellness.nichirei.co.jp/" class="raised main-bc strong" target="_blank" rel="nofollow"]ニチレイフーズダイレクトの公式サイトはこちら[/btn]
 ```
 
-**比較テーブル用単価:** 640円〜
+**比較テーブル用単価:** 800円〜
 
 ---
 
@@ -335,7 +335,7 @@
 
 **画像HTML:**
 ```html
-<img class="size-full wp-image-224 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2025/01/magokoro-care-shoku.jpg" alt="" width="800" height="533" />
+<img class="size-full wp-image-224 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2026/03/magokoro-care-shoku.jpg" alt="" width="800" height="403" />
 ```
 
 **CTA:**
@@ -354,7 +354,7 @@
 <table style="width: 100%;">
 <tbody>
 <tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">ウェルネスダイニング株式会社</td></tr>
-<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食669円〜（税込）、初回送料無料、定期14食以上で送料無料</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食約705円〜（税込・コースと食数で異なる）、初回送料無料、送料無料の条件は公式サイトで要確認</td></tr>
 <tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（一部離島を除く）</td></tr>
 <tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">日時指定可</td></tr>
 <tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">初回送料無料（お試し定期で8回分の送料が無料）</td></tr>
@@ -364,7 +364,7 @@
 
 **画像HTML:**
 ```html
-<img class="size-full wp-image-125 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2024/11/wellness-dining.jpg" alt="" width="800" height="533" />
+<img class="size-full wp-image-125 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2026/02/wellness-dining.jpg" alt="" width="800" height="399" />
 ```
 
 **CTA:**
@@ -372,7 +372,7 @@
 [btn href="https://www.wellness-dining.com/" class="raised main-bc strong" target="_blank" rel="nofollow"]ウェルネスダイニングの公式サイトはこちら[/btn]
 ```
 
-**比較テーブル用単価:** 669円〜
+**比較テーブル用単価:** 約705円〜
 
 ---
 
