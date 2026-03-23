@@ -107,7 +107,7 @@ OK: 「比較せずに申し込むと割高なサービスを選んでしまう�
 
 **⚠️ テーブル・画像・CTAはservice-info.mdからそのままコピペする。自分で作らない。**
 - テーブルHTML → service-info.mdの「テーブルHTML（コピペ用）」をそのまま貼る
-- 画像HTML → service-info.mdの「画像HTML」をそのまま貼る
+- 画像HTML → service-info.mdの「画像HTML」をそのまま貼る。**wp-image-XXX番号・uploads/YYYY/MM/パス・ファイル名・width/heightを1文字も変えない。**
 - CTA → service-info.mdの「CTA」をそのまま貼る
 - service-info.mdに載っていないサービスは、Manabuさんに確認してからservice-info.mdに追加する
 - **価格・送料・エリア等の数字をservice-info.md以外のソースから引っ張ってこない**
