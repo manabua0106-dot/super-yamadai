@@ -19,7 +19,7 @@
 <table style="width: 100%;">
 <tbody>
 <tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">株式会社クロスエッジ</td></tr>
-<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">定期1食710〜787円（税込・送料無料）、都度購入は送料770円</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">定期1食約730〜787円（税込・送料無料）、都度購入は送料770円</td></tr>
 <tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（一部離島を除く）</td></tr>
 <tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">日時指定可、1週〜1か月ごとの配送頻度を選択、ヤマトクール冷凍便</td></tr>
 <tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">なし（定期コースは通常価格から28%OFF・送料無料）</td></tr>
