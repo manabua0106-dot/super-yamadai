@@ -1,0 +1,75 @@
+=== lint.sh v2 ヤマダイ記事チェック ===
+対象: articles/meal-kit-yasui-article.html
+
+--- 禁止ワード ---
+--- AI表現 ---
+--- AI臭いナンバリング ---
+--- 比喩表現 ---
+--- 冗長表現 ---
+--- 指示語 ---
+--- 「こと」---
+scripts/lint.sh: line 98: [[: 0
+0: syntax error in expression (error token is "0")
+--- 記号 ---
+--- HTML ---
+--- CTA ---
+--- 追加NG ---
+WARNING: 間接疑問文: 457:<strong>お試しセットが用意されているサービスなら、費用を抑えつつ自分に合うかどうかを見極められます。</strong>
+WARNING: 間接疑問文: 461:安いミールキットの中にはエリアが限定されたサービスがあり、申し込み前に自宅が配送対象かどうかを確認する必要があります。
+WARNING: 間接疑問文: 474:<strong>申し込み前に公式サイトで郵便番号を入力し、配送対象かどうかを確かめてみてください。</strong>
+
+--- ヤマダイ固有チェック ---
+WARNING: 訴求社CTA [Oisix] の直前にstrong価格訴求文がない（221行目付近）
+WARNING: 訴求社CTA [ヨシケイ] の直前にstrong価格訴求文がない（147行目付近）
+WARNING: 訴求社CTA [ラディッシュボーヤ] の直前にstrong価格訴求文がない（171行目付近）
+WARNING: 訴求社CTA [コープデリ] の直前にstrong価格訴求文がない（197行目付近）
+WARNING: olリストの「食材の1食単価」に対応するH3が見つからない
+WARNING: olリストの「1回あたりの送料」に対応するH3が見つからない
+WARNING: olリストの「月間の注文回数」に対応するH3が見つからない
+WARNING: olリストの「ヨシケイ・PAKU MOGU・あっ！とごはん・ショクブン：送料・入会金・年会費すべて無料」に対応するH3が見つからない
+WARNING: olリストの「らでぃっしゅぼーや：年会費1,100円（初年度無料）」に対応するH3が見つからない
+WARNING: olリストの「コープデリ・パルシステム・生活クラブ：預け金（退会時に返金）＋毎回の手数料」に対応するH3が見つからない
+WARNING: olリストの「メニューの入れ替え頻度（週替わり・月替わり）」に対応するH3が見つからない
+WARNING: olリストの「主菜のみか、主菜＋副菜のセットか」に対応するH3が見つからない
+WARNING: olリストの「1セットの対応人数（1人前・2人前・3人前）」に対応するH3が見つからない
+WARNING: olリストの「調味料の付属有無（別途用意が必要か）」に対応するH3が見つからない
+WARNING: olリストの「送料（1回ごとの課金か月額固定か）」に対応するH3が見つからない
+WARNING: olリストの「手数料（地域や注文金額で変わるか）」に対応するH3が見つからない
+WARNING: olリストの「冷凍便の追加料金の有無」に対応するH3が見つからない
+WARNING: olリストの「コープデリ：東京・千葉・埼玉・茨城・栃木・群馬・長野・新潟の8都県」に対応するH3が見つからない
+WARNING: olリストの「パルシステム：東京・神奈川・千葉・埼玉など1都11県」に対応するH3が見つからない
+WARNING: olリストの「ショクブン：愛知・岐阜・三重・静岡・大阪・京都・兵庫の2府5県」に対応するH3が見つからない
+WARNING: olリストの「PAKU MOGU・あっ！とごはん：北海道・青森・岩手・秋田・鳥取・沖縄を除く全国」に対応するH3が見つからない
+  H2数: 7 / imgタグ数: 0
+0
+
+--- 頻出表現チェック ---
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+
+--- 書き出しパターンチェック ---
+scripts/lint.sh: line 248: 0
+0: syntax error in expression (error token is "0")
+
+--- strong締めパターンチェック ---
+WARNING: strong締め「〜防げます」が3回（3回以上はバリエーション不足）
+scripts/lint.sh: line 261: [[: 0
+0: syntax error in expression (error token is "0")
+  strong締め「〜防げます」: 3 / 「〜できます」: 0
+0 / 「〜なります」: 2
+
+--- H3の箇条書き/テーブル率チェック ---
+  コンテンツH3数: 16 / ul数: 5
+
+=== 結果: ERROR 0件 / WARNING 25件 ===
+→ パス。
