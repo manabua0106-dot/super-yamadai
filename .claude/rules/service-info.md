@@ -452,11 +452,11 @@
 ```
 
 **画像HTML:**
-※未登録（Manabuさんに画像URLを確認）
+```html
+<img class="size-full wp-image-239 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2026/03/muscledeli-1.jpg" alt="" width="800" height="399" />
+```
 
 **CTA:**
-```
-[btn href="https://muscledeli.jp/" class="raised main-bc strong" target="_blank" rel="nofollow"]マッスルデリの公式サイトはこちら[/btn]
 ```
 
 **比較テーブル用単価:** 公式サイトで要確認
@@ -480,11 +480,11 @@
 ```
 
 **画像HTML:**
-※未登録（Manabuさんに画像URLを確認）
+```html
+<img class="size-full wp-image-243 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2026/03/rizap-sapport-meal.jpg" alt="" width="800" height="387" />
+```
 
 **CTA:**
-```
-[btn href="https://shop.rizap.jp/shop/c/cmeal/" class="raised main-bc strong" target="_blank" rel="nofollow"]RIZAPサポートミールの公式サイトはこちら[/btn]
 ```
 
 **比較テーブル用単価:** 約883円〜
