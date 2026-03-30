@@ -37,13 +37,15 @@ scripts/lint.sh: line 235: [[: 0
 0: syntax error in expression (error token is "0")
 scripts/lint.sh: line 235: [[: 0
 0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
 
 --- 書き出しパターンチェック ---
 scripts/lint.sh: line 248: 0
 0: syntax error in expression (error token is "0")
 
 --- strong締めパターンチェック ---
-  strong締め「〜防げます」: 2 / 「〜できます」: 2 / 「〜なります」: 2
+  strong締め「〜防げます」: 2 / 「〜できます」: 1 / 「〜なります」: 2
 
 --- H3の箇条書き/テーブル率チェック ---
   コンテンツH3数: 15 / ul数: 2
