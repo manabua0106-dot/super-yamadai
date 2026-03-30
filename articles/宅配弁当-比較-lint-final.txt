@@ -1,0 +1,84 @@
+=== lint.sh v2 ヤマダイ記事チェック ===
+対象: articles/宅配弁当-比較-article.html
+
+--- 禁止ワード ---
+--- AI表現 ---
+--- AI臭いナンバリング ---
+ERROR: AI臭いナンバリング: 14:<h2>宅配弁当の選び方5つのポイント</h2>
+--- 比喩表現 ---
+--- 冗長表現 ---
+--- 指示語 ---
+--- 「こと」---
+scripts/lint.sh: line 98: [[: 0
+0: syntax error in expression (error token is "0")
+--- 記号 ---
+--- HTML ---
+--- CTA ---
+ERROR: btnにnofollow無: 331:[btn href="https://oisie-dining.jp/" class="raised main-bc strong" target="_blank"]オイシエの宅配弁当の公式サイトはこちら[/btn]
+--- 追加NG ---
+
+--- ヤマダイ固有チェック ---
+WARNING: 非訴求社CTA直前にstrongがある（不要）: 331行目付近
+WARNING: olリストの「定期購入で送料無料になるサービスがある」に対応するH3が見つからない
+WARNING: olリストの「食数が多いセットほど1食あたりの送料が下がりやすい」に対応するH3が見つからない
+WARNING: olリストの「地域によって送料が変動するサービスもある」に対応するH3が見つからない
+WARNING: olリストの「自分で選べるタイプ：苦手な食材を避けやすい・飽きにくい」に対応するH3が見つからない
+WARNING: olリストの「固定制タイプ：選ぶ手間がない・栄養バランスが自動で整う」に対応するH3が見つからない
+WARNING: olリストの「冷凍タイプ：まとめてストック可能・賞味期限が長い・冷凍庫スペースが必要」に対応するH3が見つからない
+WARNING: olリストの「冷蔵タイプ：毎日届く・冷凍庫不要・賞味期限が短い」に対応するH3が見つからない
+WARNING: olリストの「解約金の有無」に対応するH3が見つからない
+WARNING: olリストの「最低継続回数の条件」に対応するH3が見つからない
+WARNING: olリストの「スキップ・一時停止への対応」に対応するH3が見つからない
+WARNING: olリストの「カロリーや糖質に配慮したコース」に対応するH3が見つからない
+WARNING: olリストの「塩分に配慮したコース」に対応するH3が見つからない
+WARNING: olリストの「たんぱく質量に注目したコース」に対応するH3が見つからない
+WARNING: olリストの「やわらかめに調理されたコース」に対応するH3が見つからない
+WARNING: olリストの「Dr.つるかめキッチン」に対応するH3が見つからない
+WARNING: olリストの「筋肉食堂DELI」に対応するH3が見つからない
+WARNING: olリストの「ワタミの宅食」に対応するH3が見つからない
+WARNING: olリストの「Meals（ミールズ）」に対応するH3が見つからない
+WARNING: olリストの「タイヘイ」に対応するH3が見つからない
+WARNING: olリストの「オイシエ」に対応するH3が見つからない
+WARNING: olリストの「ワタミの宅食ダイレクト」に対応するH3が見つからない
+WARNING: olリストの「nosh（ナッシュ）」に対応するH3が見つからない
+WARNING: olリストの「三ツ星ファーム」に対応するH3が見つからない
+WARNING: olリストの「食宅便」に対応するH3が見つからない
+WARNING: olリストの「ニチレイフーズダイレクト」に対応するH3が見つからない
+WARNING: olリストの「まごころケア食」に対応するH3が見つからない
+WARNING: olリストの「ウェルネスダイニング」に対応するH3が見つからない
+WARNING: olリストの「わんまいる」に対応するH3が見つからない
+WARNING: olリストの「食のそよ風」に対応するH3が見つからない
+WARNING: olリストの「ワタミの宅食ダイレクト：三菜10食3,900円・五菜10食4,880円（税込・初回1回限り）」に対応するH3が見つからない
+WARNING: olリストの「まごころケア食：初回14食トライアル1,260円（税込・1食90円）」に対応するH3が見つからない
+WARNING: olリストの「ニチレイフーズダイレクト：送料無料のお試しセットあり（内容は時期により異なる）」に対応するH3が見つからない
+WARNING: olリストの「わんまいる：初回5食3,480円〜（税込・送料別）」に対応するH3が見つからない
+  H2数: 7 / imgタグ数: 15
+
+--- 頻出表現チェック ---
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+
+--- 書き出しパターンチェック ---
+  書き出し「〜宅配弁当です。」: 8社 / 「〜サービスです。」: 2社 / 全17社
+
+--- strong締めパターンチェック ---
+WARNING: strong締め「〜なります」が3回（3回以上はバリエーション不足）
+  strong締め「〜防げます」: 1 / 「〜できます」: 1 / 「〜なります」: 3
+
+--- H3の箇条書き/テーブル率チェック ---
+  コンテンツH3数: 3 / ul数: 6
+
+=== 結果: ERROR 2件 / WARNING 35件 ===
+→ ERRORが2件あります。修正してから次のステップに進んでください。
+--- 例外事項 ---
+ERROR1: H2見出し「宅配弁当の選び方5つのポイント」は構成案確定見出しのため変更不可（CLAUDE.mdルール14準拠）
+ERROR2: オイシエのbtnにnofollow未付与は訴求社のため正しい（CLAUDE.mdルール16・service-info.md準拠）
+WARNING: olリスト一致チェックの偽陽性はH3のid属性およびulタグのli要素の誤検出による
