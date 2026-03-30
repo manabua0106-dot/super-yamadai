@@ -1,0 +1,52 @@
+=== lint.sh v2 ヤマダイ記事チェック ===
+対象: articles/宅食-ダイエット-article.html
+
+--- 禁止ワード ---
+--- AI表現 ---
+--- AI臭いナンバリング ---
+--- 比喩表現 ---
+--- 冗長表現 ---
+WARNING: 「として」要確認: 13:※この記事は一般的な商品比較・情報提供を目的としており、疾病の治療・予防を目的とした医療上の助言ではありません。食事についての相談が必要な方は主治医・管理栄養士にご相談ください。
+--- 指示語 ---
+--- 「こと」---
+scripts/lint.sh: line 98: [[: 0
+0: syntax error in expression (error token is "0")
+--- 記号 ---
+--- HTML ---
+--- CTA ---
+--- 追加NG ---
+
+--- ヤマダイ固有チェック ---
+WARNING: olリストの「カロリー（kcal）」に対応するH3が見つからない
+WARNING: olリストの「糖質（g）」に対応するH3が見つからない
+WARNING: olリストの「たんぱく質（g）」に対応するH3が見つからない
+WARNING: olリストの「脂質（g）」に対応するH3が見つからない
+WARNING: olリストの「公式サイトのメニュー一覧で和食・洋食・中華の比率を見る」に対応するH3が見つからない
+WARNING: olリストの「SNSや口コミサイトで実際の利用者の評価を調べる」に対応するH3が見つからない
+WARNING: olリストの「初回セットやお試し価格で実際に食べてみる」に対応するH3が見つからない
+  H2数: 6 / imgタグ数: 10
+
+--- 頻出表現チェック ---
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+
+--- 書き出しパターンチェック ---
+scripts/lint.sh: line 248: 0
+0: syntax error in expression (error token is "0")
+
+--- strong締めパターンチェック ---
+  strong締め「〜防げます」: 2 / 「〜できます」: 2 / 「〜なります」: 2
+
+--- H3の箇条書き/テーブル率チェック ---
+  コンテンツH3数: 15 / ul数: 2
+
+=== 結果: ERROR 0件 / WARNING 8件 ===
+→ パス。
