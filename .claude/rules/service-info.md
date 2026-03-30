@@ -433,3 +433,59 @@
 
 **比較テーブル用単価:** 475円〜
 **特記:** 3シリーズ（プチデリカ475円〜、国産プレミアム748円〜、そよ風のやさしい食感718円〜）、賞味期限約1年
+
+---
+
+### 16. マッスルデリ
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">株式会社YOUR MEAL</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">LEAN 5食 定期初回25%OFF（税込・送料別）、送料1,100円〜（税込・食数・地域別）</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（ヤマト運輸配達可能地域・離島は遅延の可能性あり）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">日時指定可（最短注文4日後）、1〜2週ごと選択可、ヤマトクール冷凍便</td></tr>
+<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">なし（定期初回25%OFF・2回目以降10%OFF）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML:**
+※未登録（Manabuさんに画像URLを確認）
+
+**CTA:**
+```
+[btn href="https://muscledeli.jp/" class="raised main-bc strong" target="_blank" rel="nofollow"]マッスルデリの公式サイトはこちら[/btn]
+```
+
+**比較テーブル用単価:** 公式サイトで要確認
+**特記:** 4プラン（LEAN・MAINTAIN・GAIN・LOW CARB）、目的別に栄養基準が異なる。旧社名「株式会社Muscle Deli」から2023年12月に社名変更。
+
+---
+
+### 17. RIZAPサポートミール
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">RIZAP株式会社</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">7食セット6,180円（税込・1食約883円）、定期購入は5%OFF、送料都度800円・定期600円（全国一律・1万円以上で送料無料）</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（クール冷凍便）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">公式サイトで要確認</td></tr>
+<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">なし（都度購入可・定期購入は最低3回継続）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML:**
+※未登録（Manabuさんに画像URLを確認）
+
+**CTA:**
+```
+[btn href="https://shop.rizap.jp/shop/c/cmeal/" class="raised main-bc strong" target="_blank" rel="nofollow"]RIZAPサポートミールの公式サイトはこちら[/btn]
+```
+
+**比較テーブル用単価:** 約883円〜
+**特記:** たんぱく質や糖質の量に配慮したメニュー構成。定期購入は最低3回継続（3回以内解約は通常価格との差額支払い）。
