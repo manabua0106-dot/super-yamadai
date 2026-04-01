@@ -1,0 +1,53 @@
+=== lint.sh v2 ヤマダイ記事チェック ===
+対象: articles/冷凍弁当-高齢者-article.html
+
+--- 禁止ワード ---
+--- AI表現 ---
+--- AI臭いナンバリング ---
+--- 比喩表現 ---
+--- 冗長表現 ---
+--- 指示語 ---
+--- 「こと」---
+scripts/lint.sh: line 98: [[: 0
+0: syntax error in expression (error token is "0")
+--- 記号 ---
+--- HTML ---
+--- CTA ---
+ERROR: btnにnofollow無: 254:[btn href="https://oisie-dining.jp/" class="raised main-bc strong" target="_blank"]オイシエの宅配弁当の公式サイトはこちら[/btn]
+--- 追加NG ---
+
+--- ヤマダイ固有チェック ---
+WARNING: 非訴求社CTA直前にstrongがある（不要）: 254行目付近
+WARNING: olリストの「塩分制限コース」に対応するH3が見つからない
+WARNING: olリストの「糖質制限コース」に対応するH3が見つからない
+WARNING: olリストの「カロリー制限コース」に対応するH3が見つからない
+WARNING: olリストの「たんぱく質調整コース」に対応するH3が見つからない
+WARNING: olリストの「ほどよくやわらか（歯ぐきでつぶせる程度）」に対応するH3が見つからない
+WARNING: olリストの「かなりやわらか（舌でつぶせる程度）」に対応するH3が見つからない
+WARNING: olリストの「ムースやわらか（スプーンでつぶせる程度）」に対応するH3が見つからない
+  H2数: 6 / imgタグ数: 14
+
+--- 頻出表現チェック ---
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 235: [[: 0
+0: syntax error in expression (error token is "0")
+
+--- 書き出しパターンチェック ---
+scripts/lint.sh: line 248: 0
+0: syntax error in expression (error token is "0")
+
+--- strong締めパターンチェック ---
+  strong締め「〜防げます」: 1 / 「〜できます」: 2 / 「〜なります」: 2
+
+--- H3の箇条書き/テーブル率チェック ---
+  コンテンツH3数: 13 / ul数: 2
+
+=== 結果: ERROR 1件 / WARNING 8件 ===
+→ ERRORが1件あります。修正してから次のステップに進んでください。
