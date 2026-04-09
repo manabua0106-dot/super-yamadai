@@ -118,7 +118,9 @@ grep -n "<tr><tr>\|<td><td>" "$FILE" | while read -r l; do error "タグ二重: 
 # 11. CTA
 # ============================================
 echo "--- CTA ---"
-grep -n "\[btn " "$FILE" | grep -v 'rel="nofollow"' | while read -r l; do error "btnにnofollow無: $l"; done || true
+# 訴求社でPost Snippets未登録のURLは nofollow 付与禁止（CLAUDE.md rule #16）
+# 除外URL: oisie-dining.jp（オイシエ）
+grep -n "\[btn " "$FILE" | grep -v 'rel="nofollow"' | grep -v 'oisie-dining.jp' | while read -r l; do error "btnにnofollow無: $l"; done || true
 grep -n "\[btn " "$FILE" | grep -v 'class="raised main-bc strong"' | while read -r l; do error "btnのclass不正: $l"; done || true
 grep -n "gad_campaignid\|gbraid\|gclid" "$FILE" | while read -r l; do error "Googleパラメータ: $l"; done || true
 
