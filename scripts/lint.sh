@@ -94,7 +94,7 @@ grep -n "そうした" "$FILE" | while read -r l; do error "指示語: $l"; done
 # 8.「こと」（grep -c に修正）
 # ============================================
 echo "--- 「こと」---"
-KC=$(grep -c "こと[がはをもで。、]" "$FILE" || echo 0)
+KC=$(grep -c "こと[がはをもで。、]" "$FILE" 2>/dev/null || true)
 if [[ "$KC" -gt 0 ]]; then
   error "「こと」が${KC}行で検出"
   grep -n "こと[がはをもで。、]" "$FILE" || true
@@ -197,18 +197,18 @@ grep -n "\[btn " "$FILE" | while read -r line; do
   fi
 done || true
 
-# --- olリストとH3の一致チェック（通し番号を除去して比較） ---
-grep -oP '(?<=<li>).*?(?=</li>)' "$FILE" 2>/dev/null | while read -r li_text; do
+# --- olリストとH3の一致チェック（ol内のliのみ・通し番号を除去して比較） ---
+awk '/<ol[^l]*>|<ol>/{in_ol=1} in_ol{print} /<\/ol>/{in_ol=0}' "$FILE" | grep -oP '(?<=<li>).*?(?=</li>)' 2>/dev/null | while read -r li_text; do
   # li内の通し番号「1.」「2.」等を除去して比較
   li_clean=$(echo "$li_text" | sed 's/^[0-9]*\.\s*//')
-  if ! grep -q "<h3>.*${li_clean}" "$FILE" 2>/dev/null; then
+  if ! grep -q "<h3>.*${li_clean}\|<h3>.*${li_clean%（*}" "$FILE" 2>/dev/null; then
     warning "olリストの「${li_text}」に対応するH3が見つからない"
   fi
 done || true
 
 # --- H2情報 ---
-H2_COUNT=$(grep -c "<h2>" "$FILE" || echo 0)
-IMG_COUNT=$(grep -c '<img ' "$FILE" || echo 0)
+H2_COUNT=$(grep -c "<h2>" "$FILE" 2>/dev/null || true)
+IMG_COUNT=$(grep -c '<img ' "$FILE" 2>/dev/null || true)
 echo "  H2数: ${H2_COUNT} / imgタグ数: ${IMG_COUNT}"
 
 # --- 「〜い。」で終わるアドバイス文 ---
@@ -231,7 +231,7 @@ done < "$FILE"
 echo ""
 echo "--- 頻出表現チェック ---"
 for PHRASE in "に合わせて選べます" "に向いています" "で安心" "が魅力です" "に定評があります" "を楽しめます" "が特徴です" "で届きます" "気軽に始められます"; do
-  COUNT=$(grep -c "$PHRASE" "$FILE" || echo 0)
+  COUNT=$(grep -c "$PHRASE" "$FILE" 2>/dev/null || true)
   if [[ "$COUNT" -ge 3 ]]; then
     warning "「${PHRASE}」が${COUNT}回出現（3回以上は分散させる）"
   fi
@@ -241,9 +241,9 @@ done
 echo ""
 echo "--- 書き出しパターンチェック ---"
 # strong 1文目の「〜宅配弁当です。」「〜サービスです。」のパターンをカウント
-PATTERN_A=$(grep -c "宅配弁当です。</strong>" "$FILE" || echo 0)
-PATTERN_B=$(grep -c "サービスです。</strong>" "$FILE" || echo 0)
-TOTAL_SERVICES=$(grep -c "<h3>[0-9]" "$FILE" || echo 0)
+PATTERN_A=$(grep -c "宅配弁当です。</strong>" "$FILE" 2>/dev/null || true)
+PATTERN_B=$(grep -c "サービスです。</strong>" "$FILE" 2>/dev/null || true)
+TOTAL_SERVICES=$(grep -c "<h3>[0-9]" "$FILE" 2>/dev/null || true)
 if [[ "$TOTAL_SERVICES" -gt 0 ]]; then
   DOMINANT=$(( PATTERN_A > PATTERN_B ? PATTERN_A : PATTERN_B ))
   RATIO=$(( DOMINANT * 100 / TOTAL_SERVICES ))
@@ -259,9 +259,9 @@ grep -n "本記事" "$FILE" | while read -r l; do error "「本記事」→「�
 # --- strong締めのパターン集計 ---
 echo ""
 echo "--- strong締めパターンチェック ---"
-STRONG_FUSEGE=$(grep -c "防げます。</strong>" "$FILE" || echo 0)
-STRONG_DEKI=$(grep -c "できます。</strong>" "$FILE" || echo 0)
-STRONG_NARI=$(grep -c "なります。</strong>" "$FILE" || echo 0)
+STRONG_FUSEGE=$(grep -c "防げます。</strong>" "$FILE" 2>/dev/null || true)
+STRONG_DEKI=$(grep -c "できます。</strong>" "$FILE" 2>/dev/null || true)
+STRONG_NARI=$(grep -c "なります。</strong>" "$FILE" 2>/dev/null || true)
 for PAT in "防げます:$STRONG_FUSEGE" "できます:$STRONG_DEKI" "なります:$STRONG_NARI"; do
   NAME="${PAT%%:*}"; CNT="${PAT##*:}"
   if [[ "$CNT" -ge 3 ]]; then
@@ -273,10 +273,10 @@ echo "  strong締め「〜防げます」: ${STRONG_FUSEGE} / 「〜できます
 # --- H3の箇条書き/テーブル含有率チェック ---
 echo ""
 echo "--- H3の箇条書き/テーブル率チェック ---"
-TOTAL_H3=$(grep -c "<h3>" "$FILE" || echo 0)
-SERVICE_H3=$(grep -c "<h3>[0-9]" "$FILE" || echo 0)
+TOTAL_H3=$(grep -c "<h3>" "$FILE" 2>/dev/null || true)
+SERVICE_H3=$(grep -c "<h3>[0-9]" "$FILE" 2>/dev/null || true)
 CONTENT_H3=$(( TOTAL_H3 - SERVICE_H3 ))
-UL_COUNT=$(grep -c "<ul>" "$FILE" || echo 0)
+UL_COUNT=$(grep -c "<ul>" "$FILE" 2>/dev/null || true)
 if [[ "$CONTENT_H3" -gt 0 && "$UL_COUNT" -eq 0 ]]; then
   warning "選び方・メリット・注意点のH3に箇条書き(ul)が1つもない。8割のH3にul or テーブルを入れる"
 fi

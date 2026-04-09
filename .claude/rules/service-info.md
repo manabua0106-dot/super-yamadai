@@ -433,3 +433,176 @@
 
 **比較テーブル用単価:** 475円〜
 **特記:** 3シリーズ（プチデリカ475円〜、国産プレミアム748円〜、そよ風のやさしい食感718円〜）、賞味期限約1年
+
+---
+
+## 食材宅配・ミールキット用サービス
+
+**⚠️ ここから下はミールキット記事用の訴求4社（Oisix・ヨシケイ・らでぃっしゅぼーや・コープデリ）＋非訴求2社（パルシステム・伊勢丹DOOR）。**
+**⚠️ 画像のwp-image番号はプレースホルダ。WordPress入稿時にメディアライブラリの実IDへ差し替えが必要。**
+
+### 16. Oisix（オイシックス）【訴求社・依頼情報の番号に従う】
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">オイシックス・ラ・大地株式会社</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">お試しセット1,980円（税込・送料無料・初回1世帯1回限り）、通常のKit Oisixは1人前約800〜1,500円（税込・送料別）</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（一部離島を除く）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">日時指定可、毎週・隔週・3週ごとから選択可、ヤマトクール便</td></tr>
+<tr><th style="width: 25.8158%;">お試し内容</th><td style="width: 74.1117%;">厳選食材とKit Oisixが入ったお試しセット1,980円（税込・送料無料・通常価格より大幅割引・詳細は公式サイト参照）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML（※wp-image番号はプレースホルダ）:**
+```html
+<img class="size-full wp-image-9001 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2026/04/oisix-mealkit.jpg" alt="" width="800" height="533" />
+```
+
+**CTA:** `[Oisix]`
+**strong 1文目の方向性:** 有機野菜やミールキットをお試しセットから試せる食材宅配サービス
+**strong価格訴求文の方向性:** お試しセット（厳選食材＋Kit Oisix）が1,980円（税込・送料無料・初回1世帯1回限り）
+**比較テーブル用単価:** お試しセット1,980円〜
+
+---
+
+### 17. ヨシケイ【訴求社・依頼情報の番号に従う】
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">ヨシケイ開発株式会社（ヨシケイグループ）</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">通常1食あたり約500〜800円（税込・2人用コースの場合）、自社配送のため送料無料</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（一部地域を除く・郵便番号検索で要確認）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">平日毎日の手渡し配送（置き配対応・鍵付きBOX無料貸出）</td></tr>
+<tr><th style="width: 25.8158%;">お試し内容</th><td style="width: 74.1117%;">お試し5days（5日分のミールキットを1食約300円〜・税込・送料無料・地域と週によって献立が異なる）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML（※wp-image番号はプレースホルダ）:**
+```html
+<img class="size-full wp-image-9002 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2026/04/yoshikei-mealkit.jpg" alt="" width="800" height="533" />
+```
+
+**CTA:** `[ヨシケイ]`
+**strong 1文目の方向性:** 毎日手渡しで食材とレシピが届く食材宅配ミールキット
+**strong価格訴求文の方向性:** お試し5days（5日分のミールキット）が1食約300円〜（税込・送料無料・地域により献立が異なる）
+**比較テーブル用単価:** お試し5days 1食約300円〜
+
+---
+
+### 18. らでぃっしゅぼーや【訴求社・依頼情報の番号に従う】
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">オイシックス・ラ・大地株式会社</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">通常の定期便は商品ごとに価格設定、送料は注文金額と配送方法で変動（公式サイト参照）</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（一部離島を除く）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">日時指定可（専用車エリアは固定曜日）、週1回の定期便、ヤマトクール便または自社専用車</td></tr>
+<tr><th style="width: 25.8158%;">お試し内容</th><td style="width: 74.1117%;">旬の有機・低農薬野菜と定番食品を詰め合わせたおためしセット1,980円（税込・送料無料・初回1世帯1回限り・内容は時期により変動）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML（※wp-image番号はプレースホルダ）:**
+```html
+<img class="size-full wp-image-9003 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2026/04/radishbo-ya-mealkit.jpg" alt="" width="800" height="533" />
+```
+
+**CTA:** `[ラディッシュボーヤ]`
+**strong 1文目の方向性:** 有機・低農薬野菜を中心としたお試しセットが1,980円で試せる食材宅配サービス
+**strong価格訴求文の方向性:** 旬の有機・低農薬野菜のおためしセットが1,980円（税込・送料無料・初回1世帯1回限り）
+**比較テーブル用単価:** おためしセット1,980円〜
+
+---
+
+### 19. コープデリ【訴求社・依頼情報の番号に従う】
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">コープデリ生活協同組合連合会</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">ミールキット1食あたり約400〜700円（税込・2人前の場合）、配達手数料は加入組合・注文金額で変動（対象世帯は無料〜約200円程度）</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">関東・甲信越（東京・神奈川・埼玉・千葉・茨城・栃木・群馬・長野・新潟の1都8県）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">週1回の固定曜日配達（置き配対応）、自社便</td></tr>
+<tr><th style="width: 25.8158%;">お試し内容</th><td style="width: 74.1117%;">資料請求で人気商品が試せるプレゼント（内容は時期により異なる・対象エリアのみ・公式サイトで要確認）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML（※wp-image番号はプレースホルダ）:**
+```html
+<img class="size-full wp-image-9004 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2026/04/coopdeli-mealkit.jpg" alt="" width="800" height="533" />
+```
+
+**CTA:** `[コープデリ]`
+**strong 1文目の方向性:** 関東・甲信越を対象エリアとする生協のミールキット食材宅配サービス
+**strong価格訴求文の方向性:** 加入と資料請求で人気商品の試供品プレゼントあり（内容は時期により異なる・対象エリアのみ）
+**比較テーブル用単価:** ミールキット1食約400円〜
+
+---
+
+### 20. パルシステム
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">生活協同組合連合会パルシステム</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">ミールキット1食あたり約500〜800円（税込・2人前の場合）、配達手数料は加入組合・注文金額で変動（対象世帯は無料〜約220円程度）</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">1都11県（東京・神奈川・埼玉・千葉・茨城・栃木・群馬・福島・山梨・静岡・新潟）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">週1回の固定曜日配達（置き配対応）、自社便</td></tr>
+<tr><th style="width: 25.8158%;">お試し内容</th><td style="width: 74.1117%;">選べるお試しセット約980円（税込・送料無料・加入前限定・内容と価格は時期により変動）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML（※wp-image番号はプレースホルダ）:**
+```html
+<img class="size-full wp-image-9005 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2026/04/palsystem-mealkit.jpg" alt="" width="800" height="533" />
+```
+
+**CTA:**
+```
+[btn href="https://www.pal-system.co.jp/" class="raised main-bc strong" target="_blank" rel="nofollow"]パルシステムの公式サイトはこちら[/btn]
+```
+
+**strong 1文目の方向性:** 産直食材を中心に扱う生協のミールキット食材宅配サービス
+**比較テーブル用単価:** お試しセット約980円〜
+
+---
+
+### 21. 伊勢丹DOOR（ISETAN DOOR）
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">オイシックス・ラ・大地株式会社（三越伊勢丹グループと協業）</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">通常の定期便は商品ごとに価格設定、年会費1,980円（税込・初年度無料キャンペーンあり・詳細は公式サイト参照）</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（一部離島を除く）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">日時指定可、週1回の定期便、ヤマトクール便</td></tr>
+<tr><th style="width: 25.8158%;">お試し内容</th><td style="width: 74.1117%;">伊勢丹バイヤー厳選の食材とミールキットが入ったお試しセット約1,980円（税込・送料無料・初回1世帯1回限り・内容は時期により変動）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML（※wp-image番号はプレースホルダ）:**
+```html
+<img class="size-full wp-image-9006 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2026/04/isetandoor-mealkit.jpg" alt="" width="800" height="533" />
+```
+
+**CTA:**
+```
+[btn href="https://isetandoor.mistore.jp/" class="raised main-bc strong" target="_blank" rel="nofollow"]伊勢丹DOORの公式サイトはこちら[/btn]
+```
+
+**strong 1文目の方向性:** 伊勢丹バイヤー厳選の食材をお試しセットから試せる食材宅配サービス
+**比較テーブル用単価:** お試しセット約1,980円〜
