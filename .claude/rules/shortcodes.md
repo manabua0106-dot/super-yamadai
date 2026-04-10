@@ -104,7 +104,7 @@
 <img class="size-full wp-image-XXX aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/YYYY/MM/filename.jpg" alt="" width="800" height="XXX" />
 ```
 
-- 各H2直下に配置
+- H2直下には配置しない（不要）
 - H3直下はサービス紹介のみ
 - alt: 空文字（alt=""）
 - width: 800固定
