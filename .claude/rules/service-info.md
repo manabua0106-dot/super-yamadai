@@ -628,3 +628,29 @@
 **公式URL:** https://seikatsuclub.coop/item/groceries/biosaposet.html
 **比較テーブル用単価:** 490円〜（2人前）
 **特記:** 冷凍タイプは2019年から登場、賞味期限91日、約15分調理。冷凍4品目＋冷蔵22品目以上の構成
+
+### 冷凍9. GREEN SPOON
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">株式会社Greenspoon</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">スムージー約870円〜、サラダ約925円〜、スープ約940円〜、メインディッシュ約975円〜、デリ弁当約1,025円〜（税込・カテゴリ別目安・時期により変動）。送料は本州・四国・九州990円〜、地域・梱包サイズで最大2,990円（税込・2026年4月時点）</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（北海道・沖縄は送料割増）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">日時指定可（最短4日後以降）、ヤマト運輸クール便、定期頻度は2〜8週選択可</td></tr>
+<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">なし（初回割引キャンペーンあり・内容は時期により異なる・公式で要確認）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML:** 未登録（要追加）
+**CTA:**
+```
+[btn href="https://green-spoon.jp/" class="raised main-bc strong" target="_blank" rel="nofollow"]GREEN SPOONの公式サイトはこちら[/btn]
+```
+**公式URL:** https://green-spoon.jp/
+**特商法ページ:** https://green-spoon.jp/tokusho
+**FAQページ:** https://faq.green-spoon.jp/hc/ja/articles/14159862817943
+**比較テーブル用単価:** 約870円〜（スムージー）
+**特記:** カテゴリ横断で100種類以上のメニュー。瞬間冷凍・カップごとレンジ加熱
