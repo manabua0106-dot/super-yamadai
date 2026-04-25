@@ -580,3 +580,27 @@
 **公式URL:** https://www.muji.com/jp/ja/store/cmdty/section/T30018
 **比較テーブル用単価:** 約345円〜（1食換算・2人前690円）
 **特記:** ネットストアまたは冷凍食品取扱店舗で1袋から都度購入。10アイテム前後（ガパオライス・麻婆豆腐等）
+
+### 冷凍7. パルシステム（お料理セット）
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">パルシステム生活協同組合連合会</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">冷凍お料理セット 650〜1,100円程度（税込・2〜3人前・商品により異なる）。週1回配送手数料198〜275円（税込・地域差あり）。加入時出資金1口1,000円（退会時返却）</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">東京・神奈川・千葉・埼玉・茨城・栃木・群馬・福島・山梨・静岡・新潟・長野の1都12県（地域ごとに加盟生協が異なる）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">週1回決まった曜日、自社便、日時指定不可（留め置き対応あり）</td></tr>
+<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">お試しセット980円〜（資料請求から申込可・内容は時期により異なる・公式で要確認）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML:** 未登録（要追加）
+**CTA:**
+```
+[btn href="https://www.pal-system.co.jp/item/pickup/kit/" class="raised main-bc strong" target="_blank" rel="nofollow"]パルシステムの公式サイトはこちら[/btn]
+```
+**公式URL:** https://www.pal-system.co.jp/item/pickup/kit/
+**比較テーブル用単価:** 650円〜
+**特記:** 冷凍タイプは賞味期限180日。冷蔵タイプ（消費期限3日）も併売
