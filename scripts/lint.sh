@@ -382,20 +382,29 @@ if [[ "$TOTAL_SERVICES" -gt 0 ]]; then
 fi
 
 # ============================================
-# 34. strong締めのパターン集計
+# 34. strong締めのAI臭パターン検出（v4.1で改訂）
 # ============================================
+# writing-manual v4.1 で strong 締めは必須から任意化。
+# しかし strong 締めを使う場合は、以下の AI 臭い型を避ける。
 echo ""
-echo "--- strong締めパターンチェック ---"
-STRONG_FUSEGE=$(grep -c "防げます。</strong>" "$FILE" || echo 0)
-STRONG_DEKI=$(grep -c "できます。</strong>" "$FILE" || echo 0)
-STRONG_NARI=$(grep -c "なります。</strong>" "$FILE" || echo 0)
-for PAT in "防げます:$STRONG_FUSEGE" "できます:$STRONG_DEKI" "なります:$STRONG_NARI"; do
+echo "--- strong締めAI臭パターン（v4.1：使用時のみ警告） ---"
+# v4.1で追加された「型にはめた不自然な文」のNG例
+STRONG_JIKEN=$(grep -cE "事態を防げます。</strong>" "$FILE" 2>/dev/null | head -1)
+STRONG_SAKE=$(grep -cE "を避けられます。</strong>" "$FILE" 2>/dev/null | head -1)
+# strong内に含まれる感想止まり（writing-manual §E-2 NG例）
+STRONG_ANSHIN=$(grep -cE "<strong>[^<]*安心です。</strong>" "$FILE" 2>/dev/null | head -1)
+STRONG_MIRYOKU=$(grep -cE "<strong>[^<]*魅力です。</strong>" "$FILE" 2>/dev/null | head -1)
+STRONG_JIKEN=${STRONG_JIKEN:-0}
+STRONG_SAKE=${STRONG_SAKE:-0}
+STRONG_ANSHIN=${STRONG_ANSHIN:-0}
+STRONG_MIRYOKU=${STRONG_MIRYOKU:-0}
+for PAT in "事態を防げます:$STRONG_JIKEN" "を避けられます:$STRONG_SAKE" "安心です:$STRONG_ANSHIN" "魅力です:$STRONG_MIRYOKU"; do
   NAME="${PAT%%:*}"; CNT="${PAT##*:}"
-  if [[ "$CNT" -ge 3 ]]; then
-    warning "strong締め「〜${NAME}」が${CNT}回（3回以上はバリエーション不足）"
+  if [[ "$CNT" -ge 1 ]]; then
+    warning "strong締めAI臭型「〜${NAME}」が${CNT}回検出（v4.1：型にはめた不自然な文。strong締めを外すか自然な文に書き直す）"
   fi
 done
-echo "  strong締め「〜防げます」: ${STRONG_FUSEGE} / 「〜できます」: ${STRONG_DEKI} / 「〜なります」: ${STRONG_NARI}"
+echo "  strong締めAI臭：「〜事態を防げます」${STRONG_JIKEN} / 「〜避けられます」${STRONG_SAKE} / 「〜安心です」${STRONG_ANSHIN} / 「〜魅力です」${STRONG_MIRYOKU}"
 
 # ============================================
 # 35. H3の箇条書き/テーブル含有率チェック
