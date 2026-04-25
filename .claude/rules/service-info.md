@@ -556,3 +556,27 @@
 **冷凍ミールキット一覧:** https://sm.rakuten.co.jp/search/300048
 **比較テーブル用単価:** 商品により変動（公式サイトで要確認）
 **特記:** 賞味期限は出荷から44日以上設定の商品が多い。楽天ポイント付与・利用可
+
+### 冷凍6. 無印良品
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">株式会社良品計画</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">フライパンでつくるミールキット 1袋（2人前）690円（税込・2026年4月時点・改定の可能性あり）。ネットストア通常配送料＋クール便冷凍220円（税込）加算、冷凍食品のみは送料800円（税込・個数不問）</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（沖縄県は地域料金加算）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">ヤマト運輸クール便冷凍、日時指定可、店舗受取は冷凍食品取扱店舗のみ</td></tr>
+<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">なし（単品購入のみ）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML:** 未登録（要追加）
+**CTA:**
+```
+[btn href="https://www.muji.com/jp/ja/store/cmdty/section/T30018" class="raised main-bc strong" target="_blank" rel="nofollow"]無印良品の公式サイトはこちら[/btn]
+```
+**公式URL:** https://www.muji.com/jp/ja/store/cmdty/section/T30018
+**比較テーブル用単価:** 約345円〜（1食換算・2人前690円）
+**特記:** ネットストアまたは冷凍食品取扱店舗で1袋から都度購入。10アイテム前後（ガパオライス・麻婆豆腐等）
