@@ -1,6 +1,13 @@
 #!/bin/bash
-# lint.sh v3.0 — ヤマダイ記事用 機械チェッカー
+# lint.sh v4.1 — ヤマダイ記事用 機械チェッカー
 # 使用法: bash scripts/lint.sh articles/{KW}-article.html
+#
+# v4.1変更点（2026-04-25）AI臭緩和リファクタ:
+#   - 訴求社CTA直前のstrong価格訴求文チェックを撤廃（任意化）
+#   - 非訴求社CTA直前のstrong禁止チェックを撤廃
+#   - 比較テーブルのジャンプリンクチェックを新規追加（必須化）
+#   - h3 id="service{N}" 検出を追加
+#   - <h3> 検出を <h3[ >] に拡張（id属性付き対応）
 #
 # v3.0変更点（2026-04-24）:
 #   - 「こと」「〜しましょう」チェックを削除（OK化）
@@ -40,7 +47,7 @@ warning() {
   echo $(( $(cat "$WARN_FILE") + 1 )) > "$WARN_FILE"
 }
 
-echo "=== lint.sh v3.0 ヤマダイ記事チェック ==="
+echo "=== lint.sh v4.1 ヤマダイ記事チェック ==="
 echo "対象: $FILE"
 echo ""
 
@@ -230,31 +237,15 @@ while IFS= read -r line; do
 done < "$FILE"
 
 # ============================================
-# 22. 訴求社CTA直前のstrong価格訴求文チェック
+# 22. (v4.1で撤廃) 訴求社CTA直前のstrong価格訴求文チェック
 # ============================================
-for SC in '\[Oisix\]' '\[ヨシケイ\]' '\[ラディッシュボーヤ\]' '\[コープデリ\]' '\[Dr\.ツルガメキッチン\]' '\[筋肉食堂DELI\]' '\[ワタミダイレクト\]' '\[Meals\]' '\[タイヘイ\]' '\[ワタミ\]'; do
-  SC_LINE=$(grep -n "$SC" "$FILE" | head -1 | cut -d: -f1 2>/dev/null || echo 0)
-  if [[ "$SC_LINE" -gt 2 ]]; then
-    PREV_LINE=$((SC_LINE - 1))
-    PREV_CONTENT=$(sed -n "${PREV_LINE}p" "$FILE")
-    if ! echo "$PREV_CONTENT" | grep -q "<strong>"; then
-      SC_NAME=$(echo "$SC" | tr -d '\\[]')
-      warning "訴求社CTA [${SC_NAME}] の直前にstrong価格訴求文がない（${SC_LINE}行目付近）"
-    fi
-  fi
-done
+# writing-manual v4.1 で「CTA直前のstrong価格訴求文必須」ルールを撤廃。
+# 必須から任意に変更されたため、このチェックは削除。
 
 # ============================================
-# 23. 非訴求社CTA直前にstrongがないことを確認
+# 23. (v4.1で撤廃) 非訴求社CTA直前のstrongチェック
 # ============================================
-grep -n "\[btn " "$FILE" | while read -r line; do
-  BTN_LINE=$(echo "$line" | cut -d: -f1)
-  PREV_LINE=$((BTN_LINE - 1))
-  PREV_CONTENT=$(sed -n "${PREV_LINE}p" "$FILE")
-  if echo "$PREV_CONTENT" | grep -q "<strong>"; then
-    warning "非訴求社CTA直前にstrongがある（不要）: ${BTN_LINE}行目付近"
-  fi
-done || true
+# 同様に v4.1 で撤廃。CTA直前のstrong有無は writer の判断に委ねる。
 
 # ============================================
 # 24. olリストとH3の一致チェック
@@ -411,14 +402,35 @@ echo "  strong締め「〜防げます」: ${STRONG_FUSEGE} / 「〜できます
 # ============================================
 echo ""
 echo "--- H3の箇条書き/テーブル率チェック ---"
-TOTAL_H3=$(grep -c "<h3>" "$FILE" || echo 0)
-SERVICE_H3=$(grep -c "<h3>[0-9]" "$FILE" || echo 0)
+TOTAL_H3=$(grep -cE "<h3[ >]" "$FILE" || echo 0)
+SERVICE_H3=$(grep -cE "<h3[^>]*>[0-9]" "$FILE" || echo 0)
 CONTENT_H3=$(( TOTAL_H3 - SERVICE_H3 ))
 UL_COUNT=$(grep -c "<ul>" "$FILE" || echo 0)
 if [[ "$CONTENT_H3" -gt 0 && "$UL_COUNT" -eq 0 ]]; then
   warning "選び方・メリット・注意点のH3に箇条書き(ul)が1つもない。8割のH3にul or テーブルを入れる"
 fi
 echo "  コンテンツH3数: ${CONTENT_H3} / ul数: ${UL_COUNT}"
+
+# ============================================
+# 36. 比較テーブルのジャンプリンクチェック（v4.1 新規）
+# ============================================
+echo ""
+echo "--- 比較テーブルジャンプリンクチェック（v4.1新規） ---"
+JUMP_LINKS=$(grep -cE 'href="#service[0-9]+"' "$FILE" 2>/dev/null | head -1)
+SERVICE_IDS=$(grep -cE '<h3 id="service[0-9]+"' "$FILE" 2>/dev/null | head -1)
+JUMP_LINKS=${JUMP_LINKS:-0}
+SERVICE_IDS=${SERVICE_IDS:-0}
+if [[ "$SERVICE_H3" -gt 0 ]]; then
+  if [[ "$JUMP_LINKS" -eq 0 ]]; then
+    warning "ジャンプリンク付き比較表が見当たらない。導入文直後に href=\"#service{N}\" のリンク付き比較表を配置する（writing-manual §A-1補足）"
+  fi
+  if [[ "$SERVICE_IDS" -eq 0 ]]; then
+    warning "サービス紹介H3に id=\"service{N}\" が付与されていない。比較表のジャンプリンク先として必須"
+  elif [[ "$SERVICE_IDS" -lt "$SERVICE_H3" ]]; then
+    warning "サービス紹介H3の数(${SERVICE_H3})に対して id 付与数(${SERVICE_IDS})が不足"
+  fi
+fi
+echo "  ジャンプリンク数: ${JUMP_LINKS} / サービスH3 id数: ${SERVICE_IDS} / サービスH3総数: ${SERVICE_H3}"
 
 # ============================================
 # 結果サマリー
