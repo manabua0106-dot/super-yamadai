@@ -604,3 +604,27 @@
 **公式URL:** https://www.pal-system.co.jp/item/pickup/kit/
 **比較テーブル用単価:** 650円〜
 **特記:** 冷凍タイプは賞味期限180日。冷蔵タイプ（消費期限3日）も併売
+
+### 冷凍8. 生活クラブ
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">生活クラブ事業連合生活協同組合連合会</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">ビオサポ食材セット 冷凍タイプ490〜1,080円（税込・2人前）、冷蔵タイプ633〜1,776円（税込）。個別システム手数料165〜220円（税込・地域差・利用額条件で無料）、加入時出資金1,000円〜（地域差・退会時返却）</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">北海道・青森・岩手・山形・福島・東京・神奈川・千葉・埼玉・栃木・群馬・茨城・愛知・山梨・長野・静岡・大阪・京都・兵庫・奈良・滋賀の21都道府県（一部地域除く）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">週1回決まった曜日、自社便、日時指定不可（留め置き対応）</td></tr>
+<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">資料請求で無料お試し可能（試食キャンペーン・内容は時期により異なる）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML:** 未登録（要追加）
+**CTA:**
+```
+[btn href="https://seikatsuclub.coop/item/groceries/biosaposet.html" class="raised main-bc strong" target="_blank" rel="nofollow"]生活クラブの公式サイトはこちら[/btn]
+```
+**公式URL:** https://seikatsuclub.coop/item/groceries/biosaposet.html
+**比較テーブル用単価:** 490円〜（2人前）
+**特記:** 冷凍タイプは2019年から登場、賞味期限91日、約15分調理。冷凍4品目＋冷蔵22品目以上の構成
