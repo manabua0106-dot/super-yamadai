@@ -531,3 +531,28 @@
 **比較テーブル用単価:** 429円〜（easyeasy）
 **strong 1文目の方向性:** 2026年1月から始動した新ブランドeasyeasyでフライパン10分前後で完成する冷凍ミールキット
 **特記:** 1都7県の地域限定。出資金1口1,000円（脱退時返金）が加入時に必要
+
+### 冷凍5. 楽天マート
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">楽天マート株式会社（旧・楽天西友ネットスーパー）</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">冷凍ミールキット1袋（2人前）は商品により価格帯が異なる。送料330円（税込）、5,500円（税込）以上で送料無料（2026年1月時点）</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">東京・埼玉・千葉・神奈川の1都3県（2025年12月で関西エリア終了）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">自社便または提携配送、日時指定可（郵便番号検索で要確認）</td></tr>
+<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">なし（通常のネットスーパー注文）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML:** 未登録（要追加）
+**CTA:**
+```
+[btn href="https://sm.rakuten.co.jp/" class="raised main-bc strong" target="_blank" rel="nofollow"]楽天マートの公式サイトはこちら[/btn]
+```
+**公式URL:** https://sm.rakuten.co.jp/
+**冷凍ミールキット一覧:** https://sm.rakuten.co.jp/search/300048
+**比較テーブル用単価:** 商品により変動（公式サイトで要確認）
+**特記:** 賞味期限は出荷から44日以上設定の商品が多い。楽天ポイント付与・利用可
