@@ -685,3 +685,29 @@
 **定期申込ページ:** https://www.onemile.jp/product-buy-form/teiki-dinner
 **比較テーブル用単価:** 1,256円〜（1食換算）
 **特記:** 100%国産食材、湯煎・流水解凍5〜10分（電子レンジ不可）、管理栄養士＋料理の匠ダブル監修
+
+### 冷凍11. イオン CooKit
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">イオントップバリュ株式会社（製造）／イオンリテール株式会社（販売）</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">CooKit 2人前734〜950円（税込・冷蔵タイプ・改定の可能性あり）。冷凍タイプ「フローズンクッキット」は店舗・ネットスーパーで価格変動。送料はネットスーパーの規定に準拠</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">店頭販売は全国のイオン・イオンスタイル等、ネット注文はイオンネットスーパーまたはGreen Beans（首都圏中心に順次拡大）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">ネットスーパー利用時は当日〜2週先、Green Beansは1時間単位で7:00〜23:00の指定可</td></tr>
+<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">なし（都度購入のPB商品）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML:** 未登録（要追加）
+**CTA:**
+```
+[btn href="https://greenbeans.com/" class="raised main-bc strong" target="_blank" rel="nofollow"]イオンCooKit（Green Beans）の公式サイトはこちら[/btn]
+```
+**公式URL:** https://www.topvalu.net/ （トップバリュ公式）
+**ネット購入URL:** https://greenbeans.com/
+**プレスリリース（2019年フローズンクッキット）:** https://www.aeonretail.jp/pdf/190408R_1.pdf
+**比較テーブル用単価:** 367円〜（1食換算・2人前734円）
+**特記:** 冷凍タイプ「フローズンクッキット」は2019年から6品目展開、トレーごとレンジ解凍→フライパン仕上げ
