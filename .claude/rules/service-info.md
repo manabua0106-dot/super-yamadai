@@ -654,3 +654,34 @@
 **FAQページ:** https://faq.green-spoon.jp/hc/ja/articles/14159862817943
 **比較テーブル用単価:** 約870円〜（スムージー）
 **特記:** カテゴリ横断で100種類以上のメニュー。瞬間冷凍・カップごとレンジ加熱
+
+### 冷凍10. わんまいる（健幸ディナー）
+
+**※ 既存「14. わんまいる」（宅配弁当セクション）と同じサービス。冷凍ミールキット記事用に追記。**
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">株式会社ファミリーネットワークシステムズ</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">健幸ディナー定期5食6,280円（税込・1食1,256円）、初回限定500円OFFで5,780円（1食1,156円）。送料は本州・四国・九州935円、北海道・沖縄・一部離島2,500円（税込・2026年4月時点）</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（北海道・沖縄・一部離島は送料割増）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">日時指定可、1週または2週ごとお届け、ヤマト運輸冷凍便</td></tr>
+<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">初回限定5食セット5,780円（500円OFF・税込・送料別）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML:**
+```html
+<img class="size-full wp-image-122 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2024/11/onemile.jpg" alt="" width="800" height="533" />
+```
+
+**CTA:**
+```
+[btn href="https://www.onemile.jp/" class="raised main-bc strong" target="_blank" rel="nofollow"]わんまいるの公式サイトはこちら[/btn]
+```
+**公式URL:** https://www.onemile.jp/
+**定期申込ページ:** https://www.onemile.jp/product-buy-form/teiki-dinner
+**比較テーブル用単価:** 1,256円〜（1食換算）
+**特記:** 100%国産食材、湯煎・流水解凍5〜10分（電子レンジ不可）、管理栄養士＋料理の匠ダブル監修
