@@ -433,3 +433,192 @@
 
 **比較テーブル用単価:** 475円〜
 **特記:** 3シリーズ（プチデリカ475円〜、国産プレミアム748円〜、そよ風のやさしい食感718円〜）、賞味期限約1年
+
+---
+
+### 16. まごころ弁当
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">株式会社シルバーライフ</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食345〜756円（税込・コース別、店舗により異なる）、送料無料</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（一部配達不可エリアあり・店舗検索で要確認）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">毎日配達（昼食のみ・夕食のみ・昼食と夕食から選択可）、常温配送</td></tr>
+<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">無料試食キャンペーンあり（内容は店舗により異なる・公式サイトで要確認）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML:** ※WordPressへの画像アップロード後、wp-image-XXX番号を確定（writer起動前に要確定）
+
+**CTA:**
+```
+[btn href="https://www.magokoro-bento.com/" class="raised main-bc strong" target="_blank" rel="nofollow"]まごころ弁当の公式サイトはこちら[/btn]
+```
+
+**比較テーブル用単価:** 345円〜
+**特記:** 常温配送・毎日配達、1食から注文可、安否確認サービスあり（無料）、メニュー5種類（小町・普通食・糖質カロリー調整食・たんぱく調整食・ムース食）、フランチャイズ展開のため店舗ごとに価格・対応エリアが異なる
+
+---
+
+### 17. コープデリ宅配弁当（デイリーコープ）
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">コープデリ生活協同組合連合会</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食464〜842円（税込・舞菜シリーズ／コース別）、送料無料、コープ加入が必要（預け金あり・脱退時返還）</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">東京・埼玉・千葉・茨城・栃木・群馬・長野の1都6県（一部対象外あり・公式サイトで要確認）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">月〜金の週3日以上選択可、冷蔵で当日配達、不在時は保冷容器で置き配対応</td></tr>
+<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">なし（資料請求は無料）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML:** ※WordPressへの画像アップロード後、wp-image-XXX番号を確定（writer起動前に要確定）
+
+**CTA:**
+```
+[btn href="https://daily.coopdeli.jp/" class="raised main-bc strong" target="_blank" rel="nofollow"]デイリーコープの公式サイトはこちら[/btn]
+```
+
+**比較テーブル用単価:** 464円〜
+**特記:** 月〜金の冷蔵当日配達、平日毎日届けるタイプ、舞菜弁当（680円）・舞菜ミニ弁当（464円）・舞菜おかず（702円）・舞菜御膳（842円）・エネルギー塩分調整食（842円）、ミールキットも選択可、不在時は保冷ボックスで置き配
+
+---
+
+### 18. 宅配クック123
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">株式会社シニアライフクリエイト</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食339〜847円（税込・コース別、店舗により異なる）、送料無料</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（一部配達不可エリアあり・全国350店舗体制・店舗検索で要確認）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">毎日配達（土日祝対応・年中無休／お正月のみ休業）、常温配送・手渡し</td></tr>
+<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">無料試食あり（内容は店舗により異なる・公式サイトで要確認）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML:** ※WordPressへの画像アップロード後、wp-image-XXX番号を確定（writer起動前に要確定）
+
+**CTA:**
+```
+[btn href="https://takuhaicook123.jp/" class="raised main-bc strong" target="_blank" rel="nofollow"]宅配クック123の公式サイトはこちら[/btn]
+```
+
+**比較テーブル用単価:** 339円〜
+**特記:** 高齢者専門・毎日配達（土日祝も対応）、安否確認サービスあり（手渡し時に声かけ）、1食から注文可、普通食648円・幸たんぱく食686円・健康ボリューム食750円・カロリー塩分調整食847円・たんぱく塩分調整食847円・透析食847円・やわらか食847円・ムースセット食847円・朝食パンセット339円・朝食おじやセット356円、フランチャイズ展開
+
+---
+
+### 19. 配食のふれ愛
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">株式会社シルバーライフ</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食345〜756円（税込・コース別、店舗により異なる）、送料無料</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（一部配達不可エリアあり・100店舗以上展開・店舗検索で要確認）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">毎日配達（お正月三が日以外・年中無休、日曜日は一部配達不可エリアあり）、常温配送・手渡し</td></tr>
+<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">無料試食あり（内容は店舗により異なる・公式サイトで要確認）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML:** ※WordPressへの画像アップロード後、wp-image-XXX番号を確定（writer起動前に要確定）
+
+**CTA:**
+```
+[btn href="https://www.h-fureai.com/" class="raised main-bc strong" target="_blank" rel="nofollow"]配食のふれ愛の公式サイトはこちら[/btn]
+```
+
+**比較テーブル用単価:** 345円〜
+**特記:** 高齢者向け・毎日配達、安否確認サービスあり（無料・ご家族やケアマネへの緊急連絡可）、1食から注文可、メニュー6種類（ふれ愛小町・普通食・カロリー調整食・たんぱく調整食・ムース食）、運営はシルバーライフ（まごころ弁当と同じ会社）
+
+---
+
+### 20. ニコニコキッチン
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">株式会社ソーシャルクリエーション</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食723円〜（税込・店舗により異なる）、送料無料</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（フランチャイズ加盟店ベース・店舗検索で要確認）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">毎日配達（店舗により対応曜日が異なる）、常温配送・手渡し</td></tr>
+<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">条件は店舗により異なる（公式サイトで要確認）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML:** ※WordPressへの画像アップロード後、wp-image-XXX番号を確定（writer起動前に要確定）
+
+**CTA:**
+```
+[btn href="https://nikoniko-kitchen.com/" class="raised main-bc strong" target="_blank" rel="nofollow"]ニコニコキッチンの公式サイトはこちら[/btn]
+```
+
+**比較テーブル用単価:** 723円〜
+**特記:** 高齢者向け・原則手渡し配達による安否確認、1食から注文可、栄養価計算された和食中心の日替わりメニュー、ヘルシーメニュー・元気メニュー・きざみ食対応あり、自治体の高齢者食支援サービス対応店舗あり
+
+---
+
+### 21. ライフデリ
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">GRAND FOODS, LTD.</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食513円〜（税込・コース別、店舗により異なる）、送料無料</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">44都道府県（秋田県・島根県・沖縄県を除く・店舗検索で要確認）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">毎日配達（年中無休・週1回や月1回からも注文可）、常温配送・手渡し</td></tr>
+<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">65歳以上かつ継続利用検討の方限定で初回1食無料試食券あり</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML:** ※WordPressへの画像アップロード後、wp-image-XXX番号を確定（writer起動前に要確定）
+
+**CTA:**
+```
+[btn href="https://lifedeli.jp/" class="raised main-bc strong" target="_blank" rel="nofollow"]ライフデリの公式サイトはこちら[/btn]
+```
+
+**比較テーブル用単価:** 513円〜
+**特記:** 高齢者向け・毎日配達（年中無休）、安否確認サービス「らいふコール」あり（自動音声でご家族へメール通知）、メニュー6種類（普通食・カロリー調整食・透析食・腎臓食・やわらか食・ムース食）、700種以上の日替わりおかず
+
+---
+
+### 22. ベネッセのおうちごはん
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">株式会社ベネッセパレット</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食590〜864円（税込・コース別）、送料は地域により異なる（公式サイトで要確認）</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（冷凍便・一部離島を除く）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">毎週・隔週などまとめ配送（日時指定可）、冷凍便</td></tr>
+<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">お試し便あり（内容は時期により異なる・公式サイトで要確認）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML:** ※WordPressへの画像アップロード後、wp-image-XXX番号を確定（writer起動前に要確定）
+
+**CTA:**
+```
+[btn href="https://shop.benesse-palette.co.jp/" class="raised main-bc strong" target="_blank" rel="nofollow"]ベネッセのおうちごはんの公式サイトはこちら[/btn]
+```
+
+**比較テーブル用単価:** 590円〜
+**特記:** 冷凍まとめ配送タイプ（毎日配達ではない）、ベネッセグループ運営、メニューはバランス健康食590円〜・塩分制限食730円〜・冷凍やわらか食864円〜、管理栄養士が献立設計に関与、冷蔵商品販売は終了し冷凍商品のみ
