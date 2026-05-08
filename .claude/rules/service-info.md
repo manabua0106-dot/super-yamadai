@@ -433,3 +433,111 @@
 
 **比較テーブル用単価:** 475円〜
 **特記:** 3シリーズ（プチデリカ475円〜、国産プレミアム748円〜、そよ風のやさしい食感718円〜）、賞味期限約1年
+
+---
+
+### 16. ライフミール（LifeMeal）
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">株式会社シニアライフクリエイト</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食436円〜（税込・LifeMealClub会員ランクで変動）、送料は地域・配送業者で異なる（公式サイトで要確認）</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（一部離島を除く）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">日時指定可、1〜4週ごと選択可、冷凍庫の無料レンタルキャンペーンあり（10食・20食プラン契約者限定）</td></tr>
+<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">初回お試しあり（内容は時期により異なる・公式サイトで要確認）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML:** ※未登録。WordPress側で画像アップロード後に wp-image-XXX を差し替え
+
+**CTA:**
+```
+[btn href="https://l-meal.com/" class="raised main-bc strong" target="_blank" rel="nofollow"]ライフミールの公式サイトはこちら[/btn]
+```
+
+**比較テーブル用単価:** 436円〜
+**特記:** 糖質30g以下・食塩相当量2.5g以下、糖質15g以下のシリーズもあり
+
+---
+
+### 17. ベルーナグルメ宅菜便
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">株式会社ベルーナ</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食638円〜（税込・ほほえみ御膳10食6,380円の場合）、送料660円（7,560円未満）+クール代220円、定期コースまたは7,000円以上で送料無料</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（一部離島等を除く）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">日時指定可、定期コースあり</td></tr>
+<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">ほほえみ御膳お試し10食6,380円（税込・A〜Fの6コースから選択）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML:** ※未登録。WordPress側で画像アップロード後に wp-image-XXX を差し替え
+
+**CTA:**
+```
+[btn href="https://belluna-gourmet.com/" class="raised main-bc strong" target="_blank" rel="nofollow"]ベルーナグルメ宅菜便の公式サイトはこちら[/btn]
+```
+
+**比較テーブル用単価:** 638円〜
+**特記:** 管理栄養士が献立設計に関与、レンジ・湯せん・自然解凍に対応
+
+---
+
+### 18. DELIPICKSサブスクリプション（デリピックス）
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">株式会社DELIPICKS</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食644円〜（税込・定期便プランで異なる）、送料は地域・食数で異なる（北海道・九州は割増・公式サイトで要確認）</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（一部離島を除く）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">日時指定可、スキップ・休止対応、定期縛りなし</td></tr>
+<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">お試しセット（シェフのおすすめ5食+ごはん1食）3,218円（税込・送料無料・初回限定）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML:** ※未登録。WordPress側で画像アップロード後に wp-image-XXX を差し替え
+
+**CTA:**
+```
+[btn href="https://deli-picks.com/" class="raised main-bc strong" target="_blank" rel="nofollow"]DELIPICKSサブスクリプションの公式サイトはこちら[/btn]
+```
+
+**比較テーブル用単価:** 644円〜
+**特記:** フランス料理出身のシェフが調理に関与、定期縛りなし
+
+---
+
+### 19. マッスルデリ（Muscle Deli）
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">株式会社Muscle Deli</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食1,008円〜（税込・送料込み・定期5食コースの場合）、送料無料、初回50%OFF適用で1食528円〜（5食コース・初回限定）</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（一部離島を除く）</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">日時指定可、スキップ・休止対応</td></tr>
+<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">なし（定期5食コースの初回50%OFF・1食528円〜・初回限定）</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML:** ※未登録。WordPress側で画像アップロード後に wp-image-XXX を差し替え
+
+**CTA:**
+```
+[btn href="https://muscledeli.jp/" class="raised main-bc strong" target="_blank" rel="nofollow"]マッスルデリの公式サイトはこちら[/btn]
+```
+
+**比較テーブル用単価:** 1,008円〜
+**特記:** たんぱく質量やカロリー量の異なる4プラン（LEAN・MAINTAIN・GAIN等）から選択可
