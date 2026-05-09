@@ -1,0 +1,148 @@
+=== lint.sh v3.0 ヤマダイ記事チェック ===
+対象: articles/食材宅配-高齢者-article.html
+
+--- 表記揺れ ---
+--- AI表現 レイヤー2 ---
+--- AI表現 レイヤー4（文末・文型定型） ---
+--- AI表現 レイヤー5（導入・結論定型） ---
+--- AI表現 レイヤー6（訴求・推奨） ---
+--- AI表現 レイヤー7-A（抽象形容詞） ---
+--- AI表現 レイヤー9（比喩・イディオム拡張） ---
+--- AI表現 レイヤー11（視点・観点） ---
+--- AI表現 レイヤー12（列挙・構造化） ---
+--- AI表現 レイヤー14（背中押し） ---
+--- AI臭いナンバリング ---
+--- 比喩表現 ---
+--- 冗長表現 ---
+--- 指示語 ---
+--- 記号・HTML ---
+--- CTA ---
+WARNING: btnにnofollow無（訴求社でPost Snippets未登録の場合のみOK）: 238:[btn href="https://www.pal-system.co.jp/" class="raised main-bc strong" target="_blank"]パルシステムの公式サイトはこちら[/btn]
+WARNING: btnにnofollow無（訴求社でPost Snippets未登録の場合のみOK）: 262:[btn href="https://seikatsuclub.coop/" class="raised main-bc strong" target="_blank"]生活クラブの公式サイトはこちら[/btn]
+WARNING: btnにnofollow無（訴求社でPost Snippets未登録の場合のみOK）: 286:[btn href="https://takuhai.daichi-m.co.jp/" class="raised main-bc strong" target="_blank"]大地を守る会の公式サイトはこちら[/btn]
+WARNING: btnにnofollow無（訴求社でPost Snippets未登録の場合のみOK）: 310:[btn href="https://coconomi.shop/" class="raised main-bc strong" target="_blank"]ココノミの公式サイトはこちら[/btn]
+WARNING: btnにnofollow無（訴求社でPost Snippets未登録の場合のみOK）: 334:[btn href="https://www.iy-net.jp/" class="raised main-bc strong" target="_blank"]イトーヨーカドー ネットスーパーの公式サイトはこちら[/btn]
+WARNING: btnにnofollow無（訴求社でPost Snippets未登録の場合のみOK）: 358:[btn href="https://shop.aeon.com/netsuper/" class="raised main-bc strong" target="_blank"]イオン ネットスーパーの公式サイトはこちら[/btn]
+--- 追加NG ---
+
+--- ヤマダイ固有チェック ---
+WARNING: 訴求社CTA [Oisix] の直前にstrong価格訴求文がない（142行目付近）
+WARNING: 訴求社CTA [ヨシケイ] の直前にstrong価格訴求文がない（166行目付近）
+WARNING: 訴求社CTA [ラディッシュボーヤ] の直前にstrong価格訴求文がない（190行目付近）
+WARNING: 訴求社CTA [コープデリ] の直前にstrong価格訴求文がない（214行目付近）
+WARNING: 訴求社CTA [タイヘイ] の直前にstrong価格訴求文がない（382行目付近）
+WARNING: olリストの「毎週届くカタログから商品コードを記入してFAX送付」に対応するH3が見つからない
+WARNING: olリストの「毎週届く注文用紙を配達員に手渡し」に対応するH3が見つからない
+WARNING: olリストの「電話オペレーター対応(コープデリ・パルシステム等)」に対応するH3が見つからない
+WARNING: olリストの「家族のスマホでネット代理注文」に対応するH3が見つからない
+WARNING: olリストの「ヨシケイ:プチママ・カットミール等の夕食用ミールキット」に対応するH3が見つからない
+WARNING: olリストの「OisixのKit Oisix:主菜+副菜が20分で完成」に対応するH3が見つからない
+WARNING: olリストの「らでぃっしゅぼーやの10分キット:時短に特化したセット」に対応するH3が見つからない
+WARNING: olリストの「コープデリの3日分時短ごはんセット:平日3日分を一括」に対応するH3が見つからない
+WARNING: olリストの「コープデリ・パルシステムの自社便:配達員が玄関先で声かけ」に対応するH3が見つからない
+WARNING: olリストの「ヨシケイの自社便:月〜金毎日配達で異変を察知しやすい」に対応するH3が見つからない
+WARNING: olリストの「生活クラブ:組合員同士の地域コミュニティが活発」に対応するH3が見つからない
+WARNING: olリストの「自治体連携の見守り訪問サービスを併用する家庭も多い」に対応するH3が見つからない
+WARNING: olリストの「食材宅配タイヘイ:ヘルシー御膳・たんぱく調整食・糖質少なめセット」に対応するH3が見つからない
+WARNING: olリストの「ヨシケイ:ヘルシーメニュー・楽らく味彩(塩分・カロリーに配慮)」に対応するH3が見つからない
+WARNING: olリストの「コープデリ:減塩・カロリー調整の冷凍おかずセット」に対応するH3が見つからない
+WARNING: olリストの「パルシステム:成分表示が明確な独自ブランド食材」に対応するH3が見つからない
+WARNING: olリストの「10kgの米」に対応するH3が見つからない
+WARNING: olリストの「2Lのペットボトル6本入り」に対応するH3が見つからない
+WARNING: olリストの「1Lの牛乳パック数本」に対応するH3が見つからない
+WARNING: olリストの「調味料の大容量ボトル」に対応するH3が見つからない
+WARNING: olリストの「コープデリ・パルシステム・生活クラブの自社便」に対応するH3が見つからない
+WARNING: olリストの「ヨシケイの自社配送便」に対応するH3が見つからない
+WARNING: olリストの「らでぃっしゅぼーや・大地を守る会の自社便(関東一部)」に対応するH3が見つからない
+WARNING: olリストの「ヨシケイのミールキット(プチママ・カットミール等)」に対応するH3が見つからない
+WARNING: olリストの「OisixのKit Oisix」に対応するH3が見つからない
+WARNING: olリストの「らでぃっしゅぼーやの10分キット」に対応するH3が見つからない
+WARNING: olリストの「コープデリの3日分時短ごはんセット」に対応するH3が見つからない
+WARNING: olリストの「コープデリ・パルシステム・生活クラブ:発泡スチロール箱で玄関前置き配対応」に対応するH3が見つからない
+WARNING: olリストの「ヨシケイ:鍵付き安心BOXを無料貸与(地域による)」に対応するH3が見つからない
+WARNING: olリストの「イオン ネットスーパー:置き配可」に対応するH3が見つからない
+WARNING: olリストの「イトーヨーカドー ネットスーパー:対面手渡しが基本」に対応するH3が見つからない
+WARNING: olリストの「Oisix・大地を守る会・らでぃっしゅぼーや:ネット注文中心(代行運用が現実的)」に対応するH3が見つからない
+WARNING: olリストの「イトーヨーカドー・イオン ネットスーパー:アプリ操作が必須」に対応するH3が見つからない
+WARNING: olリストの「コープデリ・パルシステム・生活クラブ:紙の注文書も併用可」に対応するH3が見つからない
+WARNING: olリストの「ヨシケイ:配達員への手渡し注文も可」に対応するH3が見つからない
+WARNING: olリストの「ヨシケイ:1人前から注文可(プチママ等)」に対応するH3が見つからない
+WARNING: olリストの「Oisix:商品単位で注文量を調整可」に対応するH3が見つからない
+WARNING: olリストの「コープデリ・パルシステム:1人前商品も用意あり」に対応するH3が見つからない
+WARNING: olリストの「ミールキット系:2人前・3人前単位が中心」に対応するH3が見つからない
+
+--- 1文60字チェック（v4.0新規） ---
+
+--- 法令セーフ変換チェック（v4.0新規） ---
+WARNING: 「送料無料」に条件併記がない可能性: 128:<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">おためしセット1,980円(税込・送料無料・15品前後・1世帯1回限り)</td></tr>
+WARNING: 「送料無料」に条件併記がない可能性: 140:<strong>初めての方限定のおためしセットは1,980円(税込・送料無料・1世帯1回限り)で届きます。</strong>
+WARNING: 「送料無料」に条件併記がない可能性: 176:<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">ふぞろい食材おためしセット1,980円(税込・送料無料・1世帯1回限り・返金保証あり)</td></tr>
+WARNING: 「送料無料」に条件併記がない可能性: 188:<strong>ふぞろい食材おためしセットは1,980円(税込・送料無料・1世帯1回限り)で申し込めます。</strong>
+WARNING: 「送料無料」に条件併記がない可能性: 272:<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">旬の食材お試しセット1,980円(税込・送料無料・1世帯1回限り)</td></tr>
+WARNING: 「送料無料」に条件併記がない可能性: 284:<strong>旬の食材お試しセットは1,980円(税込・送料無料・1世帯1回限り)で届きます。</strong>
+WARNING: 「送料無料」に条件併記がない可能性: 293:<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">通常注文は商品代+送料(2回目以降のクール便利用時は基本料金+319円・税込)、初回限定セット1,480円(税込・送料無料)</td></tr>
+WARNING: 「送料無料」に条件併記がない可能性: 296:<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">初回限定の8品セット1,480円(税込・送料無料・1世帯1回限り)</td></tr>
+WARNING: 「送料無料」に条件併記がない可能性: 308:<strong>初回限定の8品セットは1,480円(税込・送料無料・1世帯1回限り)で試せます。</strong>
+
+--- 出典URL併記チェック（v4.0新規） ---
+WARNING: 数値に出典URL併記がない可能性: 62:<strong>カット済み食材か湯せん解凍タイプを選べば、調理時間を1食15〜20分に抑えられます。</strong>
+WARNING: 数値に出典URL併記がない可能性: 140:<strong>初めての方限定のおためしセットは1,980円(税込・送料無料・1世帯1回限り)で届きます。</strong>
+WARNING: 数値に出典URL併記がない可能性: 188:<strong>ふぞろい食材おためしセットは1,980円(税込・送料無料・1世帯1回限り)で申し込めます。</strong>
+WARNING: 数値に出典URL併記がない可能性: 236:<strong>定番満足おためしセットは1,980円(税込・送料込み・1世帯1回限り)で申し込めます。</strong>
+WARNING: 数値に出典URL併記がない可能性: 284:<strong>旬の食材お試しセットは1,980円(税込・送料無料・1世帯1回限り)で届きます。</strong>
+WARNING: 数値に出典URL併記がない可能性: 308:<strong>初回限定の8品セットは1,480円(税込・送料無料・1世帯1回限り)で試せます。</strong>
+WARNING: 数値に出典URL併記がない可能性: 354:最低注文金額が700円(税抜)と低く設定されているため、少量だけ追加注文したい家庭でも利用しやすい仕組みです。
+WARNING: 数値に出典URL併記がない可能性: 380:<strong>定期購入なら1食あたり約783円(税込・ヘルシー御膳7食セット)から始められ、送料も無料になります。</strong>
+WARNING: 数値に出典URL併記がない可能性: 498:高齢者の食材宅配サービスでは、1回の最低注文金額や1食あたりの量が一人暮らしの親には合わないことがあります。
+WARNING: 数値に出典URL併記がない可能性: 500:ミールキットの多くは2人前単位での提供で、一人暮らしだと食材が余りやすい傾向があります。
+WARNING: 数値に出典URL併記がない可能性: 505:<li>ヨシケイ:1人前から注文可(プチママ等)</li>
+WARNING: 数値に出典URL併記がない可能性: 507:<li>コープデリ・パルシステム:1人前商品も用意あり</li>
+WARNING: 数値に出典URL併記がない可能性: 508:<li>ミールキット系:2人前・3人前単位が中心</li>
+WARNING: 数値に出典URL併記がない可能性: 511:<strong>1人前から注文できるサービスや、冷凍ストック向けのコースを選べば食材の廃棄を抑えられます。</strong>
+WARNING: 数値に出典URL併記がない可能性: 559:※ 価格・送料・配送エリア・キャンペーン条件は2026年5月時点の情報です。最新情報・適用条件は各社公式サイトで確認してください。
+  H2数: 6 / imgタグ数: 0
+0
+
+--- 頻出表現チェック ---
+scripts/lint.sh: line 363: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 363: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 363: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 363: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 363: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 363: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 363: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 371: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 371: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 371: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 371: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 371: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 371: [[: 0
+0: syntax error in expression (error token is "0")
+
+--- 書き出しパターンチェック ---
+scripts/lint.sh: line 385: 0
+0: syntax error in expression (error token is "0")
+
+--- strong締めパターンチェック ---
+scripts/lint.sh: line 397: [[: 0
+0: syntax error in expression (error token is "0")
+  strong締め「〜防げます」: 0
+0 / 「〜できます」: 2 / 「〜なります」: 2
+
+--- H3の箇条書き/テーブル率チェック ---
+  コンテンツH3数: 13 / ul数: 10
+
+=== 結果: ERROR 0件 / WARNING 74件 ===
+→ パス。
