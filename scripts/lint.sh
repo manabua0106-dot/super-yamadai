@@ -204,6 +204,17 @@ grep -n "参考にしてみてください\|詳しく知りたい方は" "$FILE"
 grep -n "質問[0-9]\|Q[0-9]" "$FILE" | while read -r l; do error "FAQ番号: $l"; done || true
 
 # ============================================
+# 20b. ヤマダイ固有カテゴリA：硬い漢語・読者に伝わらない表現（2026-05新規）
+# ============================================
+echo ""
+echo "--- カテゴリA：硬い漢語・読者に伝わらない表現 ---"
+for P in "実質単価" "実質[0-9]" "圧迫" "ぎゅうぎゅう" "占有" "家庭の食材" "タイプ別の" "観点別の" "ポイント別の" "用途別の" "選択型" "コース型" "設定です" "仕組みで" "仕組みです" "構成で" "構成です" "手がけ" "手掛け" "揃えてい" "揃えた" "ノウハウ" "知見" "休息" "事態" "均等化" "リラックスの機会" "落とし穴" "最大の特徴は"; do
+  grep -n "$P" "$FILE" | while read -r l; do error "カテゴリA「$P」: $l"; done || true
+done
+# 「設計です」は「献立設計」を除いて検出
+grep -n "設計です" "$FILE" | grep -v "献立設計" | while read -r l; do error "カテゴリA「設計です」: $l"; done || true
+
+# ============================================
 # 21. ヤマダイ固有 - テーブル5行チェック
 # ============================================
 echo ""
@@ -228,6 +239,28 @@ while IFS= read -r line; do
     fi
   fi
 done < "$FILE"
+
+# ============================================
+# 21b. _tableショートコード未使用検出（2026-05新規）
+# ============================================
+echo ""
+echo "--- _tableショートコード未使用検出 ---"
+for SC in '\[Oisix\]' '\[ヨシケイ\]' '\[ラディッシュボーヤ\]' '\[コープデリ\]' '\[Dr\.ツルガメキッチン\]' '\[筋肉食堂DELI\]' '\[ワタミダイレクト\]' '\[Meals\]' '\[タイヘイ\]' '\[ワタミ\]'; do
+  SC_NAME=$(echo "$SC" | tr -d '\\[]')
+  CTA_LINE=$(grep -n "$SC" "$FILE" | head -1 | cut -d: -f1)
+  if [[ -n "$CTA_LINE" && "$CTA_LINE" -gt 5 ]]; then
+    # CTA行の20行前から該当H3直下の_tableショートコード使用を確認
+    START=$(( CTA_LINE - 30 < 1 ? 1 : CTA_LINE - 30 ))
+    SECTION=$(sed -n "${START},${CTA_LINE}p" "$FILE")
+    # 同セクション内に_tableショートコードがなく、かつ25.8158%テーブルがある場合 → ERROR
+    if echo "$SECTION" | grep -qE '_table\]'; then
+      :  # _tableが使われている、OK
+    elif echo "$SECTION" | grep -q "25.8158%"; then
+      # _tableが未使用なのにサービス紹介テーブルが直書き → ERROR
+      error "サービス [${SC_NAME}] で画像＋テーブルが直書きされています。[${SC_NAME%]*}_table] ショートコードに置き換えてください（${CTA_LINE}行目付近）"
+    fi
+  fi
+done
 
 # ============================================
 # 22. 訴求社CTA直前のstrong価格訴求文チェック
@@ -261,7 +294,7 @@ done || true
 # ============================================
 grep -oP '(?<=<li>).*?(?=</li>)' "$FILE" 2>/dev/null | while read -r li_text; do
   li_clean=$(echo "$li_text" | sed 's/^[0-9]*\.\s*//')
-  if ! grep -q "<h3>.*${li_clean}" "$FILE" 2>/dev/null; then
+  if ! grep -q "<h3[^>]*>.*${li_clean}" "$FILE" 2>/dev/null; then
     warning "olリストの「${li_text}」に対応するH3が見つからない"
   fi
 done || true
@@ -380,7 +413,7 @@ echo ""
 echo "--- 書き出しパターンチェック ---"
 PATTERN_A=$(grep -c "宅配弁当です。</strong>" "$FILE" || echo 0)
 PATTERN_B=$(grep -c "サービスです。</strong>" "$FILE" || echo 0)
-TOTAL_SERVICES=$(grep -c "<h3>[0-9]" "$FILE" || echo 0)
+TOTAL_SERVICES=$(grep -c '<h3 id=' "$FILE" || echo 0)
 if [[ "$TOTAL_SERVICES" -gt 0 ]]; then
   DOMINANT=$(( PATTERN_A > PATTERN_B ? PATTERN_A : PATTERN_B ))
   RATIO=$(( DOMINANT * 100 / TOTAL_SERVICES ))
@@ -411,8 +444,10 @@ echo "  strong締め「〜防げます」: ${STRONG_FUSEGE} / 「〜できます
 # ============================================
 echo ""
 echo "--- H3の箇条書き/テーブル率チェック ---"
-TOTAL_H3=$(grep -c "<h3>" "$FILE" || echo 0)
-SERVICE_H3=$(grep -c "<h3>[0-9]" "$FILE" || echo 0)
+TOTAL_H3=$({ grep -cE "<h3[^>]*>" "$FILE" 2>/dev/null || echo 0; } | head -1 | tr -d '\n')
+SERVICE_H3=$({ grep -c '<h3 id=' "$FILE" 2>/dev/null || echo 0; } | head -1 | tr -d '\n')
+TOTAL_H3=${TOTAL_H3:-0}
+SERVICE_H3=${SERVICE_H3:-0}
 CONTENT_H3=$(( TOTAL_H3 - SERVICE_H3 ))
 UL_COUNT=$(grep -c "<ul>" "$FILE" || echo 0)
 if [[ "$CONTENT_H3" -gt 0 && "$UL_COUNT" -eq 0 ]]; then
