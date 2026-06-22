@@ -267,19 +267,36 @@ for SC in '\[Oisix\]' '\[ヨシケイ\]' '\[ラディッシュボーヤ\]' '\[�
 done
 
 # ============================================
-# 22. 訴求社CTA直前のstrong価格訴求文チェック
+# 21c. サービス紹介H3の_table / ジャンプリンク機械チェック（2026-06新規）
 # ============================================
-for SC in '\[Oisix\]' '\[ヨシケイ\]' '\[ラディッシュボーヤ\]' '\[コープデリ\]' '\[Dr\.ツルガメキッチン\]' '\[筋肉食堂DELI\]' '\[watamidirect\]' '\[Meals\]' '\[タイヘイ\]' '\[ワタミ\]'; do
-  SC_LINE=$(grep -n "$SC" "$FILE" | head -1 | cut -d: -f1 2>/dev/null || echo 0)
-  if [[ "$SC_LINE" -gt 2 ]]; then
-    PREV_LINE=$((SC_LINE - 1))
-    PREV_CONTENT=$(sed -n "${PREV_LINE}p" "$FILE")
-    if ! echo "$PREV_CONTENT" | grep -q "<strong>"; then
-      SC_NAME=$(echo "$SC" | tr -d '\\[]')
-      warning "訴求社CTA [${SC_NAME}] の直前にstrong価格訴求文がない（${SC_LINE}行目付近）"
-    fi
+echo ""
+echo "--- サービス紹介H3の_table / ジャンプリンク ---"
+
+# (1) ジャンプリンク整合: href="#X" に対応する id="X" があるか
+grep -oE 'href="#[^"]+"' "$FILE" | sed -E 's/.*#([^"]+)".*/\1/' | sort -u | while read -r ANCHOR; do
+  [ -z "$ANCHOR" ] && continue
+  if ! grep -q "id=\"${ANCHOR}\"" "$FILE"; then
+    error "ジャンプリンク先 #${ANCHOR} に対応する id 属性がない"
   fi
-done
+done || true
+
+# (2) id付きH3（サービス紹介H3）は直下に [○○_table] / <table> / <img> のいずれかが必須
+awk '
+  function flush(){ if(inblock && !has) print hdr; inblock=0 }
+  /<h3[^>]*id=/ { flush(); inblock=1; has=0; hdr=NR": "$0; next }
+  /<h2|<h3/ { flush() }
+  inblock && (/_table\]/ || /<table/ || /<img/) { has=1 }
+  END { flush() }
+' "$FILE" | while read -r MISS; do
+  error "サービス紹介H3に_table/テーブル/画像がない（${MISS}）。[サービス名_table]をH3直下に置く"
+done || true
+
+# ============================================
+# 22.（廃止）訴求社CTA直前strongチェック — 2026-06ルール改定で撤廃
+#     strong価格訴求文は任意。具体的な価格・割引があるときのみ配置し、
+#     「割引価格で用意されています」等の情報の薄い決まり文句は置かない。
+#     strongを強制しないため、欠如チェックは行わない。
+# ============================================
 
 # ============================================
 # 23. 非訴求社CTA直前にstrongがないことを確認
