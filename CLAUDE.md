@@ -39,10 +39,25 @@ writing-manual §L に定義される5グループの責任分担に従う。
 14. **書いたら自分でチェックして、問題があれば自分で直してから出力する**
 15. **`pタグ`は絶対に出力しない。** WordPress側で自動付与されるため二重になる（writing-manual §D-1補足）
 16. **`_table`ショートコード登録済みサービスは画像＋テーブル直書き禁止。** 必ず `[サービス名_table]` で置換する（writing-manual §C-1補足2）
-    - 登録済み11ブランド: Oisix / コープデリ / ヨシケイ / ラディッシュボーヤ / Dr.ツルガメキッチン / Meals / タイヘイ / ワタミ / 筋肉食堂DELI / watamidirect / lifemeal
+    - 登録済み20ブランド: Oisix / コープデリ / ヨシケイ / ラディッシュボーヤ / Dr.ツルガメキッチン / Meals / タイヘイ / ワタミ / 筋肉食堂DELI / watamidirect / lifemeal / wellness-dining / sakanototyu_vegetable / tsukurio / MuscleDeli / DELIPICKS / GreenBeans / palsystem / shokunosoyokaze / nitireifoods
 17. **本文の具体例とulを二重に書かない。** 具体例をulで列挙する場合は、本文側の同内容文を削除する（writing-manual §E-2補足）
 18. **「実質単価」「圧迫」「占有」「家庭の食材」「タイプ別の〇〇」は完全禁止。** 中学生でもわかる日常語に置換（writing-manual 付録2 カテゴリA）
 19. **サービス紹介文は4〜6文程度に簡潔にする。** 「夫婦で〇〇食」「平日5日分」のような無理やりな取り入れ方文を追加しない
+
+### 鵜呑み禁止（全グループ共通・グローバルCLAUDE.md §3.7 と連動）
+
+構成案・依頼情報を受領したら**着手前に必ず精査**し、懸念があれば AskUserQuestion で提起する。
+**「指示通りに書いた」量産記事は作らない。** SEOとライティングマニュアルの観点で取捨選択する。
+
+| 精査観点 | 例 |
+|---|---|
+| A. KW×掲載サービスの整合性 | 「ミールキット」記事に「ミールキット主体ではない野菜単品宅配」を入れるのは妥当か？ |
+| B. ペルソナと内容の一致 | ペルソナが本当に必要とする情報か？蛇足はないか？ |
+| C. 競合上位との差別化 | 上位記事と何で勝つのか？無いなら追加要素を提案 |
+| D. H3の必要性精査 | 「網羅性のための水増しH3」「他社が書いてるから入れたH3」は削る提案 |
+| E. 訴求順位と読者利益の整合 | 訴求順位が読者の意思決定に有用か？ |
+
+Codex第三者レビュー: `Agent(subagent_type="codex-reviewer", prompt="対象ファイル: <パス>\nフェーズ: outline-v1\n特記事項: ...")` で呼ぶ。
 
 ### 🟫 グループC：統率系（editor）
 
@@ -81,6 +96,7 @@ writing-manual §L に定義される5グループの責任分担に従う。
 | ルール | `.claude/rules/prohibited-words.md` | 禁止語・変換ルール |
 | ルール | `.claude/rules/shortcodes.md` | ショートコード・HTMLテンプレート |
 | ルール | `.claude/rules/service-info.md` | 各サービスのスペック情報 |
+| ルール | `.claude/rules/appeal-ranking.md` | カテゴリ別の基本ランキング（デフォルト訴求順位） |
 | ルール | `.claude/rules/internal-links.md` | 内部リンクリスト |
 | ルール | `.claude/rules/feedback_writing.md` | 未昇格の文体FB一時記録 |
 | ルール | `.claude/rules/feedback_structure.md` | 未昇格の構成FB一時記録 |

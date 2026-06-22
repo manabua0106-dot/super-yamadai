@@ -20,7 +20,7 @@
 ### 宅配弁当記事用
 - `[Dr.ツルガメキッチン]`
 - `[筋肉食堂DELI]`
-- `[ワタミダイレクト]`
+- `[watamidirect]`（ワタミの宅食ダイレクト）
 - `[Meals]`
 - `[タイヘイ]`
 
@@ -29,6 +29,55 @@
   - class属性: 「raised accent-bc strong」
   - リンク先: https://www.super-yamadai.co.jp/article/lp-watami-takushoku
   - あっ！とごはん・PAKU MOGUには使用しない
+
+### 追加登録分（2026-06・送客用CTAショートコード）
+
+定期申請が通り Post Snippets に登録済みの送客用ショートコード。**従来 [btn] で出していたサービスも、登録済みのものは [btn] ではなくショートコードを使う。**
+
+#### 食材宅配
+- `[sakanototyu_vegetable]`（坂ノ途中 お野菜セット定期宅配）
+- `[GreenBeans]`（グリーンビーンズ／食材・日用品宅配。アフィリンク未確定だが差し替え前提で送客に使用可）
+- `[palsystem]`（パルシステム／食材・日用品宅配）
+
+#### 宅配弁当・冷凍弁当
+- `[lifemeal]`（ライフミール）
+- `[DELIPICKS]`（DELIPICKS。afb案件）
+- `[tsukurio]`（ツクリオ）
+- `[MuscleDeli]`（マッスルデリ／Muscle Deli）
+- `[wellness-dining]`（ウェルネスダイニング。【たんぱく質】【やわらか宅食】とも同一ショートコード）
+- `[shokunosoyokaze]`（食のそよ風）
+- `[nitireifoods]`（ニチレイフーズ お試し。service-info.md「ニチレイフーズダイレクト」と同一）
+
+#### 登録済みショートコード マスター一覧（差し替え用リファレンス）
+
+ショートコードの差し替えはWordPress側のPost Snippetsで行う（記事側はショートコード文字列のみ配置）。アフィリURLはリファレンス用。
+
+| サービス | カテゴリ | CTAショートコード | _tableショートコード | LP（スラッグ） | アフィリURL |
+|---|---|---|---|---|---|
+| Oisix | 食材宅配 | `[Oisix]` | `[Oisix_table]` | lp-oisix | https://px.a8.net/svt/ejp?a8mat=4AV10K+4BZUJ6+3RK+2TP9K1 |
+| コープデリ（お試し） | 食材宅配 | `[コープデリ]` | `[コープデリ_table]` | lp-coopdeli | https://px.a8.net/svt/ejp?a8mat=4AV10K+49M442+NJ8+NZ4J5 |
+| ヨシケイ | 食材宅配 | `[ヨシケイ]` | `[ヨシケイ_table]` | lp-yoshikei | https://px.a8.net/svt/ejp?a8mat=4AV10K+4HCQZ6+1QM6+HZAGY |
+| らでぃっしゅぼーや | 食材宅配 | `[ラディッシュボーヤ]` | `[ラディッシュボーヤ_table]` | lp-radishbo-ya | https://px.a8.net/svt/ejp?a8mat=4AV10K+4GRBDE+1YGO+1ZMNSH |
+| Dr.ツルガメキッチン | 冷凍弁当 | `[Dr.ツルガメキッチン]` | `[Dr.ツルガメキッチン_table]` | lp-tsurukame-kitchen | https://px.a8.net/svt/ejp?a8mat=4AV10L+69NKB6+48GW+5ZMCH |
+| 宅配弁当Meals | 冷凍弁当 | `[Meals]` | `[Meals_table]` | lp-meals | https://px.a8.net/svt/ejp?a8mat=4AV10L+64ANV6+53KW+601S1 |
+| 宅配弁当のタイヘイ | 冷凍弁当 | `[タイヘイ]` | `[タイヘイ_table]` | lp-taihei | https://px.a8.net/svt/ejp?a8mat=4AV10L+4J51SI+4OFW+5Z6WY |
+| ワタミの宅食 | 冷凍弁当 | `[ワタミ]` | `[ワタミ_table]` | lp-watami-takushoku | https://px.a8.net/svt/ejp?a8mat=4AV10L+8HFNDE+4YX4+62MDD |
+| 筋肉食堂DELI | 冷凍弁当 | `[筋肉食堂DELI]` | `[筋肉食堂DELI_table]` | lp-kinnikushokudo | https://px.a8.net/svt/ejp?a8mat=4AVBW6+ECSJ4I+4R6I+5YRHE |
+| ワタミの宅食ダイレクト | 冷凍弁当 | `[watamidirect]` | `[watamidirect_table]` | lp-watami-direct | https://px.a8.net/svt/ejp?a8mat=4AV10L+4FKG5U+3YYE+BXIYP |
+| ライフミール | 冷凍弁当 | `[lifemeal]` | `[lifemeal_table]` | lp-life-meal | https://px.a8.net/svt/ejp?a8mat=4B1MHP+4A7JPU+5U5U+5Z6WX |
+| ウェルネスダイニング（やわらかダイニング） | 冷凍弁当 | `[wellness-dining]` | `[wellness-dining_table]` | lp-wellness-dining | https://px.a8.net/svt/ejp?a8mat=4B1XE2+3ZHQTU+30S4+BY641 |
+| 坂ノ途中 お野菜セット定期宅配 | 食材宅配 | `[sakanototyu_vegetable]` | `[sakanototyu_vegetable_table]` | — | https://px.a8.net/svt/ejp?a8mat=4AXKC9+A36P1U+3QQK+5Z6WY |
+| ツクリオ | 宅配弁当 | `[tsukurio]` | `[tsukurio_table]` | — | https://px.a8.net/svt/ejp?a8mat=4B1MHP+78S502+59UQ+65ME9 |
+| マッスルデリ（Muscle Deli） | 冷凍弁当 | `[MuscleDeli]` | `[MuscleDeli_table]` | — | https://px.a8.net/svt/ejp?a8mat=4AV10L+6P4U1E+4CPY+5YRHE |
+| DELIPICKS | 冷凍弁当 | `[DELIPICKS]` | `[DELIPICKS_table]` | — | https://t.afi-b.com/visit.php?a=613560P-N449760f&p=O982170a |
+| GreenBeans | 食材・日用品宅配 | `[GreenBeans]` | `[GreenBeans_table]` | — | 未確定（定期申請中・差し替え前提） |
+| パルシステム | 食材・日用品宅配 | `[palsystem]` | `[palsystem_table]` | — | https://px.a8.net/svt/ejp?a8mat=4AZA43+A4NBM+HS+U3OCH |
+| 食のそよ風 | 冷凍弁当 | `[shokunosoyokaze]` | `[shokunosoyokaze_table]` | — | https://px.a8.net/svt/ejp?a8mat=4AV10L+5WK102+5JJC+5YJRM |
+| ニチレイフーズ（お試し） | 冷凍弁当 | `[nitireifoods]` | `[nitireifoods_table]` | — | https://px.a8.net/svt/ejp?a8mat=4AV10L+8G8MRE+4SIA+5Z6WX |
+
+> LP列は `https://www.super-yamadai.co.jp/article/` 配下のスラッグ。`—` はLP未指定。
+> コープデリは「お試し」案件のショートコードのみ登録（`[コープデリ]`）。
+> カテゴリ別の基本ランキングは `appeal-ranking.md` を参照。
 
 **注意:**
 - Post Snippetsに未登録のサービスは[btn]ショートコードを使用
@@ -51,6 +100,15 @@
 | 筋肉食堂DELI | `[筋肉食堂DELI_table]` |
 | ワタミの宅食ダイレクト | `[watamidirect_table]` |
 | ライフミール（lifemeal） | `[lifemeal_table]` |
+| ウェルネスダイニング（やわらかダイニング） | `[wellness-dining_table]` |
+| 坂ノ途中 お野菜セット定期宅配 | `[sakanototyu_vegetable_table]` |
+| ツクリオ | `[tsukurio_table]` |
+| マッスルデリ（Muscle Deli） | `[MuscleDeli_table]` |
+| DELIPICKS | `[DELIPICKS_table]` |
+| GreenBeans（グリーンビーンズ） | `[GreenBeans_table]` |
+| パルシステム | `[palsystem_table]` |
+| 食のそよ風 | `[shokunosoyokaze_table]` |
+| ニチレイフーズ（お試し） | `[nitireifoods_table]` |
 
 #### 使用例
 
@@ -67,7 +125,7 @@
 
 #### 注意
 
-- 上記リストに**ない**サービス（オイシエ・nosh・三ツ星ファーム・ニチレイフーズダイレクト・まごころケア食・食宅便・わんまいる・食のそよ風など）は画像＋テーブルを直書きする（service-info.md からコピペ）
+- 上記リストに**ない**サービス（オイシエ・nosh・三ツ星ファーム・まごころケア食・食宅便・わんまいる など）は画像＋テーブルを直書きする（service-info.md からコピペ）
 - まごころケア食は株式会社シルバーライフが運営するが、`[lifemeal_table]` は**別ブランド「ライフミール」用**。まごころケア食には適用しない
 - ライフミール（lifemeal）はシルバーライフの20〜30代向け新ブランド
 
@@ -85,9 +143,9 @@
 | rel | `nofollow` | 必須。省略不可 |
 | テキスト | 「○○の公式サイトはこちら」 | 統一形式 |
 
-記述例:
+記述例（[btn]はPost Snippets未登録サービスのみ。パルシステム・食のそよ風・ニチレイ等は専用ショートコードに移行済み）:
 ```
-[btn href="https://www.pal-system.co.jp/" class="raised main-bc strong" target="_blank" rel="nofollow"]パルシステムの公式サイトはこちら[/btn]
+[btn href="https://magokoro-care-shoku.com/" class="raised main-bc strong" target="_blank" rel="nofollow"]まごころケア食の公式サイトはこちら[/btn]
 ```
 
 ## 4. CTA配置ルール

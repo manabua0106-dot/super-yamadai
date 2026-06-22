@@ -210,7 +210,7 @@
 <img class="size-full wp-image-228 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2026/03/watami-takushoku-direct.jpg" alt="" width="800" height="389" />
 ```
 
-**CTA:** `[ワタミダイレクト]`
+**CTA:** `[watamidirect]`
 **strong 1文目の方向性:** 1食360円から注文できる低価格帯の冷凍宅配弁当
 **比較テーブル用単価:** 360円〜
 
@@ -307,6 +307,8 @@
 
 ### 11. ニチレイフーズダイレクト
 
+**【画像＋Table一括】**: `[nitireifoods_table]` ← H3直下にこの1行のみ配置（テーブル・画像直書き禁止）
+
 **テーブルHTML（コピペ用）:**
 ```html
 <table style="width: 100%;">
@@ -325,10 +327,7 @@
 <img class="size-full wp-image-249 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2026/03/nichirei.jpg" alt="" width="800" height="534" />
 ```
 
-**CTA:**
-```
-[btn href="https://wellness.nichirei.co.jp/" class="raised main-bc strong" target="_blank" rel="nofollow"]ニチレイフーズダイレクトの公式サイトはこちら[/btn]
-```
+**CTA:** `[nitireifoods]`（2026-06 Post Snippets登録済み・旧[btn]／アフィリ元 a8）
 
 **比較テーブル用単価:** 800円〜
 
@@ -365,6 +364,8 @@
 
 ### 13. ウェルネスダイニング
 
+**【画像＋Table一括】**: `[wellness-dining_table]` ← H3直下にこの1行のみ配置（テーブル・画像直書き禁止）
+
 **テーブルHTML（コピペ用）:**
 ```html
 <table style="width: 100%;">
@@ -383,10 +384,7 @@
 <img class="size-full wp-image-125 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2026/02/wellness-dining.jpg" alt="" width="800" height="399" />
 ```
 
-**CTA:**
-```
-[btn href="https://www.wellness-dining.com/" class="raised main-bc strong" target="_blank" rel="nofollow"]ウェルネスダイニングの公式サイトはこちら[/btn]
-```
+**CTA:** `[wellness-dining]`（2026-06 Post Snippets登録済み・旧[btn]／アフィリ元 a8。【たんぱく質】【やわらか宅食】とも同一ショートコード）
 
 **比較テーブル用単価:** 約705円〜
 
@@ -424,6 +422,8 @@
 
 ### 15. 食のそよ風
 
+**【画像＋Table一括】**: `[shokunosoyokaze_table]` ← H3直下にこの1行のみ配置（テーブル・画像直書き禁止）
+
 **テーブルHTML（コピペ用）:**
 ```html
 <table style="width: 100%;">
@@ -442,10 +442,7 @@
 <img class="size-full wp-image-260 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2025/01/shokunosoyokaze.jpg" alt="" width="800" height="533" />
 ```
 
-**CTA:**
-```
-[btn href="https://shokunosoyokaze.com/" class="raised main-bc strong" target="_blank" rel="nofollow"]食のそよ風の公式サイトはこちら[/btn]
-```
+**CTA:** `[shokunosoyokaze]`（2026-06 Post Snippets登録済み・旧[btn]／アフィリ元 a8）
 
 **比較テーブル用単価:** 475円〜
 **特記:** 3シリーズ（プチデリカ475円〜、国産プレミアム748円〜、そよ風のやさしい食感718円〜）、賞味期限約1年
@@ -568,6 +565,8 @@
 
 ### 20. パルシステム【非訴求・食材宅配】
 
+**【画像＋Table一括】**: `[palsystem_table]` ← H3直下にこの1行のみ配置（テーブル・画像直書き禁止）
+
 **テーブルHTML（コピペ用）:**
 ```html
 <table style="width: 100%;">
@@ -583,10 +582,7 @@
 
 **画像HTML:** 未準備
 
-**CTA:**
-```
-[btn href="https://www.pal-system.co.jp/" class="raised main-bc strong" target="_blank" rel="nofollow"]パルシステムの公式サイトはこちら[/btn]
-```
+**CTA:** `[palsystem]`（2026-06 Post Snippets登録済み・旧[btn]／アフィリ元 a8）
 
 **strong 1文目の方向性:** 産直食材を中心に約500種類以上のお料理セットを扱う生協の食材宅配サービス
 **比較テーブル用単価:** 1人前300円台〜
@@ -731,3 +727,53 @@
 **strong 1文目の方向性:** ワタミが運営する3〜10歳の子供向けに開発されたミールキット
 **比較テーブル用単価:** 公式サイトで要確認
 **特記:** 子供の完食を目指したメニュー設計、3〜10歳の試食活動で改善を重ねたメニュー、2人用・3人用のみ（4人前なし）。「お子さま回鍋肉」等の子供向け献立
+
+---
+
+### 26. ココノミ（Coconomi）【非訴求・食材宅配】
+
+**追加日:** 2026-05-17
+**情報取得日:** 2026年5月（公式サイト・第三者レビュー記事より）
+**注記:** ココノミはミールキット主体ではなく、テロワール野菜・無農薬野菜・無添加食品を中心とした単品食材宅配サービス。ミールキットメニューの常設有無は公式サイトで要確認。
+
+**テーブルHTML（コピペ用）:**
+```html
+<table style="width: 100%;">
+<tbody>
+<tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">株式会社ココノミ（株式会社マリモホールディングスのグループ会社・本社:兵庫県神戸市中央区）</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">初回「12種類の野菜選べるセット」2,138円(税込)・送料無料。2回目以降は6,300円以上の注文で送料無料(冷蔵品含む場合は追加料金あり・詳細は公式サイトで要確認)</td></tr>
+<tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">関東・中部・関西・中四国・福岡県(北海道〜東北、九州〜沖縄の一部は配送対象外)</td></tr>
+<tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">毎週土曜日配送(注文締切は毎週木曜日10:00)。時間帯指定可</td></tr>
+<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">初回「12種類の野菜選べるセット」(食べ比べ野菜3組+選べる野菜6種類)2,138円(税込)・送料無料</td></tr>
+</tbody>
+</table>
+```
+
+**画像HTML:** 未準備
+
+**CTA:**
+```
+[btn href="https://coconomi.shop/" class="raised main-bc strong" target="_blank" rel="nofollow"]ココノミの公式サイトはこちら[/btn]
+```
+
+**strong 1文目の方向性:** 無農薬・無化学肥料のテロワール野菜を中心に取り扱う食材宅配サービス(ミールキット主体ではないため、ミールキットの代替として野菜+レシピで自炊する方向け)
+**比較テーブル用単価:** 公式サイトで要確認
+**特記:** 個人の好みを学習する「ココノミリクエスト」機能あり。野菜はすべて無農薬、加工品・日配品は無添加。ミールキットメニューの常設有無は公式サイトで要確認のため、3人家族向け記事では「ミールキット代替の素材重視サービス」として紹介
+
+═══════════════════════════════════════════
+
+# ショートコードのみ登録済み（詳細データ未登録）
+
+**追加日:** 2026-06-22
+
+下記は2026-06に送客用ショートコードが登録され、`appeal-ranking.md` の基本ランキングに登場するが、**このファイルに料金・送料・テーブル等の詳細データが未登録**のサービス。
+記事で詳しく扱う場合は、先に各社公式サイトで実データを確認し、5行テーブル付きで正式エントリを追記する（**推測で数値を書かない**）。
+
+| サービス | CTAショートコード | _tableショートコード | カテゴリ | 備考 |
+|---|---|---|---|---|
+| ライフミール | `[lifemeal]` | `[lifemeal_table]` | 冷凍弁当 | シルバーライフの20〜30代向けブランド（まごころケア食=#12とは別） |
+| DELIPICKS | `[DELIPICKS]` | `[DELIPICKS_table]` | 冷凍弁当 | afb案件 |
+| ツクリオ | `[tsukurio]` | `[tsukurio_table]` | 宅配弁当 | |
+| マッスルデリ（Muscle Deli） | `[MuscleDeli]` | `[MuscleDeli_table]` | 冷凍弁当 | |
+| 坂ノ途中 お野菜セット定期宅配 | `[sakanototyu_vegetable]` | `[sakanototyu_vegetable_table]` | 食材宅配 | |
+| GreenBeans（グリーンビーンズ） | `[GreenBeans]` | `[GreenBeans_table]` | 食材・日用品宅配 | 定期申請中でアフィリンク未確定。Post Snippet作成済み・差し替え前提で送客に使用可 |

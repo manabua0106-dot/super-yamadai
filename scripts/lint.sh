@@ -24,20 +24,20 @@ set -uo pipefail
 FILE="$1"
 if [[ ! -f "$FILE" ]]; then echo "ERROR: ファイルが見つかりません: $FILE"; exit 1; fi
 
-# === カウンター: 一時ファイルベース（サブシェル対策） ===
+# === カウンター: 追記式（サブシェル対策・macOS bash 3.x対応） ===
 ERR_FILE=$(mktemp)
 WARN_FILE=$(mktemp)
-echo 0 > "$ERR_FILE"
-echo 0 > "$WARN_FILE"
+: > "$ERR_FILE"
+: > "$WARN_FILE"
 trap "rm -f $ERR_FILE $WARN_FILE" EXIT
 
 error() {
   echo "ERROR: $1"
-  echo $(( $(cat "$ERR_FILE") + 1 )) > "$ERR_FILE"
+  echo "E" >> "$ERR_FILE"
 }
 warning() {
   echo "WARNING: $1"
-  echo $(( $(cat "$WARN_FILE") + 1 )) > "$WARN_FILE"
+  echo "W" >> "$WARN_FILE"
 }
 
 echo "=== lint.sh v3.0 ヤマダイ記事チェック ==="
@@ -208,11 +208,15 @@ grep -n "質問[0-9]\|Q[0-9]" "$FILE" | while read -r l; do error "FAQ番号: $l
 # ============================================
 echo ""
 echo "--- カテゴリA：硬い漢語・読者に伝わらない表現 ---"
-for P in "実質単価" "実質[0-9]" "圧迫" "ぎゅうぎゅう" "占有" "家庭の食材" "タイプ別の" "観点別の" "ポイント別の" "用途別の" "選択型" "コース型" "設定です" "仕組みで" "仕組みです" "構成で" "構成です" "手がけ" "手掛け" "揃えてい" "揃えた" "ノウハウ" "知見" "休息" "事態" "均等化" "リラックスの機会" "落とし穴" "最大の特徴は"; do
+for P in "実質単価" "実質[0-9]" "圧迫" "ぎゅうぎゅう" "占有" "家庭の食材" "タイプ別の" "観点別の" "ポイント別の" "用途別の" "選択型" "コース型" "設定です" "仕組みで" "仕組みです" "構成で" "構成です" "手がけ" "手掛け" "揃えてい" "揃えた" "ノウハウ" "知見" "休息" "事態" "均等化" "リラックスの機会" "落とし穴" "最大の特徴は" "解放" "備え" "左右"; do
   grep -n "$P" "$FILE" | while read -r l; do error "カテゴリA「$P」: $l"; done || true
 done
 # 「設計です」は「献立設計」を除いて検出
 grep -n "設計です" "$FILE" | grep -v "献立設計" | while read -r l; do error "カテゴリA「設計です」: $l"; done || true
+# 「有無」はテーブル行を除いて検出
+grep -n "有無" "$FILE" | grep -v "<th\|<td" | while read -r l; do error "カテゴリA「有無」: $l"; done || true
+# 「よね」（〜ですよね・〜ますよね）
+grep -n "よね[。、]" "$FILE" | while read -r l; do error "「よね」禁止: $l"; done || true
 
 # ============================================
 # 21. ヤマダイ固有 - テーブル5行チェック
@@ -245,7 +249,7 @@ done < "$FILE"
 # ============================================
 echo ""
 echo "--- _tableショートコード未使用検出 ---"
-for SC in '\[Oisix\]' '\[ヨシケイ\]' '\[ラディッシュボーヤ\]' '\[コープデリ\]' '\[Dr\.ツルガメキッチン\]' '\[筋肉食堂DELI\]' '\[ワタミダイレクト\]' '\[Meals\]' '\[タイヘイ\]' '\[ワタミ\]'; do
+for SC in '\[Oisix\]' '\[ヨシケイ\]' '\[ラディッシュボーヤ\]' '\[コープデリ\]' '\[Dr\.ツルガメキッチン\]' '\[筋肉食堂DELI\]' '\[watamidirect\]' '\[Meals\]' '\[タイヘイ\]' '\[ワタミ\]'; do
   SC_NAME=$(echo "$SC" | tr -d '\\[]')
   CTA_LINE=$(grep -n "$SC" "$FILE" | head -1 | cut -d: -f1)
   if [[ -n "$CTA_LINE" && "$CTA_LINE" -gt 5 ]]; then
@@ -265,7 +269,7 @@ done
 # ============================================
 # 22. 訴求社CTA直前のstrong価格訴求文チェック
 # ============================================
-for SC in '\[Oisix\]' '\[ヨシケイ\]' '\[ラディッシュボーヤ\]' '\[コープデリ\]' '\[Dr\.ツルガメキッチン\]' '\[筋肉食堂DELI\]' '\[ワタミダイレクト\]' '\[Meals\]' '\[タイヘイ\]' '\[ワタミ\]'; do
+for SC in '\[Oisix\]' '\[ヨシケイ\]' '\[ラディッシュボーヤ\]' '\[コープデリ\]' '\[Dr\.ツルガメキッチン\]' '\[筋肉食堂DELI\]' '\[watamidirect\]' '\[Meals\]' '\[タイヘイ\]' '\[ワタミ\]'; do
   SC_LINE=$(grep -n "$SC" "$FILE" | head -1 | cut -d: -f1 2>/dev/null || echo 0)
   if [[ "$SC_LINE" -gt 2 ]]; then
     PREV_LINE=$((SC_LINE - 1))
@@ -380,6 +384,45 @@ grep -nE "[0-9]+(円|食|人|%|万|件|年|ヶ月|か月|%OFF)" "$FILE" | grep -
 done || true
 
 # ============================================
+# 30b. ul前の誘導文チェック（2026-05新規）
+# ============================================
+echo ""
+echo "--- ul前の誘導文チェック ---"
+PREV_LINE_CONTENT=""
+LINE_NUM=0
+while IFS= read -r line; do
+  ((LINE_NUM++))
+  if echo "$line" | grep -q "^<ul>"; then
+    CLEAN_PREV=$(echo "$PREV_LINE_CONTENT" | sed 's/^[[:space:]]*//')
+    if [[ -z "$CLEAN_PREV" || "$CLEAN_PREV" == "" ]]; then
+      error "ul前に誘導文がない: ${LINE_NUM}行目（<ul>の直前が空行）"
+    fi
+  fi
+  PREV_LINE_CONTENT="$line"
+done < "$FILE"
+
+# ============================================
+# 30c. strong締めの品質チェック（2026-05新規）
+# ============================================
+echo ""
+echo "--- strong締めの品質チェック ---"
+for P in "公式サイトで確認してから申し込めば" "想定外の出費を避けられます" "安心して利用できます" "後悔せずに済みます" "不満が残らずに済みます" "失敗を防げます。</strong>"; do
+  grep -n "$P" "$FILE" | while read -r l; do warning "情報ゼロのstrong締め候補: $l"; done || true
+done
+
+# ============================================
+# 30d. 誘導文の重複チェック（2026-05新規）
+# ============================================
+echo ""
+echo "--- 誘導文の重複チェック ---"
+for P in "まとめました" "次の通りです" "以下の通りです" "下記の通りです"; do
+  COUNT=$(grep -c "$P" "$FILE" || echo 0)
+  if [[ "$COUNT" -ge 3 ]]; then
+    warning "誘導文「${P}」が${COUNT}回出現（3回以上は分散させる）"
+  fi
+done
+
+# ============================================
 # 31. H2情報
 # ============================================
 H2_COUNT=$(grep -c "<h2>" "$FILE" || echo 0)
@@ -392,7 +435,8 @@ echo "  H2数: ${H2_COUNT} / imgタグ数: ${IMG_COUNT}"
 echo ""
 echo "--- 頻出表現チェック ---"
 for PHRASE in "に合わせて選べます" "に向いています" "で安心" "が魅力です" "に定評があります" "を楽しめます" "が特徴です" "で届きます" "気軽に始められます"; do
-  COUNT=$(grep -c "$PHRASE" "$FILE" || echo 0)
+  COUNT=$(grep -c "$PHRASE" "$FILE" 2>/dev/null || true)
+  COUNT=${COUNT:-0}; COUNT=$(echo "$COUNT" | head -1 | tr -d '[:space:]')
   if [[ "$COUNT" -ge 3 ]]; then
     warning "「${PHRASE}」が${COUNT}回出現（3回以上は分散させる）"
   fi
@@ -400,7 +444,8 @@ done
 
 # 条件付き許容レイヤー7-B（3回以上で警告）
 for PHRASE in "あらゆる" "効率的に" "効率的な" "効果的に" "効果的な" "トータルで"; do
-  COUNT=$(grep -c "$PHRASE" "$FILE" || echo 0)
+  COUNT=$(grep -c "$PHRASE" "$FILE" 2>/dev/null || true)
+  COUNT=${COUNT:-0}; COUNT=$(echo "$COUNT" | head -1 | tr -d '[:space:]')
   if [[ "$COUNT" -ge 3 ]]; then
     warning "「${PHRASE}」が${COUNT}回出現（条件付き許容・3回以上で警告）"
   fi
@@ -411,9 +456,12 @@ done
 # ============================================
 echo ""
 echo "--- 書き出しパターンチェック ---"
-PATTERN_A=$(grep -c "宅配弁当です。</strong>" "$FILE" || echo 0)
-PATTERN_B=$(grep -c "サービスです。</strong>" "$FILE" || echo 0)
-TOTAL_SERVICES=$(grep -c '<h3 id=' "$FILE" || echo 0)
+PATTERN_A=$(grep -c "宅配弁当です。</strong>" "$FILE" 2>/dev/null || echo 0)
+PATTERN_A=$(echo "$PATTERN_A" | head -1 | tr -d '[:space:]'); PATTERN_A=${PATTERN_A:-0}
+PATTERN_B=$(grep -c "サービスです。</strong>" "$FILE" 2>/dev/null || echo 0)
+PATTERN_B=$(echo "$PATTERN_B" | head -1 | tr -d '[:space:]'); PATTERN_B=${PATTERN_B:-0}
+TOTAL_SERVICES=$(grep -c '<h3 id=' "$FILE" 2>/dev/null || echo 0)
+TOTAL_SERVICES=$(echo "$TOTAL_SERVICES" | head -1 | tr -d '[:space:]'); TOTAL_SERVICES=${TOTAL_SERVICES:-0}
 if [[ "$TOTAL_SERVICES" -gt 0 ]]; then
   DOMINANT=$(( PATTERN_A > PATTERN_B ? PATTERN_A : PATTERN_B ))
   RATIO=$(( DOMINANT * 100 / TOTAL_SERVICES ))
@@ -428,9 +476,12 @@ fi
 # ============================================
 echo ""
 echo "--- strong締めパターンチェック ---"
-STRONG_FUSEGE=$(grep -c "防げます。</strong>" "$FILE" || echo 0)
-STRONG_DEKI=$(grep -c "できます。</strong>" "$FILE" || echo 0)
-STRONG_NARI=$(grep -c "なります。</strong>" "$FILE" || echo 0)
+STRONG_FUSEGE=$(grep -c "防げます。</strong>" "$FILE" 2>/dev/null || echo 0)
+STRONG_FUSEGE=$(echo "$STRONG_FUSEGE" | head -1 | tr -d '[:space:]'); STRONG_FUSEGE=${STRONG_FUSEGE:-0}
+STRONG_DEKI=$(grep -c "できます。</strong>" "$FILE" 2>/dev/null || echo 0)
+STRONG_DEKI=$(echo "$STRONG_DEKI" | head -1 | tr -d '[:space:]'); STRONG_DEKI=${STRONG_DEKI:-0}
+STRONG_NARI=$(grep -c "なります。</strong>" "$FILE" 2>/dev/null || echo 0)
+STRONG_NARI=$(echo "$STRONG_NARI" | head -1 | tr -d '[:space:]'); STRONG_NARI=${STRONG_NARI:-0}
 for PAT in "防げます:$STRONG_FUSEGE" "できます:$STRONG_DEKI" "なります:$STRONG_NARI"; do
   NAME="${PAT%%:*}"; CNT="${PAT##*:}"
   if [[ "$CNT" -ge 3 ]]; then
@@ -449,7 +500,8 @@ SERVICE_H3=$({ grep -c '<h3 id=' "$FILE" 2>/dev/null || echo 0; } | head -1 | tr
 TOTAL_H3=${TOTAL_H3:-0}
 SERVICE_H3=${SERVICE_H3:-0}
 CONTENT_H3=$(( TOTAL_H3 - SERVICE_H3 ))
-UL_COUNT=$(grep -c "<ul>" "$FILE" || echo 0)
+UL_COUNT=$(grep -c "<ul>" "$FILE" 2>/dev/null || echo 0)
+UL_COUNT=$(echo "$UL_COUNT" | head -1 | tr -d '[:space:]'); UL_COUNT=${UL_COUNT:-0}
 if [[ "$CONTENT_H3" -gt 0 && "$UL_COUNT" -eq 0 ]]; then
   warning "選び方・メリット・注意点のH3に箇条書き(ul)が1つもない。8割のH3にul or テーブルを入れる"
 fi
@@ -459,8 +511,8 @@ echo "  コンテンツH3数: ${CONTENT_H3} / ul数: ${UL_COUNT}"
 # 結果サマリー
 # ============================================
 echo ""
-FINAL_ERRORS=$(cat "$ERR_FILE")
-FINAL_WARNINGS=$(cat "$WARN_FILE")
+FINAL_ERRORS=$(wc -l < "$ERR_FILE" | tr -d ' ')
+FINAL_WARNINGS=$(wc -l < "$WARN_FILE" | tr -d ' ')
 echo "=== 結果: ERROR ${FINAL_ERRORS}件 / WARNING ${FINAL_WARNINGS}件 ==="
 if [[ "$FINAL_ERRORS" -gt 0 ]]; then
   echo "→ ERRORが${FINAL_ERRORS}件あります。修正してから次のステップに進んでください。"
