@@ -1,0 +1,76 @@
+=== lint.sh v3.0 ヤマダイ記事チェック ===
+対象: articles/らでぃっしゅぼーや 口コミ/article.html
+
+--- 表記揺れ ---
+--- AI表現 レイヤー2 ---
+--- AI表現 レイヤー4（文末・文型定型） ---
+--- AI表現 レイヤー5（導入・結論定型） ---
+--- AI表現 レイヤー6（訴求・推奨） ---
+--- AI表現 レイヤー7-A（抽象形容詞） ---
+--- AI表現 レイヤー9（比喩・イディオム拡張） ---
+--- AI表現 レイヤー11（視点・観点） ---
+--- AI表現 レイヤー12（列挙・構造化） ---
+--- AI表現 レイヤー14（背中押し） ---
+--- AI臭いナンバリング ---
+--- 比喩表現 ---
+--- 冗長表現 ---
+--- 指示語 ---
+--- 記号・HTML ---
+grep: invalid option -- P
+usage: grep [-abcdDEFGHhIiJLlMmnOopqRSsUVvwXxZz] [-A num] [-B num] [-C[num]]
+	[-e pattern] [-f file] [--binary-files=value] [--color=when]
+	[--context[=num]] [--directories=action] [--label] [--line-buffered]
+	[--null] [pattern] [file ...]
+--- CTA ---
+--- 追加NG ---
+
+--- カテゴリA：硬い漢語・読者に伝わらない表現 ---
+
+--- ヤマダイ固有チェック ---
+
+--- _tableショートコード未使用検出 ---
+
+--- サービス紹介H3の_table / ジャンプリンク ---
+
+--- 1文60字チェック（v4.0新規） ---
+
+--- 法令セーフ変換チェック（v4.0新規） ---
+WARNING: 「送料無料」に条件併記がない可能性: 290:<strong>初回限定のふぞろい食材おためしセットは、1,980円（税込・全国送料無料）で試せます。</strong>
+WARNING: 「送料無料」に条件併記がない可能性: 363:<strong>初回限定のおためしセットは1,980円（税込・送料無料）で試せます。</strong>
+
+--- 出典URL併記チェック（v4.0新規） ---
+WARNING: 数値に出典URL併記がない可能性: 58:<cite>— キーぬ。（@miyukine）2025年11月2日のXより
+WARNING: 数値に出典URL併記がない可能性: 99:<cite>— 渦巻 by Uzumaki（@uzumaki_628）2023年9月10日のXより
+WARNING: 数値に出典URL併記がない可能性: 124:<cite>— マカリン（@0804makarin1）2023年5月10日のXより
+WARNING: 数値に出典URL併記がない可能性: 290:<strong>初回限定のふぞろい食材おためしセットは、1,980円（税込・全国送料無料）で試せます。</strong>
+WARNING: 数値に出典URL併記がない可能性: 325:年会費は通常で税込1,100円です。
+WARNING: 数値に出典URL併記がない可能性: 327:お試し経由で入会すると初年度は無料になり、2年目以降は1,100円がかかります。
+WARNING: 数値に出典URL併記がない可能性: 363:<strong>初回限定のおためしセットは1,980円（税込・送料無料）で試せます。</strong>
+WARNING: 数値に出典URL併記がない可能性: 367:※掲載順はランキングではありません。記事内の価格は2026年6月時点の税込価格です。
+
+--- ul前の誘導文チェック ---
+
+--- strong締めの品質チェック ---
+
+--- 誘導文の重複チェック ---
+scripts/lint.sh: line 437: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 437: [[: 0
+0: syntax error in expression (error token is "0")
+scripts/lint.sh: line 437: [[: 0
+0: syntax error in expression (error token is "0")
+  H2数: 8 / imgタグ数: 0
+0
+
+--- 頻出表現チェック ---
+
+--- 書き出しパターンチェック ---
+
+--- strong締めパターンチェック ---
+  strong締め「〜防げます」: 0 / 「〜できます」: 1 / 「〜なります」: 0
+
+--- H3の箇条書き/テーブル率チェック ---
+  コンテンツH3数: 18 / ul数: 5
+
+=== 結果: ERROR 0件 / WARNING 10件 ===
+→ パス。
