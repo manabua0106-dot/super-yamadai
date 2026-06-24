@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // .tool_response.filePath' | { read -r f; if echo \"$f\" | grep -q 'articles/.*\\.html$'; then RESULT=$(bash scripts/lint.sh \"$f\" 2>&1); ERRORS=$(echo \"$RESULT\" | grep -c '^ERROR' || true); WARNINGS=$(echo \"$RESULT\" | grep -c '^WARNING' || true); SUMMARY=$(echo \"$RESULT\" | tail -3); if [ \"$ERRORS\" -gt 0 ]; then ERROR_LINES=$(echo \"$RESULT\" | grep '^ERROR'); printf '{\"decision\":\"block\",\"reason\":\"lint.sh ERROR %s件検出。修正してください。\",\"hookSpecificOutput\":{\"hookEventName\":\"PostToolUse\",\"additionalContext\":\"lint.sh ERROR検出:\\n%s\\n\\nサマリー:\\n%s\"}}' \"$ERRORS\" \"$ERROR_LINES\" \"$SUMMARY\"; else printf '{\"hookSpecificOutput\":{\"hookEventName\":\"PostToolUse\",\"additionalContext\":\"lint.sh結果: ERROR 0件 / WARNING %s件 → パス\"}}' \"$WARNINGS\"; fi; else echo '{}'; fi; }",
+            "timeout": 120,
+            "statusMessage": "lint.sh で記事チェック中..."
+          }
+        ]
+      }
+    ]
+  }
+}

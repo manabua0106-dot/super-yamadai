@@ -1,0 +1,155 @@
+=== lint.sh v3.0 ヤマダイ記事チェック ===
+対象: /Users/manasimac/Projects/super-yamadai/articles/mealkit-4nin-kazoku-article.html
+
+--- 表記揺れ ---
+--- AI表現 レイヤー2 ---
+--- AI表現 レイヤー4（文末・文型定型） ---
+ERROR: レイヤー4「ためです。」: 435:送料が2倍かかったり、まとめ買い割引が適用されなかったりするためです。
+--- AI表現 レイヤー5（導入・結論定型） ---
+--- AI表現 レイヤー6（訴求・推奨） ---
+ERROR: レイヤー6「を実現」: 155:<strong>4人前対応のコースが複数そろうヨシケイは、自社便で宅配費用無料を実現した食材宅配サービスです。</strong>
+--- AI表現 レイヤー7-A（抽象形容詞） ---
+--- AI表現 レイヤー9（比喩・イディオム拡張） ---
+--- AI表現 レイヤー11（視点・観点） ---
+--- AI表現 レイヤー12（列挙・構造化） ---
+--- AI表現 レイヤー14（背中押し） ---
+--- AI臭いナンバリング ---
+ERROR: AI臭いナンバリング: 405:ここでは4人家族でミールキットを利用するときに気をつけたい3つの注意点を解説します。
+--- 比喩表現 ---
+--- 冗長表現 ---
+--- 指示語 ---
+--- 記号・HTML ---
+grep: invalid option -- P
+usage: grep [-abcdDEFGHhIiJLlMmnOopqRSsUVvwXxZz] [-A num] [-B num] [-C[num]]
+	[-e pattern] [-f file] [--binary-files=value] [--color=when]
+	[--context[=num]] [--directories=action] [--label] [--line-buffered]
+	[--null] [pattern] [file ...]
+--- CTA ---
+--- 追加NG ---
+
+--- ヤマダイ固有チェック ---
+WARNING: 訴求社CTA [Oisix] の直前にstrong価格訴求文がない（141行目付近）
+WARNING: 訴求社CTA [ヨシケイ] の直前にstrong価格訴求文がない（165行目付近）
+WARNING: 訴求社CTA [ラディッシュボーヤ] の直前にstrong価格訴求文がない（187行目付近）
+WARNING: 訴求社CTA [コープデリ] の直前にstrong価格訴求文がない（211行目付近）
+
+--- 1文60字チェック（v4.0新規） ---
+
+--- 法令セーフ変換チェック（v4.0新規） ---
+ERROR: 法令セーフ変換未適用「無添加」: 181:契約農家から仕入れた国産野菜を中心に、無添加食材も組み合わせたメニューがそろっています。
+WARNING: 「送料無料」に条件併記がない可能性: 137:<strong>初回1回限りの「Kit Oisixおためしセット」は全国送料無料で申し込めます。</strong>
+
+--- 出典URL併記チェック（v4.0新規） ---
+WARNING: 数値に出典URL併記がない可能性: 1:ミールキットは、4人家族の平日の夕食準備にかかる時間と献立決めの負担を減らしてくれる食材宅配サービスです。
+WARNING: 数値に出典URL併記がない可能性: 3:とはいえ各社で料金・配送エリア・4人前メニューの有無が異なります。
+WARNING: 数値に出典URL併記がない可能性: 5:比較せずに申し込むと、4人家族に合わないサービスで月の食費が想定より高くなる可能性がありますよね。
+WARNING: 数値に出典URL併記がない可能性: 7:この記事では4人家族におすすめのミールキット10選を比較し、選び方や月の食費の目安を解説します。
+WARNING: 数値に出典URL併記がない可能性: 11:<h2>4人家族向けミールキットの選び方</h2>
+WARNING: 数値に出典URL併記がない可能性: 12:4人家族でミールキットを選ぶときは、4人前メニューの有無や送料込みの実質単価を比較しないと月々の食費が想定外に増えてしまいます。
+WARNING: 数値に出典URL併記がない可能性: 16:ここでは4人家族向けにミールキットを比較するときの4つの基準を解説します。
+WARNING: 数値に出典URL併記がない可能性: 19:<li>4人前メニューや人数の調整に対応しているか</li>
+WARNING: 数値に出典URL併記がない可能性: 20:<li>送料込みの1食あたり単価で比較する</li>
+WARNING: 数値に出典URL併記がない可能性: 25:<h3>4人前メニューや人数の調整に対応しているか</h3>
+WARNING: 数値に出典URL併記がない可能性: 27:4人家族でミールキットを選ぶときは、4人前メニューがあるか人数の調整ができるかを最初に確認してください。
+WARNING: 数値に出典URL併記がない可能性: 29:Oisix・コープデリ・パクモグなどは2〜3人前中心のため、4人家族では2セット注文が必要になります。
+WARNING: 数値に出典URL併記がない可能性: 31:ヨシケイは4人前対応のカットミールやバランスミールが標準でそろっており、ショクブンも2〜10人前まで対応しています。
+WARNING: 数値に出典URL併記がない可能性: 34:<li>標準で4人前メニューがあるか</li>
+WARNING: 数値に出典URL併記がない可能性: 35:<li>2〜3人前を2セット注文した場合の総額</li>
+WARNING: 数値に出典URL併記がない可能性: 42:<h3>送料込みの1食あたり単価で比較する</h3>
+WARNING: 数値に出典URL併記がない可能性: 44:ミールキットの料金を比較するときは、商品代金だけでなく送料・手数料・年会費を合算した1食あたり単価で比べてください。
+WARNING: 数値に出典URL併記がない可能性: 46:商品代金が安くても送料を加えると、4人家族では月数千円の差になります。
+WARNING: 数値に出典URL併記がない可能性: 50:一方でらでぃっしゅぼーやは2年目以降に年会費1,100円(税込)が別途かかります。
+WARNING: 数値に出典URL併記がない可能性: 53:<li>1食あたりの商品代金</li>
+WARNING: 数値に出典URL併記がない可能性: 63:食べ盛りの子供がいる4人家族では、子供が好む味付けや薄味調整のあるミールキットを選ぶと食卓のストレスが減ります。
+WARNING: 数値に出典URL併記がない可能性: 82:ミールキットは食材宅配サービスごとに配送エリアと配達頻度が異なるため、4人家族の生活リズムに合うかを確認してください。
+WARNING: 数値に出典URL併記がない可能性: 99:<h2>4人家族におすすめのミールキット10選</h2>
+WARNING: 数値に出典URL併記がない可能性: 100:ミールキットは食材宅配サービスごとに料金・配送エリア・4人前メニューの有無が大きく異なります。
+WARNING: 数値に出典URL併記がない可能性: 102:比較せずに申し込むと、4人家族に合わないサービスを選んで割高になってしまう可能性がありますよね。
+WARNING: 数値に出典URL併記がない可能性: 104:ここでは4人家族向けに使えるミールキット10選を比較紹介します。
+WARNING: 数値に出典URL併記がない可能性: 155:<strong>4人前対応のコースが複数そろうヨシケイは、自社便で宅配費用無料を実現した食材宅配サービスです。</strong>
+WARNING: 数値に出典URL併記がない可能性: 183:年会費は2年目以降1,100円ですが、初回入会から8週間は配送料が無料になります(注文金額4,500円・税抜以上)。
+WARNING: 数値に出典URL併記がない可能性: 203:デイリーコープでは主菜コース1食885円(税込)、副菜付らくうま2品コース1食1,077円(税込・2人前)から選べます。
+WARNING: 数値に出典URL併記がない可能性: 309:宅配サービス料は3,500円以上の利用で110円、3,500円未満で198円(税込)に抑えられています。
+WARNING: 数値に出典URL併記がない可能性: 329:2人用・3人用の構成のみ(4人前メニューはなし)で、月〜土から好きな曜日を選んで定期注文できます。
+WARNING: 数値に出典URL併記がない可能性: 333:<h2>4人家族がミールキットを利用するメリット</h2>
+WARNING: 数値に出典URL併記がない可能性: 334:4人家族でミールキットを使い始めると、平日の食卓づくりにかかっていた負担が大きく変わります。
+WARNING: 数値に出典URL併記がない可能性: 336:ここでは4人家族がミールキットを利用するメリットを3つ紹介します。
+WARNING: 数値に出典URL併記がない可能性: 346:ミールキットを使うと、4人家族で毎日悩んでいた献立決めや買い物の時間を丸ごとなくせます。
+WARNING: 数値に出典URL併記がない可能性: 364:ミールキットを使うと、4人家族の夕食準備にかかる時間を半分以下に短縮できます。
+WARNING: 数値に出典URL併記がない可能性: 383:ミールキットは1食あたりの料金が決まっているため、4人家族の月の食費を一定額にコントロールできます。
+WARNING: 数値に出典URL併記がない可能性: 387:コープデリのデイリーコープは主菜コース1食885円(税込)から選べます。
+WARNING: 数値に出典URL併記がない可能性: 389:ヨシケイのバランスミールは4人前5日約11,460円(税込・地域により異なる)で注文時に総額が把握できます。
+WARNING: 数値に出典URL併記がない可能性: 392:<li>1食あたりの料金が事前に分かる</li>
+WARNING: 数値に出典URL併記がない可能性: 398:<strong>公式サイトで4人家族の月額利用額を試算してから定期コースを申し込めば、毎月の食費が読みやすくなります。</strong>
+WARNING: 数値に出典URL併記がない可能性: 400:<h2>4人家族がミールキットを利用する際の注意点</h2>
+WARNING: 数値に出典URL併記がない可能性: 401:ミールキットは便利な一方で、4人家族特有の落とし穴がいくつかあります。
+WARNING: 数値に出典URL併記がない可能性: 405:ここでは4人家族でミールキットを利用するときに気をつけたい3つの注意点を解説します。
+WARNING: 数値に出典URL併記がない可能性: 409:<li>2人前×2セットの注文は割高になりやすい</li>
+WARNING: 数値に出典URL併記がない可能性: 415:4人家族のミールキットは、食べ盛りの子供がいると量が足りなく感じる場合があります。
+WARNING: 数値に出典URL併記がない可能性: 417:ミールキットの4人前は大人2人＋子供2人を想定した量が多く、男子高学年や中学生では物足りない可能性があります。
+WARNING: 数値に出典URL併記がない可能性: 419:ヨシケイの4人前カットミールやショクブンの2〜10人前対応コースは、比較的ボリュームを確保しやすい設計です。
+WARNING: 数値に出典URL併記がない可能性: 424:<li>4人前と表記されていても大人2人＋子供2人を想定しているケースがある</li>
+WARNING: 数値に出典URL併記がない可能性: 431:<h3>2人前×2セットの注文は割高になりやすい</h3>
+WARNING: 数値に出典URL併記がない可能性: 433:4人家族で2人前のミールキットを2セット注文すると、4人前メニュー1セットより割高になりやすい点に注意してください。
+WARNING: 数値に出典URL併記がない可能性: 437:コープデリの副菜付らくうま2品コースは1食1,077円(税込・2人前)で、4人家族では2セットで2,154円(税込)です。
+WARNING: 数値に出典URL併記がない可能性: 439:ヨシケイのバランスミール4人前5日約11,460円(税込)と比較しても、月単位で大きな差が出ます。
+WARNING: 数値に出典URL併記がない可能性: 447:<strong>4人前メニューが標準でそろうヨシケイ・ショクブン・パルシステムを優先的に検討すれば、月の食費を抑えやすくなります。</strong>
+WARNING: 数値に出典URL併記がない可能性: 451:ミールキットは決まった曜日に届くため、配送日にトラブルがあると4人家族の夕食が成り立たなくなります。
+WARNING: 数値に出典URL併記がない可能性: 467:<h2>4人家族のミールキットに関するよくある質問</h2>
+WARNING: 数値に出典URL併記がない可能性: 468:4人家族でミールキットを利用する際によくある質問をまとめました。
+WARNING: 数値に出典URL併記がない可能性: 470:<h3>ミールキットと自炊では4人家族でどちらが安いですか？</h3>
+WARNING: 数値に出典URL併記がない可能性: 474:ミールキットは商品代金に調理・献立提案・配送のコストが含まれているため、1食あたり単価は自炊より高めです。
+WARNING: 数値に出典URL併記がない可能性: 478:<h3>4人家族でミールキットを利用すると月の食費はどのくらいかかりますか？</h3>
+WARNING: 数値に出典URL併記がない可能性: 480:サービスとコース内容によりますが、4人家族で平日5日間利用すると月4〜6万円ほどが目安です。
+WARNING: 数値に出典URL併記がない可能性: 482:ヨシケイのバランスミール4人前5日約11,460円(税込)を月20日続けると約45,840円(税込)です。
+WARNING: 数値に出典URL併記がない可能性: 484:コープデリのデイリーコープを主菜コース週5日で利用すれば月17,700円(税込・1食885円)から始められます。
+WARNING: 数値に出典URL併記がない可能性: 488:サービスによりますが、1人前から4〜5人前まで選べるのが一般的です。
+WARNING: 数値に出典URL併記がない可能性: 490:Oisix・コープデリ・パクモグは2〜3人前中心で、ヨシケイ・ショクブンは4人前以上のメニューもそろっています。
+WARNING: 数値に出典URL併記がない可能性: 492:一人暮らし向けの1人前コースは、ヨシケイのLovyu等で対応しています。
+WARNING: 数値に出典URL併記がない可能性: 502:<h2>まとめ：4人家族向けミールキットで平日の食事準備を楽にしよう</h2>
+WARNING: 数値に出典URL併記がない可能性: 503:<strong>4人家族のミールキットは、4人前メニューの有無・送料込みの実質単価・配送エリアの3点で比較するのが選び方の基本です。</strong>
+  H2数: 6 / imgタグ数: 0
+0
+
+--- 頻出表現チェック ---
+/Users/manasimac/Projects/super-yamadai/scripts/lint.sh: line 363: [[: 0
+0: syntax error in expression (error token is "0")
+/Users/manasimac/Projects/super-yamadai/scripts/lint.sh: line 363: [[: 0
+0: syntax error in expression (error token is "0")
+/Users/manasimac/Projects/super-yamadai/scripts/lint.sh: line 363: [[: 0
+0: syntax error in expression (error token is "0")
+/Users/manasimac/Projects/super-yamadai/scripts/lint.sh: line 363: [[: 0
+0: syntax error in expression (error token is "0")
+/Users/manasimac/Projects/super-yamadai/scripts/lint.sh: line 363: [[: 0
+0: syntax error in expression (error token is "0")
+/Users/manasimac/Projects/super-yamadai/scripts/lint.sh: line 363: [[: 0
+0: syntax error in expression (error token is "0")
+/Users/manasimac/Projects/super-yamadai/scripts/lint.sh: line 363: [[: 0
+0: syntax error in expression (error token is "0")
+/Users/manasimac/Projects/super-yamadai/scripts/lint.sh: line 371: [[: 0
+0: syntax error in expression (error token is "0")
+/Users/manasimac/Projects/super-yamadai/scripts/lint.sh: line 371: [[: 0
+0: syntax error in expression (error token is "0")
+/Users/manasimac/Projects/super-yamadai/scripts/lint.sh: line 371: [[: 0
+0: syntax error in expression (error token is "0")
+/Users/manasimac/Projects/super-yamadai/scripts/lint.sh: line 371: [[: 0
+0: syntax error in expression (error token is "0")
+/Users/manasimac/Projects/super-yamadai/scripts/lint.sh: line 371: [[: 0
+0: syntax error in expression (error token is "0")
+/Users/manasimac/Projects/super-yamadai/scripts/lint.sh: line 371: [[: 0
+0: syntax error in expression (error token is "0")
+
+--- 書き出しパターンチェック ---
+/Users/manasimac/Projects/super-yamadai/scripts/lint.sh: line 385: 0
+0: syntax error in expression (error token is "0")
+
+--- strong締めパターンチェック ---
+WARNING: strong締め「〜防げます」が3回（3回以上はバリエーション不足）
+WARNING: strong締め「〜なります」が4回（3回以上はバリエーション不足）
+  strong締め「〜防げます」: 3 / 「〜できます」: 2 / 「〜なります」: 4
+
+--- H3の箇条書き/テーブル率チェック ---
+  コンテンツH3数: 11 / ul数: 10
+
+=== 結果: ERROR 4件 / WARNING 75件 ===
+→ ERRORが4件あります。修正してから次のステップに進んでください。

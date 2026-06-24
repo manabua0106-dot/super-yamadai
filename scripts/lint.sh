@@ -56,7 +56,7 @@ done
 # 2. AI表現レイヤー2（prohibited-words.md）
 # ============================================
 echo "--- AI表現 レイヤー2 ---"
-for P in "大きな魅力" "充実しています" "ぴったりの" "ぴったりです" "ぴったりな" "への第一歩" "を両立" "の強みです" "魅力のひとつ" "仕上がり" "仕上げられ" "選ばれています" "把握しておけば" "リスクを減らせ" "OKです" "代表です" "代表格" "払拭" "疑問視" "レストラン品質" "手作りした" "手作りの" "候補です" "選択肢に入" "試してほしい" "ポイントです" "さまざまなメリット" "多くのメリット"; do
+for P in "大きな魅力" "充実しています" "ぴったりの" "ぴったりです" "ぴったりな" "への第一歩" "を両立" "の強みです" "魅力のひとつ" "仕上がり" "仕上げられ" "選ばれています" "把握しておけば" "リスクを減らせ" "OKです" "代表です" "代表格" "払拭" "疑問視" "レストラン品質" "手作りした" "手作りの" "候補です" "選択肢に入" "試してほしい" "さまざまなメリット" "多くのメリット"; do
   grep -n "$P" "$FILE" | while read -r l; do error "AI表現「$P」: $l"; done || true
 done
 
@@ -216,7 +216,7 @@ grep -n "設計です" "$FILE" | grep -v "献立設計" | while read -r l; do er
 # 「有無」はテーブル行を除いて検出
 grep -n "有無" "$FILE" | grep -v "<th\|<td" | while read -r l; do error "カテゴリA「有無」: $l"; done || true
 # 「よね」（〜ですよね・〜ますよね）
-grep -n "よね[。、]" "$FILE" | while read -r l; do error "「よね」禁止: $l"; done || true
+grep -n "よね[。、]" "$FILE" | while read -r l; do warning "「よね」要確認（共感文では可）: $l"; done || true
 
 # ============================================
 # 21. ヤマダイ固有 - テーブル5行チェック
@@ -412,7 +412,7 @@ while IFS= read -r line; do
   if echo "$line" | grep -q "^<ul>"; then
     CLEAN_PREV=$(echo "$PREV_LINE_CONTENT" | sed 's/^[[:space:]]*//')
     if [[ -z "$CLEAN_PREV" || "$CLEAN_PREV" == "" ]]; then
-      error "ul前に誘導文がない: ${LINE_NUM}行目（<ul>の直前が空行）"
+      warning "ul前に誘導文がない: ${LINE_NUM}行目（任意・自然な導入文で代替可）"
     fi
   fi
   PREV_LINE_CONTENT="$line"

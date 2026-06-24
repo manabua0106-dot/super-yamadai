@@ -1,14 +1,14 @@
-# CLAUDE.md — ヤマダイ記事制作パイプライン
+# AGENTS.md — ヤマダイ記事制作パイプライン
 
 **バージョン**：v4.0（2026-04-24）
-**正本マニュアル**：`.claude/rules/writing-manual.md`
+**正本マニュアル**：`.Codex/rules/writing-manual.md`
 
 ---
 
 ## ⚠️ 最重要：Single Source of Truth
 
 このリポジトリの**ライティングルールは `writing-manual.md` のみが正本**です。
-本ファイル（CLAUDE.md）・各エージェント・各チェッカーは、writing-manual.md を参照するだけで、ルールを独自に再定義しません。
+本ファイル（AGENTS.md）・各エージェント・各チェッカーは、writing-manual.md を参照するだけで、ルールを独自に再定義しません。
 
 矛盾が生じた場合は writing-manual.md の記述が優先されます。
 
@@ -39,25 +39,10 @@ writing-manual §L に定義される5グループの責任分担に従う。
 14. **書いたら自分でチェックして、問題があれば自分で直してから出力する**
 15. **`pタグ`は絶対に出力しない。** WordPress側で自動付与されるため二重になる（writing-manual §D-1補足）
 16. **`_table`ショートコード登録済みサービスは画像＋テーブル直書き禁止。** 必ず `[サービス名_table]` で置換する（writing-manual §C-1補足2）
-    - 登録済み20ブランド: Oisix / コープデリ / ヨシケイ / ラディッシュボーヤ / Dr.ツルガメキッチン / Meals / タイヘイ / ワタミ / 筋肉食堂DELI / watamidirect / lifemeal / wellness-dining / sakanototyu_vegetable / tsukurio / MuscleDeli / DELIPICKS / GreenBeans / palsystem / shokunosoyokaze / nitireifoods
+    - 登録済み11ブランド: Oisix / コープデリ / ヨシケイ / ラディッシュボーヤ / Dr.ツルガメキッチン / Meals / タイヘイ / ワタミ / 筋肉食堂DELI / watamidirect / lifemeal
 17. **本文の具体例とulを二重に書かない。** 具体例をulで列挙する場合は、本文側の同内容文を削除する（writing-manual §E-2補足）
 18. **「実質単価」「圧迫」「占有」「家庭の食材」「タイプ別の〇〇」は完全禁止。** 中学生でもわかる日常語に置換（writing-manual 付録2 カテゴリA）
 19. **サービス紹介文は4〜6文程度に簡潔にする。** 「夫婦で〇〇食」「平日5日分」のような無理やりな取り入れ方文を追加しない
-
-### 鵜呑み禁止（全グループ共通・グローバルCLAUDE.md §3.7 と連動）
-
-構成案・依頼情報を受領したら**着手前に必ず精査**し、懸念があれば AskUserQuestion で提起する。
-**「指示通りに書いた」量産記事は作らない。** SEOとライティングマニュアルの観点で取捨選択する。
-
-| 精査観点 | 例 |
-|---|---|
-| A. KW×掲載サービスの整合性 | 「ミールキット」記事に「ミールキット主体ではない野菜単品宅配」を入れるのは妥当か？ |
-| B. ペルソナと内容の一致 | ペルソナが本当に必要とする情報か？蛇足はないか？ |
-| C. 競合上位との差別化 | 上位記事と何で勝つのか？無いなら追加要素を提案 |
-| D. H3の必要性精査 | 「網羅性のための水増しH3」「他社が書いてるから入れたH3」は削る提案 |
-| E. 訴求順位と読者利益の整合 | 訴求順位が読者の意思決定に有用か？ |
-
-Codex第三者レビュー: `Agent(subagent_type="codex-reviewer", prompt="対象ファイル: <パス>\nフェーズ: outline-v1\n特記事項: ...")` で呼ぶ。
 
 ### 🟫 グループC：統率系（editor）
 
@@ -92,15 +77,14 @@ Codex第三者レビュー: `Agent(subagent_type="codex-reviewer", prompt="対�
 
 | カテゴリ | ファイル | 内容 |
 |---|---|---|
-| ルール | `.claude/rules/writing-manual.md` | ⭐ SSOT正本（v4.0） |
-| ルール | `.claude/rules/prohibited-words.md` | 禁止語・変換ルール |
-| ルール | `.claude/rules/shortcodes.md` | ショートコード・HTMLテンプレート |
-| ルール | `.claude/rules/service-info.md` | 各サービスのスペック情報 |
-| ルール | `.claude/rules/appeal-ranking.md` | カテゴリ別の基本ランキング（デフォルト訴求順位） |
-| ルール | `.claude/rules/internal-links.md` | 内部リンクリスト |
-| ルール | `.claude/rules/feedback_writing.md` | 未昇格の文体FB一時記録 |
-| ルール | `.claude/rules/feedback_structure.md` | 未昇格の構成FB一時記録 |
-| ルール | `.claude/rules/feedback_legal.md` | 食材宅配・宅配弁当固有の法令FB |
+| ルール | `.Codex/rules/writing-manual.md` | ⭐ SSOT正本（v4.0） |
+| ルール | `.Codex/rules/prohibited-words.md` | 禁止語・変換ルール |
+| ルール | `.Codex/rules/shortcodes.md` | ショートコード・HTMLテンプレート |
+| ルール | `.Codex/rules/service-info.md` | 各サービスのスペック情報 |
+| ルール | `.Codex/rules/internal-links.md` | 内部リンクリスト |
+| ルール | `.Codex/rules/feedback_writing.md` | 未昇格の文体FB一時記録 |
+| ルール | `.Codex/rules/feedback_structure.md` | 未昇格の構成FB一時記録 |
+| ルール | `.Codex/rules/feedback_legal.md` | 食材宅配・宅配弁当固有の法令FB |
 | 参考 | `references/structure-examples.md` | H2/H3構成パターンの合格例 |
 | 参考 | `references/style-examples.md` | 本文の装飾・文体パターン例 |
 | 参考 | `references/h3-templates.md` | H3タイプ別骨格テンプレート |
@@ -179,23 +163,16 @@ Codex第三者レビュー: `Agent(subagent_type="codex-reviewer", prompt="対�
 
 ## 出力ファイル命名規則
 
-**KWごとに `articles/{KW}/` フォルダを作り、その中に成果物を入れる。** フォルダ名がKWを表すため、フォルダ内のファイル名からはKW接頭辞を省く（見やすさ優先）。
-
-| 種別 | ファイルパス |
+| 種別 | ファイル名 |
 |---|---|
-| 構成案 | `articles/{KW}/outline.md` |
-| 共起語配置計画 | `articles/{KW}/cooccurrence-plan.md` |
-| 骨格 | `articles/{KW}/skeleton-h2{N}.md` |
-| lintチェック結果 | `articles/{KW}/lint-result.txt` |
-| 最終lintチェック | `articles/{KW}/lint-final.txt` |
-| レビュー | `articles/{KW}/review.md` |
-| レスポンス | `articles/{KW}/response.md` |
-| 完成記事 | `articles/{KW}/article.html` |
-
-- **`{KW}`（フォルダ名）は日本語のターゲットKW（スペースあり）で命名する。** ローマ字スラッグは使わない。
-  - 例：`articles/オイシックス お試し/article.html`、`articles/野菜 宅配/cooccurrence-plan.md`、`articles/宅配弁当 二人暮らし/skeleton-h2-1.md`
-  - KW内の語の区切りは半角スペース（検索KWの表記に忠実）。フォルダ内のファイル名は種別名のみ（`article.html`・`cooccurrence-plan.md` 等）で、KW接頭辞は付けない。
-  - 既存の `完成済み/` 配下の旧命名（`{KW}-article.html` 等）は遡及変更しない。新規記事から本ルールを適用する。
+| 構成案 | `articles/{KW}-outline.md` |
+| 共起語配置計画 | `articles/{KW}-cooccurrence-plan.md` |
+| 骨格 | `articles/{KW}-skeleton-h2{N}.md` |
+| lintチェック結果 | `articles/{KW}-lint-result.txt` |
+| 最終lintチェック | `articles/{KW}-lint-final.txt` |
+| レビュー | `articles/{KW}-review.md` |
+| レスポンス | `articles/{KW}-response.md` |
+| 完成記事 | `articles/{KW}-article.html` |
 
 ---
 
@@ -218,7 +195,7 @@ Codex第三者レビュー: `Agent(subagent_type="codex-reviewer", prompt="対�
 
 ## 運用ルール
 
-- **CLAUDE.md は200行以内を維持。** ルール追加は writing-manual.md に書く
+- **AGENTS.md は200行以内を維持。** ルール追加は writing-manual.md に書く
 - **feedback_*.md は一時的な記録場所。** 恒久ルール化が決まったら writing-manual.md に昇格させ、feedback からは削除する（SSOT 維持のため二重管理回避）
 - **memory に「今の作業進捗」は入れない。** 入れるのは「次回以降も使える普遍的な学び」だけ
 
