@@ -101,6 +101,7 @@ Codex第三者レビュー: `Agent(subagent_type="codex-reviewer", prompt="対�
 | ルール | `.claude/rules/feedback_writing.md` | 未昇格の文体FB一時記録 |
 | ルール | `.claude/rules/feedback_structure.md` | 未昇格の構成FB一時記録 |
 | ルール | `.claude/rules/feedback_legal.md` | 食材宅配・宅配弁当固有の法令FB |
+| 参考 | `references/gold-example-style.md` | ⭐ お手本文章（文体・トンマナの基準・毎回参照。丸パクリ禁止） |
 | 参考 | `references/structure-examples.md` | H2/H3構成パターンの合格例 |
 | 参考 | `references/style-examples.md` | 本文の装飾・文体パターン例 |
 | 参考 | `references/h3-templates.md` | H3タイプ別骨格テンプレート |
@@ -170,10 +171,12 @@ Codex第三者レビュー: `Agent(subagent_type="codex-reviewer", prompt="対�
 |---|---|---|
 | ゲート1 | `{KW}-cooccurrence-plan.md` | 共起語配置計画がないと骨格に進めない |
 | ゲート2 | `{KW}-skeleton-h2{N}.md` | 骨格ファイルがないと文章化に進めない |
-| ゲート3 | lint.sh ERROR 0 | lint通過前にチェッカーに渡さない |
+| ゲート3 | lint.sh ERROR 0（機械・安全系のみ） | lint通過前にチェッカーに渡さない |
 | ゲート3b | **セクション完了チェックリスト全項目パス**（§G-4） | **1項目でもNGなら次のH2に進めない** |
-| ゲート4 | `{KW}-lint-final.txt` ERROR 0 | 最終lint前に完成記事として認めない |
+| ゲート4 | `{KW}-lint-final.txt` ERROR 0（機械・安全系のみ） | 最終lint前に完成記事として認めない |
 | ゲート5 | **納品前チェックリスト全項目パス**（§G-5） | **全項目パスで初めて完成** |
+
+> ⚠️ 2026-06-29 改定：lint ERROR は機械・安全系のみ。意味判断系（という・指示語・AI定型・抽象形容詞）は WARNING。**lint ERROR 0 は十分条件ではない**ので、ユーザー提示前に必ず意味レビュー（空文・重複・薄さ・硬さの一読）を1周する。文体・トンマナは `references/gold-example-style.md`（お手本）を毎回参照する。
 
 ---
 

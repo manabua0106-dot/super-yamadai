@@ -65,7 +65,7 @@ done
 # ============================================
 echo "--- AI表現 レイヤー4（文末・文型定型） ---"
 for P in "と言えるでしょう" "と言っても過言" "に他なりません" "と考えられます" "と思われます" "と言っても良い" "してみてはいかがでしょう" "しておきましょう" "といいです" "ためです。"; do
-  grep -n "$P" "$FILE" | while read -r l; do error "レイヤー4「$P」: $l"; done || true
+  grep -n "$P" "$FILE" | while read -r l; do warning "レイヤー4「$P」要確認: $l"; done || true
 done
 
 # ============================================
@@ -89,7 +89,7 @@ done
 # ============================================
 echo "--- AI表現 レイヤー7-A（抽象形容詞） ---"
 for P in "多種多様" "さまざまな" "多岐にわたる" "豊富な" "数多くの" "充実した" "快適な" "スムーズ" "円滑な" "シームレス" "的確に" "適切に" "バランスよく" "総合的に"; do
-  grep -n "$P" "$FILE" | while read -r l; do error "レイヤー7-A「$P」: $l"; done || true
+  grep -n "$P" "$FILE" | while read -r l; do warning "レイヤー7-A「$P」要確認（多用回避）: $l"; done || true
 done
 
 # ============================================
@@ -97,7 +97,7 @@ done
 # ============================================
 echo "--- AI表現 レイヤー9（比喩・イディオム拡張） ---"
 for P in "カギを握る" "決め手となる" "分岐点" "起爆剤" "切り札" "追い風" "後押し" "足がかり" "橋渡し" "足を踏み入れ" "光を当て" "スポットライト" "一石を投じる" "風穴を開け" "道を切り拓" "扉を開く" "地盤を固め" "土台となる"; do
-  grep -n "$P" "$FILE" | while read -r l; do error "レイヤー9「$P」: $l"; done || true
+  grep -n "$P" "$FILE" | while read -r l; do warning "レイヤー9「$P」要確認: $l"; done || true
 done
 
 # ============================================
@@ -105,7 +105,7 @@ done
 # ============================================
 echo "--- AI表現 レイヤー11（視点・観点） ---"
 for P in "という点において" "という観点" "という視点" "の側面から" "の観点から言え" "の立場から見" "を踏まえると"; do
-  grep -n "$P" "$FILE" | while read -r l; do error "レイヤー11「$P」: $l"; done || true
+  grep -n "$P" "$FILE" | while read -r l; do warning "レイヤー11「$P」要確認: $l"; done || true
 done
 
 # ============================================
@@ -113,7 +113,7 @@ done
 # ============================================
 echo "--- AI表現 レイヤー12（列挙・構造化） ---"
 for P in "以下で詳しく解説" "順に見ていきましょう" "一つずつ見ていき"; do
-  grep -n "$P" "$FILE" | while read -r l; do error "レイヤー12「$P」: $l"; done || true
+  grep -n "$P" "$FILE" | while read -r l; do warning "レイヤー12「$P」要確認: $l"; done || true
 done
 
 # ============================================
@@ -121,7 +121,7 @@ done
 # ============================================
 echo "--- AI表現 レイヤー14（背中押し） ---"
 for P in "後悔のない選択" "失敗しないために" "賢い選択" "一歩踏み出して" "今こそ" "理想の.*を手に入れ"; do
-  grep -nE "$P" "$FILE" | while read -r l; do error "レイヤー14「$P」: $l"; done || true
+  grep -nE "$P" "$FILE" | while read -r l; do warning "レイヤー14「$P」要確認: $l"; done || true
 done
 
 # ============================================
@@ -151,8 +151,8 @@ done
 # 14. 冗長表現（レイヤー1）
 # ============================================
 echo "--- 冗長表現 ---"
-grep -n "という" "$FILE" | while read -r l; do error "冗長「という」: $l"; done || true
-grep -n "といった" "$FILE" | while read -r l; do error "冗長「といった」: $l"; done || true
+grep -n "という" "$FILE" | while read -r l; do warning "「という」要確認（できれば具体的に）: $l"; done || true
+grep -n "といった" "$FILE" | while read -r l; do warning "「といった」要確認（できれば「〜や〜など」に）: $l"; done || true
 grep -n "として" "$FILE" | while read -r l; do warning "「として」要確認: $l"; done || true
 grep -n "することができます" "$FILE" | while read -r l; do error "冗長「することができます」: $l"; done || true
 
@@ -160,10 +160,10 @@ grep -n "することができます" "$FILE" | while read -r l; do error "冗�
 # 15. 指示語（レイヤー1）
 # ============================================
 echo "--- 指示語 ---"
-grep -n "この[^記]" "$FILE" | grep -v "そのまま" | while read -r l; do error "指示語「この」: $l"; done || true
-grep -n "その[^ま]" "$FILE" | while read -r l; do error "指示語「その」: $l"; done || true
-grep -n "これ[はをがも]" "$FILE" | while read -r l; do error "指示語「これ」: $l"; done || true
-grep -n "そうした" "$FILE" | while read -r l; do error "指示語: $l"; done || true
+grep -n "この[^記]" "$FILE" | grep -v "そのまま" | while read -r l; do warning "指示語「この」要確認（極力具体名詞に）: $l"; done || true
+grep -n "その[^ま]" "$FILE" | while read -r l; do warning "指示語「その」要確認（極力具体名詞に）: $l"; done || true
+grep -n "これ[はをがも]" "$FILE" | while read -r l; do warning "指示語「これ」要確認（極力具体名詞に）: $l"; done || true
+grep -n "そうした" "$FILE" | while read -r l; do warning "指示語要確認（極力具体名詞に）: $l"; done || true
 
 # ============================================
 # 16. 記号・HTML（UTF-8対応）
@@ -531,10 +531,12 @@ echo ""
 FINAL_ERRORS=$(wc -l < "$ERR_FILE" | tr -d ' ')
 FINAL_WARNINGS=$(wc -l < "$WARN_FILE" | tr -d ' ')
 echo "=== 結果: ERROR ${FINAL_ERRORS}件 / WARNING ${FINAL_WARNINGS}件 ==="
+echo "※ ERROR=機械・安全系（体言止め・ら抜き・表記揺れ・btn class・表構造・比喩・ナンバリング等）の必須修正。"
+echo "※ WARNING=意味判断系（という・指示語・AI定型・抽象形容詞等）。文脈で自然なら使用可。極力具体名詞・具体動詞に置き換える努力はする。"
 if [[ "$FINAL_ERRORS" -gt 0 ]]; then
   echo "→ ERRORが${FINAL_ERRORS}件あります。修正してから次のステップに進んでください。"
   exit 1
 else
-  echo "→ パス。"
+  echo "→ ERROR 0。WARNINGは一読して、意味が空・不自然な箇所だけ直す（機械的な全置換はしない）。"
   exit 0
 fi
