@@ -159,11 +159,34 @@ grep -n "することができます" "$FILE" | while read -r l; do error "冗�
 # ============================================
 # 15. 指示語（レイヤー1）
 # ============================================
-echo "--- 指示語 ---"
-grep -n "この[^記]" "$FILE" | grep -v "そのまま" | while read -r l; do warning "指示語「この」要確認（極力具体名詞に）: $l"; done || true
-grep -n "その[^ま]" "$FILE" | while read -r l; do warning "指示語「その」要確認（極力具体名詞に）: $l"; done || true
-grep -n "これ[はをがも]" "$FILE" | while read -r l; do warning "指示語「これ」要確認（極力具体名詞に）: $l"; done || true
-grep -n "そうした" "$FILE" | while read -r l; do warning "指示語要確認（極力具体名詞に）: $l"; done || true
+echo "--- 指示語（口コミ除外・ERROR） ---"
+# 口コミ(blockquote)内は原文ママで改変できないため、本文のみを対象にする(行番号は保持するため空行で潰す)
+BODY=$(awk '/<blockquote/{inbq=1} {if(inbq) print ""; else print} /<\/blockquote>/{inbq=0}' "$FILE")
+echo "$BODY" | grep -n "この" | grep -v "この記事\|この口コミ" | while read -r l; do error "指示語「この」(具体名詞に。例外:この記事では/この口コミ): $l"; done || true
+echo "$BODY" | grep -n "その" | grep -v "そのまま\|そのもの\|そのため" | while read -r l; do error "指示語「その」(具体名詞に): $l"; done || true
+echo "$BODY" | grep -n "これ[はをがも]" | while read -r l; do error "指示語「これ」(具体名詞に): $l"; done || true
+echo "$BODY" | grep -n "それ" | grep -v "それぞれ\|それでも\|それなり\|それとも" | while read -r l; do error "指示語「それ」(具体名詞に): $l"; done || true
+echo "$BODY" | grep -n "こうした\|そうした" | while read -r l; do error "指示語「こうした/そうした」(具体名詞に): $l"; done || true
+
+# ============================================
+# 15b. 無責任系語尾（口コミ除外・ERROR）
+# ============================================
+echo "--- 無責任系語尾 ---"
+for P in "とされています" "とされている" "ようです" "案内されて" "とのことです" "とのこと" "と思われます" "と見られます"; do
+  echo "$BODY" | grep -n "$P" | while read -r l; do error "無責任系語尾「$P」(事実は言い切る): $l"; done || true
+done
+
+# ============================================
+# 15c. 見出し(H2/H3)内の（）（ERROR）
+# ============================================
+echo "--- 見出し内の（） ---"
+grep -n "<h2>[^<]*（\|<h3>[^<]*（" "$FILE" | while read -r l; do error "見出しに（）: $l"; done || true
+
+# ============================================
+# 15d. 強調用「」（WARNING・会話/固有名詞/口コミは誤検出しやすい）
+# ============================================
+echo "--- 強調用「」 ---"
+echo "$BODY" | grep -n "「" | while read -r l; do warning "「」使用（会話・固有名詞以外なら削除）: $l"; done || true
 
 # ============================================
 # 16. 記号・HTML（UTF-8対応）

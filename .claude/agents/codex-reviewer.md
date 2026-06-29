@@ -238,7 +238,6 @@ H2/H3レベルでの構成変更提案があれば記載する。
   --model gpt-5.5 \
   --cd "$PROJECT_ROOT" \
   --sandbox read-only \
-  --dangerously-bypass-approvals-and-sandbox \
   "$(cat <<'PROMPT_EOF'
 <Step 3で組み立てたプロンプト>
 PROMPT_EOF
