@@ -241,8 +241,10 @@ H2/H3レベルでの構成変更提案があれば記載する。
   "$(cat <<'PROMPT_EOF'
 <Step 3で組み立てたプロンプト>
 PROMPT_EOF
-)"
+)" < /dev/null
 ```
+
+⚠️ **必須**: 末尾の `< /dev/null` を省略しないこと。codex exec はプロンプトを引数で受け取っても標準入力を読みに行くため、stdin を閉じないと `Reading additional input from stdin...` のまま入力待ちでハングする（2026-06-29 の事故原因）。プロンプトが長く xhigh 推論で時間がかかる場合は、`run_in_background: true` で実行して完了通知を待つこと（Bash の `sleep` 連打で待たない）。
 
 タイムアウト: 600秒（10分）まで許容。
 
