@@ -485,13 +485,19 @@ for PHRASE in "に合わせて選べます" "に向いています" "で安心" 
 done
 
 # 条件付き許容レイヤー7-B（3回以上で警告）
-for PHRASE in "あらゆる" "効率的に" "効率的な" "効果的に" "効果的な" "トータルで"; do
+for PHRASE in "あらゆる" "効率的に" "効率的な" "トータルで"; do
   COUNT=$(grep -c "$PHRASE" "$FILE" 2>/dev/null || true)
   COUNT=${COUNT:-0}; COUNT=$(echo "$COUNT" | head -1 | tr -d '[:space:]')
   if [[ "$COUNT" -ge 3 ]]; then
     warning "「${PHRASE}」が${COUNT}回出現（条件付き許容・3回以上で警告）"
   fi
 done
+
+# 完全禁止「効果的」（2026-06-29 Manabuさん指示で 7-B から昇格・ERROR）
+while IFS= read -r line; do
+  LN="${line%%:*}"; TXT="${line#*:}"
+  error "完全禁止「効果的」（→おすすめです/役立ちます/具体的に）: ${LN}:${TXT}"
+done < <(grep -nE "効果的" "$FILE" 2>/dev/null || true)
 
 # ============================================
 # 33. サービス紹介の書き出しパターン単調チェック
