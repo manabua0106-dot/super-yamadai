@@ -465,6 +465,21 @@ for P in "まとめました" "次の通りです" "以下の通りです" "下�
 done
 
 # ============================================
+# 30e. 情報ゼロ文パターン（2026-07-02新規・writing-manual §E-12連動）
+# ============================================
+echo ""
+echo "--- 情報ゼロ文パターン ---"
+for P in "のも事実です" "人それぞれ" "安心感があります" "楽にしてくれます" "工夫が必要です" "が魅力です" "が大切です" "が重要です" "といいでしょう"; do
+  grep -n "$P" "$FILE" | while read -r l; do warning "情報ゼロ文の候補「$P」（消しても意味が変わらないなら削除・§E-12）: $l"; done || true
+done
+# 口コミのメタ説明定型（feedback_writing 学び35）
+for P in "声が寄せられています" "声が目立ちます" "声も見られます" "声が見られます"; do
+  grep -n "$P" "$FILE" | while read -r l; do warning "口コミのメタ説明定型「$P」（事実を直接書く・学び35）: $l"; done || true
+done
+# 口コミの呼称（§A-7: 「悪い口コミ」は「気になる口コミ」に）
+grep -n "悪い口コミ\|悪い評判" "$FILE" | while read -r l; do warning "「悪い口コミ/悪い評判」は「気になる口コミ」に言い換える（§A-7）: $l"; done || true
+
+# ============================================
 # 31. H2情報
 # ============================================
 H2_COUNT=$(grep -c "<h2>" "$FILE" || echo 0)
@@ -542,18 +557,36 @@ echo "  strong締め「〜防げます」: ${STRONG_FUSEGE} / 「〜できます
 # 35. H3の箇条書き/テーブル含有率チェック
 # ============================================
 echo ""
-echo "--- H3の箇条書き/テーブル率チェック ---"
+echo "--- H3ごとの表・箇条書きチェック（2026-07-02強化・§G-4） ---"
+# 本文量のあるH3（非FAQ・実質6行以上）に ul/ol/table/_table が1つもなければH3単位でWARNING
+NO_PARTS_H3=$(awk '
+  function flush() { if (h3 != "" && lines >= 6 && parts == 0) print start "行目: " h3 }
+  /<h3/ {
+    flush()
+    h3=$0; gsub(/<[^>]*>/, "", h3)
+    start=NR; lines=0; parts=0
+    if (h3 ~ /？/) h3=""
+    next
+  }
+  /<h2/ { flush(); h3=""; next }
+  h3 != "" {
+    if ($0 ~ /<ul>|<ol>|<table|_table\]/) parts=1
+    if ($0 !~ /^[[:space:]]*$/) lines++
+  }
+  END { flush() }
+' "$FILE")
+if [[ -n "$NO_PARTS_H3" ]]; then
+  echo "$NO_PARTS_H3" | while read -r l; do
+    warning "表・箇条書きのないH3（8割目安・§G-4。3項目以上の列挙・対の比較は ul/table に）: $l"
+  done
+fi
 TOTAL_H3=$({ grep -cE "<h3[^>]*>" "$FILE" 2>/dev/null || echo 0; } | head -1 | tr -d '\n')
-SERVICE_H3=$({ grep -c '<h3 id=' "$FILE" 2>/dev/null || echo 0; } | head -1 | tr -d '\n')
 TOTAL_H3=${TOTAL_H3:-0}
-SERVICE_H3=${SERVICE_H3:-0}
-CONTENT_H3=$(( TOTAL_H3 - SERVICE_H3 ))
 UL_COUNT=$(grep -c "<ul>" "$FILE" 2>/dev/null || echo 0)
 UL_COUNT=$(echo "$UL_COUNT" | head -1 | tr -d '[:space:]'); UL_COUNT=${UL_COUNT:-0}
-if [[ "$CONTENT_H3" -gt 0 && "$UL_COUNT" -eq 0 ]]; then
-  warning "選び方・メリット・注意点のH3に箇条書き(ul)が1つもない。8割のH3にul or テーブルを入れる"
-fi
-echo "  コンテンツH3数: ${CONTENT_H3} / ul数: ${UL_COUNT}"
+TABLE_COUNT=$(grep -c "<table" "$FILE" 2>/dev/null || echo 0)
+TABLE_COUNT=$(echo "$TABLE_COUNT" | head -1 | tr -d '[:space:]'); TABLE_COUNT=${TABLE_COUNT:-0}
+echo "  H3数: ${TOTAL_H3} / ul数: ${UL_COUNT} / table数: ${TABLE_COUNT}"
 
 # ============================================
 # 結果サマリー

@@ -132,7 +132,7 @@ Codex第三者レビュー: `Agent(subagent_type="codex-reviewer", prompt="対�
 ⚠️ セクション完了ごとにチェックリスト全項目パスしないと次のH2に進めない。
 
 開始前の準備:
-  ├── 共起語配置計画を作成 → {KW}-cooccurrence-plan.md（ゲート1）
+  ├── 共起語配置計画を作成 → articles/{KW}/cooccurrence-plan.md（ゲート1）
   ├── service-info.mdの全サービスデータを読み込む
   └── 構成案のH2/H3見出しを確認し、変更しないことを宣言
 
@@ -141,7 +141,7 @@ Codex第三者レビュー: `Agent(subagent_type="codex-reviewer", prompt="対�
 
   【各H2の執筆フロー】
   ┌─ 1. 骨格出力（通常H3のみ）
-  │     → {KW}-skeleton-h2{N}.md（ゲート2）
+  │     → articles/{KW}/skeleton-h2{N}.md（ゲート2）
   │
   ├─ 2. 骨格チェック: duplicate-checker + prep-logic-checker
   │     → editor統合 → writerに修正指示
@@ -159,7 +159,7 @@ Codex第三者レビュー: `Agent(subagent_type="codex-reviewer", prompt="対�
 
 ステップ2: @editorial-reviewer → 全文レビュー
 ステップ3: @writer → 修正 → editorial-reviewerの再反論0件まで
-ステップ4: lint.sh最終実行 → {KW}-lint-final.txt（ゲート4）
+ステップ4: lint.sh最終実行 → articles/{KW}/lint-final.txt（ゲート4）
 ステップ5: @quality-checker → 最終品質チェック
 ステップ6: @style-checker → 最終表記チェック
 ステップ7: ★最終チェックリスト（ゲート5・法令チェック含む）★ → 全項目パスで完成
@@ -169,11 +169,11 @@ Codex第三者レビュー: `Agent(subagent_type="codex-reviewer", prompt="対�
 
 | ゲート | チェックポイント | ブロック内容 |
 |---|---|---|
-| ゲート1 | `{KW}-cooccurrence-plan.md` | 共起語配置計画がないと骨格に進めない |
-| ゲート2 | `{KW}-skeleton-h2{N}.md` | 骨格ファイルがないと文章化に進めない |
+| ゲート1 | `articles/{KW}/cooccurrence-plan.md` | 共起語配置計画がないと骨格に進めない |
+| ゲート2 | `articles/{KW}/skeleton-h2{N}.md` | 骨格ファイルがないと文章化に進めない |
 | ゲート3 | lint.sh ERROR 0（機械・安全系のみ） | lint通過前にチェッカーに渡さない |
 | ゲート3b | **セクション完了チェックリスト全項目パス**（§G-4） | **1項目でもNGなら次のH2に進めない** |
-| ゲート4 | `{KW}-lint-final.txt` ERROR 0（機械・安全系のみ） | 最終lint前に完成記事として認めない |
+| ゲート4 | `articles/{KW}/lint-final.txt` ERROR 0（機械・安全系のみ） | 最終lint前に完成記事として認めない |
 | ゲート5 | **納品前チェックリスト全項目パス**（§G-5） | **全項目パスで初めて完成** |
 
 > ⚠️ 2026-06-29 改定：lint ERROR は機械・安全系のみ。意味判断系（という・指示語・AI定型・抽象形容詞）は WARNING。**lint ERROR 0 は十分条件ではない**ので、ユーザー提示前に必ず意味レビュー（空文・重複・薄さ・硬さの一読）を1周する。文体・トンマナは `references/gold-example-style.md`（お手本）を毎回参照する。
