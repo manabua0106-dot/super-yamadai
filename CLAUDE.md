@@ -57,7 +57,7 @@ writing-manual §L に定義される5グループの責任分担に従う。
 | D. H3の必要性精査 | 「網羅性のための水増しH3」「他社が書いてるから入れたH3」は削る提案 |
 | E. 訴求順位と読者利益の整合 | 訴求順位が読者の意思決定に有用か？ |
 
-Codex第三者レビュー: `Agent(subagent_type="codex-reviewer", prompt="対象ファイル: <パス>\nフェーズ: outline-v1\n特記事項: ...")` で呼ぶ。
+Codex第三者レビュー: `Agent(subagent_type="codex-reviewer")` は使わない（サブエージェントのBashはサンドボックスで動きcodex execが失敗し、鉄則9違反のレビュー捏造を誘発する既知の恒久バグ）。**親ループが `.claude/agents/codex-reviewer.md` のStep3プロンプト雛形を組み立て、そのつどユーザーに確認のうえサンドボックス制限解除の許可を得てから** `codex exec` を実行する（毎回の一時許可であり、常時バイパスを既定化しない）。詳細は auto-memory `codex-reviewer-fix.md` 参照。
 
 ### 🟫 グループC：統率系（editor）
 
