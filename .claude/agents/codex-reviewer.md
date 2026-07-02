@@ -58,6 +58,8 @@ git管理外の場合は、対象ファイルの親ディレクトリを遡っ�
 
 存在するファイルパス一覧を `EXISTING_RULES` として保持。
 
+⚠️ **outline-v1 / outline-final フェーズは渡すファイルを絞る（2026-07-02 Manabuさん裁定・実行時間短縮）**：EXISTING_RULES は「対象 outline.md・同フォルダの research.md・`.claude/skills/kosei-sakusei/要件定義.md`・`.claude/rules/internal-links.md`・`.claude/rules/feedback_structure.md`・articles/ 配下の既存outline」**のみ**とする。writing-manual.md・service-info.md・CLAUDE.md の全文は渡さない（全ルール読み186kトークン・数分 → 大幅短縮）。**レビューのメイン観点＝「このKWで検索1位が取れる構成か」**（検索意図適合・必須トピック網羅・ギャップ独占・カニバリ・主役の尖り）。文言細部は従。skeleton / article-final は従来通りの一覧を使う。
+
 ### Step 3: Codex 用プロンプトの組み立て
 
 フェーズ別に最適化されたプロンプトを組み立てる。共通骨格は以下:
@@ -247,6 +249,8 @@ PROMPT_EOF
 ⚠️ **必須**: 末尾の `< /dev/null` を省略しないこと。codex exec はプロンプトを引数で受け取っても標準入力を読みに行くため、stdin を閉じないと `Reading additional input from stdin...` のまま入力待ちでハングする（2026-06-29 の事故原因）。プロンプトが長く xhigh 推論で時間がかかる場合は、`run_in_background: true` で実行して完了通知を待つこと（Bash の `sleep` 連打で待たない）。
 
 タイムアウト: 600秒（10分）まで許容。
+
+**実行許可（2026-07-02 Manabuさん裁定）**: 構成レビュー用途（outline-v1 / outline-final）の `codex exec` は**常設許可**＝都度のユーザー確認は不要。構成v1の保存と同時にバックグラウンド起動し、チャットへのv1提示と並行して走らせる（`--sandbox read-only` は維持）。skeleton / article-final 等その他用途は従来通り都度確認する。
 
 ### Step 5: 結果整形と返却
 

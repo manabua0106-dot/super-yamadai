@@ -458,7 +458,7 @@ grep -n "防げます。</strong>" "$FILE" | while read -r l; do warning "strong
 echo ""
 echo "--- 誘導文の重複チェック ---"
 for P in "まとめました" "次の通りです" "以下の通りです" "下記の通りです"; do
-  COUNT=$(grep -c "$P" "$FILE" || echo 0)
+  COUNT=$(grep -c "$P" "$FILE" || true)
   if [[ "$COUNT" -ge 3 ]]; then
     warning "誘導文「${P}」が${COUNT}回出現（3回以上は分散させる）"
   fi
@@ -482,8 +482,8 @@ grep -n "悪い口コミ\|悪い評判" "$FILE" | while read -r l; do warning "�
 # ============================================
 # 31. H2情報
 # ============================================
-H2_COUNT=$(grep -c "<h2>" "$FILE" || echo 0)
-IMG_COUNT=$(grep -c '<img ' "$FILE" || echo 0)
+H2_COUNT=$(grep -c "<h2>" "$FILE" || true)
+IMG_COUNT=$(grep -c '<img ' "$FILE" || true)
 echo "  H2数: ${H2_COUNT} / imgタグ数: ${IMG_COUNT}"
 
 # ============================================
@@ -519,11 +519,11 @@ done < <(grep -nE "効果的" "$FILE" 2>/dev/null || true)
 # ============================================
 echo ""
 echo "--- 書き出しパターンチェック ---"
-PATTERN_A=$(grep -c "宅配弁当です。</strong>" "$FILE" 2>/dev/null || echo 0)
+PATTERN_A=$(grep -c "宅配弁当です。</strong>" "$FILE" 2>/dev/null || true)
 PATTERN_A=$(echo "$PATTERN_A" | head -1 | tr -d '[:space:]'); PATTERN_A=${PATTERN_A:-0}
-PATTERN_B=$(grep -c "サービスです。</strong>" "$FILE" 2>/dev/null || echo 0)
+PATTERN_B=$(grep -c "サービスです。</strong>" "$FILE" 2>/dev/null || true)
 PATTERN_B=$(echo "$PATTERN_B" | head -1 | tr -d '[:space:]'); PATTERN_B=${PATTERN_B:-0}
-TOTAL_SERVICES=$(grep -c '<h3 id=' "$FILE" 2>/dev/null || echo 0)
+TOTAL_SERVICES=$(grep -c '<h3 id=' "$FILE" 2>/dev/null || true)
 TOTAL_SERVICES=$(echo "$TOTAL_SERVICES" | head -1 | tr -d '[:space:]'); TOTAL_SERVICES=${TOTAL_SERVICES:-0}
 if [[ "$TOTAL_SERVICES" -gt 0 ]]; then
   DOMINANT=$(( PATTERN_A > PATTERN_B ? PATTERN_A : PATTERN_B ))
@@ -539,11 +539,11 @@ fi
 # ============================================
 echo ""
 echo "--- strong締めパターンチェック ---"
-STRONG_FUSEGE=$(grep -c "防げます。</strong>" "$FILE" 2>/dev/null || echo 0)
+STRONG_FUSEGE=$(grep -c "防げます。</strong>" "$FILE" 2>/dev/null || true)
 STRONG_FUSEGE=$(echo "$STRONG_FUSEGE" | head -1 | tr -d '[:space:]'); STRONG_FUSEGE=${STRONG_FUSEGE:-0}
-STRONG_DEKI=$(grep -c "できます。</strong>" "$FILE" 2>/dev/null || echo 0)
+STRONG_DEKI=$(grep -c "できます。</strong>" "$FILE" 2>/dev/null || true)
 STRONG_DEKI=$(echo "$STRONG_DEKI" | head -1 | tr -d '[:space:]'); STRONG_DEKI=${STRONG_DEKI:-0}
-STRONG_NARI=$(grep -c "なります。</strong>" "$FILE" 2>/dev/null || echo 0)
+STRONG_NARI=$(grep -c "なります。</strong>" "$FILE" 2>/dev/null || true)
 STRONG_NARI=$(echo "$STRONG_NARI" | head -1 | tr -d '[:space:]'); STRONG_NARI=${STRONG_NARI:-0}
 for PAT in "防げます:$STRONG_FUSEGE" "できます:$STRONG_DEKI" "なります:$STRONG_NARI"; do
   NAME="${PAT%%:*}"; CNT="${PAT##*:}"
@@ -580,11 +580,11 @@ if [[ -n "$NO_PARTS_H3" ]]; then
     warning "表・箇条書きのないH3（8割目安・§G-4。3項目以上の列挙・対の比較は ul/table に）: $l"
   done
 fi
-TOTAL_H3=$({ grep -cE "<h3[^>]*>" "$FILE" 2>/dev/null || echo 0; } | head -1 | tr -d '\n')
+TOTAL_H3=$({ grep -cE "<h3[^>]*>" "$FILE" 2>/dev/null || true; } | head -1 | tr -d '\n')
 TOTAL_H3=${TOTAL_H3:-0}
-UL_COUNT=$(grep -c "<ul>" "$FILE" 2>/dev/null || echo 0)
+UL_COUNT=$(grep -c "<ul>" "$FILE" 2>/dev/null || true)
 UL_COUNT=$(echo "$UL_COUNT" | head -1 | tr -d '[:space:]'); UL_COUNT=${UL_COUNT:-0}
-TABLE_COUNT=$(grep -c "<table" "$FILE" 2>/dev/null || echo 0)
+TABLE_COUNT=$(grep -c "<table" "$FILE" 2>/dev/null || true)
 TABLE_COUNT=$(echo "$TABLE_COUNT" | head -1 | tr -d '[:space:]'); TABLE_COUNT=${TABLE_COUNT:-0}
 echo "  H3数: ${TOTAL_H3} / ul数: ${UL_COUNT} / table数: ${TABLE_COUNT}"
 
