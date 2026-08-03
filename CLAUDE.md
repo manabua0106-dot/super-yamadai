@@ -57,7 +57,7 @@ writing-manual §L に定義される5グループの責任分担に従う。
 | D. H3の必要性精査 | 「網羅性のための水増しH3」「他社が書いてるから入れたH3」は削る提案 |
 | E. 訴求順位と読者利益の整合 | 訴求順位が読者の意思決定に有用か？ |
 
-Codex第三者レビュー: `Agent(subagent_type="codex-reviewer")` は使わない（サブエージェントのBashはサンドボックスで動きcodex execが失敗し、鉄則9違反のレビュー捏造を誘発する既知の恒久バグ）。**親ループが `.claude/agents/codex-reviewer.md` のStep3プロンプト雛形を組み立てて** `codex exec` を直接実行する（`--sandbox read-only` 維持）。**構成レビュー用途（outline-v1/outline-final）は2026-07-02 Manabuさん裁定で常設許可＝都度確認不要・構成v1保存と同時に自動バックグラウンド起動**。それ以外の用途（本文レビュー等）は従来通りそのつどユーザーに確認する。詳細は auto-memory `codex-reviewer-fix.md` 参照。
+Codex第三者レビュー: `Agent(subagent_type="codex-reviewer")` は使わない（サブエージェントのBashはサンドボックスで動きcodex execが失敗し、鉄則9違反のレビュー捏造を誘発する既知の恒久バグ）。**親ループが `.claude/agents/codex-reviewer.md` のStep3プロンプト雛形を組み立てて** `codex exec` を直接実行する（`--sandbox read-only` 維持）。**構成レビュー用途（outline-v1/outline-final）は2026-07-02 Manabuさん裁定で常設許可＝都度確認不要・構成v1保存と同時に自動バックグラウンド起動**。**本文レビュー（全文完成時）も2026-07-31 Manabuさん裁定で常設許可＝都度確認不要・バックグラウンド起動**（観点は§E-12-b「削る6パターン」のみ渡す）。それ以外の用途はそのつどユーザーに確認する。詳細は auto-memory `codex-reviewer-fix.md` 参照。
 
 ### 🟫 グループC：統率系（editor）
 
@@ -157,7 +157,7 @@ Codex第三者レビュー: `Agent(subagent_type="codex-reviewer")` は使わな
   └─ 6. サービス紹介H2のみ追加チェック:
         全社分完了後にduplicate-checker（サービス間酷似）+ lint.sh（書き出しパターン）
 
-ステップ2: @editorial-reviewer → 全文レビュー
+ステップ2: @editorial-reviewer → 全文レビュー（＋Codex本文レビューを常設許可でバックグラウンド起動・§E-12-b）
 ステップ3: @writer → 修正 → editorial-reviewerの再反論0件まで
 ステップ4: lint.sh最終実行 → articles/{KW}/lint-final.txt（ゲート4）
 ステップ5: @quality-checker → 最終品質チェック
@@ -172,7 +172,7 @@ Codex第三者レビュー: `Agent(subagent_type="codex-reviewer")` は使わな
 | ゲート1 | `articles/{KW}/cooccurrence-plan.md` | 共起語配置計画がないと骨格に進めない |
 | ゲート2 | `articles/{KW}/skeleton-h2{N}.md` | 骨格ファイルがないと文章化に進めない |
 | ゲート3 | lint.sh ERROR 0（機械・安全系のみ） | lint通過前にチェッカーに渡さない |
-| ゲート3b | **セクション完了チェックリスト全項目パス**（§G-4） | **1項目でもNGなら次のH2に進めない** |
+| ゲート3b | **セクション完了チェックリスト全項目パス**（§G-4）＋ `meaning-review.md` 判定記入済み（§E-12-b） | **1項目でもNGなら次のH2に進めない** |
 | ゲート4 | `articles/{KW}/lint-final.txt` ERROR 0（機械・安全系のみ） | 最終lint前に完成記事として認めない |
 | ゲート5 | **納品前チェックリスト全項目パス**（§G-5） | **全項目パスで初めて完成** |
 
@@ -191,6 +191,7 @@ Codex第三者レビュー: `Agent(subagent_type="codex-reviewer")` は使わな
 | 骨格 | `articles/{KW}/skeleton-h2{N}.md` |
 | lintチェック結果 | `articles/{KW}/lint-result.txt` |
 | 最終lintチェック | `articles/{KW}/lint-final.txt` |
+| 意味レビュー判定 | `articles/{KW}/meaning-review.md`（H2途中稿は `meaning-review-h2{N}.md`） |
 | レビュー | `articles/{KW}/review.md` |
 | レスポンス | `articles/{KW}/response.md` |
 | 完成記事 | `articles/{KW}/article.html` |

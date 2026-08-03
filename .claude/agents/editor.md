@@ -57,11 +57,13 @@ writerに次ステップを許可する前に、以下を確認する。
 | 骨格開始前 | `articles/{KW}/cooccurrence-plan.md` | 共起語配置計画の作成を指示 |
 | 文章化開始前 | `articles/{KW}/skeleton-h2{N}.md` | 骨格の出力を指示 |
 | チェッカー開始前 | `articles/{KW}/lint-result.txt`（ERROR 0） | lint.sh実行を指示 |
-| セクション完了判定 | writing-manual §G-4 の全項目パス（**情報ゼロ文0件を含む**） | 全項目パスするまで次のH2に進めない |
+| セクション完了判定 | writing-manual §G-4 の全項目パス（**情報ゼロ文0件を含む**）＋ `articles/{KW}/meaning-review-h2{N}.md`（対象H2分・判定列記入済み。全文時は `meaning-review.md`） | 全項目パスするまで次のH2に進めない |
 | 完成判定前 | `articles/{KW}/lint-final.txt`（ERROR 0） | 最終lint実行を指示 |
 | 最終完成判定 | writing-manual §G-5 の全項目パス | 全項目パスで初めて完成 |
 
 ⚠️ **lint ERROR 0 は必要条件にすぎない。** ゲート3b・5では、writerが§E-12の意味レビュー（情報ゼロ文の削除・表/箇条書き化）を実施済みかを必ず確認する。
+
+⚠️ **意味レビューは自己申告で通さない（2026-07-31 改定）。** editorは (1) `meaning-review.md` が存在し判定列が全行埋まっているか、(2) 判定サマリーに削除・修正件数が記入されているか、を確認する。「削除0件・修正0件」の場合はeditor自身が任意の2H3を新規に一読し、情報ゼロ文・見出しの言い換え文を1つでも見つけたら差し戻す。
 
 writerが骨格を飛ばして完成文を出力した場合、editorは出力を受け付けずに骨格からやり直しを指示する。
 

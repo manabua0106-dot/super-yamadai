@@ -250,7 +250,7 @@ PROMPT_EOF
 
 タイムアウト: 600秒（10分）まで許容。
 
-**実行許可（2026-07-02 Manabuさん裁定）**: 構成レビュー用途（outline-v1 / outline-final）の `codex exec` は**常設許可**＝都度のユーザー確認は不要。構成v1の保存と同時にバックグラウンド起動し、チャットへのv1提示と並行して走らせる（`--sandbox read-only` は維持）。skeleton / article-final 等その他用途は従来通り都度確認する。
+**実行許可（2026-07-02 / 2026-07-31 Manabuさん裁定）**: 構成レビュー用途（outline-v1 / outline-final）と**本文レビュー用途（article-final・全文完成時）**の `codex exec` は**常設許可**＝都度のユーザー確認は不要。保存と同時にバックグラウンド起動し、チャット提示と並行して走らせる（`--sandbox read-only` は維持）。本文レビューの観点は writing-manual §E-12-b「削る6パターン」だけを渡す（ルール全文は渡さない）。skeleton 等その他用途は従来通り都度確認する。
 
 ### Step 5: 結果整形と返却
 

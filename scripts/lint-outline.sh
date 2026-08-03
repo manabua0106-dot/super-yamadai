@@ -34,7 +34,7 @@ grep -nE '^(H1 |H2 |[　[:space:]]*H3 )' "$FILE" | while IFS=: read -r LN TEXT; 
     warn "曖昧名詞" "$LN" "${H}（「定期」→「定期便」等に具体化）"
   fi
   # 6. 業界語・硬語（付録2カテゴリA抜粋・見出しでの使用）
-  echo "$H" | grep -qE '実質単価|出資金|有無$' && err "硬語" "$LN" "$H"
+  echo "$H" | grep -qE '実質単価|出資金|有無$|試算|向き不向き|シミュレーション|コスパ|割高感|定番品|都県|無料ライン|見合う|見返り' && err "硬語" "$LN" "$H"
 done > /tmp/lint-outline-body.$$ 2>&1
 cat /tmp/lint-outline-body.$$
 BODY_ERR=$(grep -c '^ERROR' /tmp/lint-outline-body.$$ || true)
@@ -47,6 +47,8 @@ if [ -n "$TLINE" ]; then
   LN="${TLINE%%:*}"; TITLE=$(echo "$TLINE" | sed -E 's/^[0-9]+:- タイトル：//')
   echo "$TITLE" | grep -qE '【?20[0-9]{2}' && { echo "ERROR [タイトル年号] L$LN: $TITLE"; BODY_ERR=$((BODY_ERR+1)); }
   echo "$TITLE" | grep -qE '【|】|｜|※' && { echo "ERROR [タイトル記号] L$LN: $TITLE"; BODY_ERR=$((BODY_ERR+1)); }
+  # 硬語（付録2カテゴリA抜粋）はタイトルにも適用（2026-07-31「向き不向き」「シミュレーション」混入の再発防止）
+  echo "$TITLE" | grep -qE '実質単価|出資金|試算|向き不向き|シミュレーション|コスパ|割高感|定番品|都県|無料ライン|見合う|見返り' && { echo "ERROR [タイトル硬語] L$LN: $TITLE"; BODY_ERR=$((BODY_ERR+1)); }
   TLEN=$(echo -n "$TITLE" | python3 -c 'import sys;print(len(sys.stdin.read()))' 2>/dev/null || echo 0)
   if [ "$TLEN" -gt 0 ] && { [ "$TLEN" -lt 30 ] || [ "$TLEN" -gt 48 ]; }; then
     echo "WARN  [タイトル字数] L$LN: ${TLEN}字（目安35〜45字）"; BODY_WARN=$((BODY_WARN+1))
