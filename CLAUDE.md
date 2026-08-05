@@ -7,10 +7,16 @@
 
 ## ⚠️ 最重要：Single Source of Truth
 
-このリポジトリの**ライティングルールは `writing-manual.md` のみが正本**です。
-本ファイル（CLAUDE.md）・各エージェント・各チェッカーは、writing-manual.md を参照するだけで、ルールを独自に再定義しません。
+ライティングの正本は**2ファイル1組**です。本ファイル（CLAUDE.md）・各エージェント・各チェッカーは、この2つを参照するだけでルールを独自に再定義しません。
 
-矛盾が生じた場合は writing-manual.md の記述が優先されます。
+| ファイル | 範囲 |
+|---|---|
+| `writing-manual.md`（v5.0・250行） | **文の書き方**。一文一段落・60字以内・語尾・H2直下の3文・strong・口コミ |
+| `article-structure.md` | **記事の骨格**。セクションの並び・導入文4文・サービス紹介4〜5文・まとめ5〜6文・FAQ・訴求設計・記事タイプ別 |
+
+**2026-08-05 に方式を変えました。** 旧v4.1（1,787行・禁止語288件）は「〜するな」だけで「良い文とは何か」の定義がなく、ルールを満たした見出しが十数回連続で差し戻される事故が起きました。**アクセス上位13記事を製本（正典）とし、実測から逆算した書き方に置き換えています。** 禁止語は `prohibited-words.md` と `lint.sh` に隔離し、読む対象から外しました。旧版は `.claude/rules/_archive/writing-manual-v4.1.md.archive` にあります（**`.md` のままだと毎セッション自動ロードされ、廃止したPASONA法・FAB法が新マニュアルと衝突するため拡張子を変えた**。読む必要があるときだけ開く）。
+
+矛盾が生じた場合は上記2ファイルの記述が優先されます。
 
 ---
 
@@ -92,7 +98,9 @@ Codex第三者レビュー: `Agent(subagent_type="codex-reviewer")` は使わな
 
 | カテゴリ | ファイル | 内容 |
 |---|---|---|
-| ルール | `.claude/rules/writing-manual.md` | ⭐ SSOT正本（v4.0） |
+| ルール | `.claude/rules/writing-manual.md` | ⭐ **文の書き方**（v5.0 製本方式・250行）。アクセス上位13記事の実測から逆算 |
+| ルール | `.claude/rules/article-structure.md` | ⭐ **記事の骨格**。セクション構成・導入文・サービス紹介・まとめ・FAQ・訴求設計 |
+| 台帳 | `articles/H2台帳.md` | 公開55記事のH2 398本。カニバリ照合用（`scripts/check-cannibal.sh`） |
 | ルール | `.claude/rules/prohibited-words.md` | 禁止語・変換ルール |
 | ルール | `.claude/rules/shortcodes.md` | ショートコード・HTMLテンプレート |
 | ルール | `.claude/rules/service-info.md` | 各サービスのスペック情報 |
