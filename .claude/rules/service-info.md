@@ -247,32 +247,48 @@
 
 ---
 
-### 9. 三ツ星ファーム
+### 9. 三ツ星ファーム【訴求社・afb提携（2026-08-17 掲載依頼）】
 
-**テーブルHTML（コピペ用）:**
+**⚠️ 2026-08-20 に訴求社化。** afb小川さんからの掲載依頼でPost Snippetsに登録済み。**旧「非訴求・[btn]直リンク・1食818円〜」は使わない。**
+**⚠️ 数値の正はWordPressのPost Snippet `[MITSUBOSHI_table]` の中身。** このファイルはその写し。食い違ったらスニペット側を正とする（2026-08-20 Manabuさん裁定）。
+
+**【画像＋Table一括】**: `[MITSUBOSHI_table]` ← H3直下にこの1行のみ配置（テーブル・画像直書き禁止）
+
+**テーブルHTML（スニペット `[MITSUBOSHI_table]` の中身・参照用）:**
 ```html
 <table style="width: 100%;">
 <tbody>
 <tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">株式会社イングリウッド</td></tr>
-<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食818円〜（税込・14食コース2回目以降・2025年6月改定後）、送料990円（本州・四国・九州）</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">定期初回1食497円〜（税込・14食コース）<br />※定期初回キャンペーン価格<br />送料990円（本州・四国・九州）<br />※沖縄・北海道は2,500円</td></tr>
 <tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（一部離島を除く）</td></tr>
 <tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">日時指定可、1〜4週ごと選択可</td></tr>
-<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">なし（初回14食4,500円OFF・解約縛りなし）</td></tr>
+<tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">なし（初回割引キャンペーンの実施あり・対象コース・割引額・条件は公式サイトで要確認）</td></tr>
 </tbody>
 </table>
 ```
 
-**画像HTML:**
+**画像HTML（スニペットに内包。FV・比較表で使う画像も同じもの）:**
 ```html
-<img class="size-full wp-image-131 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2024/11/mitsuboshifarm.jpg" alt="" width="800" height="533" />
+<img class="size-full wp-image-131 aligncenter" src="https://www.super-yamadai.co.jp/article/wp-content/uploads/2026/02/mitsuboshifarm.jpg" alt="" width="800" height="400" />
 ```
 
-**CTA:**
-```
-[btn href="https://mitsuboshifarm.jp/" class="raised main-bc strong" target="_blank" rel="nofollow"]三ツ星ファームの公式サイトはこちら[/btn]
-```
+**CTA:** `[MITSUBOSHI]`（afb案件。スニペット内は `＼125種類以上から選べる！／` ＋ LP `https://www.super-yamadai.co.jp/article/lp-mitsuboshifarm` 経由）
+**アフィリURL（リファレンス）:** `https://t.afi-b.com/visit.php?a=O12865f-v428311E&p=O982170a`
+**strong 1文目の方向性:** シェフが調理した冷凍のおかずが届く宅配弁当
+**比較テーブル用単価:** 497円〜（定期初回・14食コース）
 
-**比較テーブル用単価:** 818円〜
+**裏取り済みの事実（2026-08-20）**
+
+- 三ツ星基準：原則 カロリー350kcal以下・糖質25g以下・たんぱく質15g以上（[公式FAQ 三ツ星ファームとは？](https://faq.mitsuboshifarm.jp/)）
+- 送料：本州・四国・九州990円／沖縄・北海道2,500円（税込）
+- 定期コースに回数の縛りなし。初回だけ頼んで解約できる
+
+**⚠️ 書いてはいけないもの**
+
+- **「1食818円〜」**：旧価格。現行の正はスニペットの「定期初回1食497円〜（14食コース）」
+- **「初回4,500円OFF」を記事本文・見出しに断定で書く**：スニペット側が「割引額・条件は公式サイトで要確認」の運用にしているため、記事側だけ断定すると不整合＋二重価格表示のリスク。割引の訴求はスニペットのキャッチに任せる
+- **「一流シェフ」**：公式のキャッチだが根拠なしの最上級表現（prohibited-words カテゴリD）。「シェフが調理した」と書く
+- **メニュー数の断定**：公式FAQは「数十種類」で総数を公開していない。スニペットのキャッチ「125種類以上」以外の数字を本文に書かない
 
 ---
 
@@ -335,12 +351,14 @@
 
 ### 12. まごころケア食
 
+**⚠️ 2026-08-07 価格改定を反映。** 旧価格（1食394〜426円・送料1,080円/1,580円）は使わない。**冷凍庫の無料レンタルは14食セットのみが対象**（21食セットは対象外）。
+
 **テーブルHTML（コピペ用）:**
 ```html
 <table style="width: 100%;">
 <tbody>
 <tr><th style="width: 25.8158%;">会社</th><td style="width: 74.1117%;">株式会社シルバーライフ</td></tr>
-<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食394〜426円（税込）、送料1,080円（沖縄・離島は1,580円）</td></tr>
+<tr><th style="width: 25.8158%;">費用</th><td style="width: 74.1117%;">1食401〜434円（税込）、送料980円（税込）（沖縄・離島は1,480円（税込））</td></tr>
 <tr><th style="width: 25.8158%;">配送エリア</th><td style="width: 74.1117%;">全国（一部離島は送料割増）</td></tr>
 <tr><th style="width: 25.8158%;">配送日時の設定</th><td style="width: 74.1117%;">日時指定可（5時間帯）</td></tr>
 <tr><th style="width: 25.8158%;">お試しの有無</th><td style="width: 74.1117%;">初回14食トライアル1,260円（税込・1食90円）</td></tr>
@@ -358,7 +376,7 @@
 [btn href="https://magokoro-care-shoku.com/" class="raised main-bc strong" target="_blank" rel="nofollow"]まごころケア食の公式サイトはこちら[/btn]
 ```
 
-**比較テーブル用単価:** 394円〜
+**比較テーブル用単価:** 401円〜
 
 ---
 

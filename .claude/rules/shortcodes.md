@@ -47,6 +47,7 @@
 - `[wellness-dining]`（ウェルネスダイニング。【たんぱく質】【やわらか宅食】とも同一ショートコード）
 - `[shokunosoyokaze]`（食のそよ風）
 - `[nitireifoods]`（ニチレイフーズ お試し。service-info.md「ニチレイフーズダイレクト」と同一）
+- `[MITSUBOSHI]`（三ツ星ファーム。afb案件・2026-08 登録）
 
 #### 登録済みショートコード マスター一覧（差し替え用リファレンス）
 
@@ -74,6 +75,7 @@
 | パルシステム | 食材・日用品宅配 | `[palsystem]` | `[palsystem_table]` | — | https://px.a8.net/svt/ejp?a8mat=4AZA43+A4NBM+HS+U3OCH |
 | 食のそよ風 | 冷凍弁当 | `[shokunosoyokaze]` | `[shokunosoyokaze_table]` | — | https://px.a8.net/svt/ejp?a8mat=4AV10L+5WK102+5JJC+5YJRM |
 | ニチレイフーズ（お試し） | 冷凍弁当 | `[nitireifoods]` | `[nitireifoods_table]` | — | https://px.a8.net/svt/ejp?a8mat=4AV10L+8G8MRE+4SIA+5Z6WX |
+| 三ツ星ファーム | 冷凍弁当 | `[MITSUBOSHI]` | `[MITSUBOSHI_table]` | lp-mitsuboshifarm | https://t.afi-b.com/visit.php?a=O12865f-v428311E&p=O982170a |
 
 > LP列は `https://www.super-yamadai.co.jp/article/` 配下のスラッグ。`—` はLP未指定。
 > コープデリは「お試し」案件のショートコードのみ登録（`[コープデリ]`）。
@@ -109,6 +111,7 @@
 | パルシステム | `[palsystem_table]` |
 | 食のそよ風 | `[shokunosoyokaze_table]` |
 | ニチレイフーズ（お試し） | `[nitireifoods_table]` |
+| 三ツ星ファーム | `[MITSUBOSHI_table]` |
 
 #### 使用例
 
@@ -211,4 +214,5 @@
 | ヨシケイ | 訴求社 | `[ヨシケイ]` |
 | らでぃっしゅぼーや | 訴求社 | `[ラディッシュボーヤ]` |
 | コープデリ | 訴求社 | `[コープデリ]` |
+| 三ツ星ファーム | 訴求社（afb・2026-08〜） | `[MITSUBOSHI]` |
 | 上記以外すべて | 非訴求社 | `[btn]`（rel="nofollow"付き） |
