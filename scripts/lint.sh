@@ -1,6 +1,20 @@
 #!/bin/bash
-# lint.sh v3.0 — ヤマダイ記事用 機械チェッカー
-# 使用法: bash scripts/lint.sh articles/{KW}-article.html
+# lint.sh v3.1 — ヤマダイ記事用 機械チェッカー
+# 使用法: bash scripts/lint.sh articles/{KW}/article.html
+#
+# v3.1変更点（2026-08-26）: 文体・表現系チェックの blockquote 除外漏れを全数修正
+#   - 27行目で BODY（blockquote を空行で潰した本文）を定義していたのに、
+#     文体・表現系の30箇所が $BODY ではなく $FILE を grep しており、
+#     **改変できない口コミの原文にERROR/WARNINGを出していた**（レイヤー6「を提供してくれ」で発覚）。
+#   - 対象30箇所を $BODY に統一：レイヤー2/4/5/6/14・比喩・後述系・ナンバリング・
+#     という/といった/として・することができます・感嘆符・あなた・かどうかを・設計です・有無・
+#     最大○%割引・よね・「〜い。」・%OFF・送料無料・情報ゼロのstrong締め・防げます/減らせます・
+#     誘導文の重複・情報ゼロ文・口コミのメタ説明・悪い口コミ・頻出表現カウント・効果的
+#   - 構造/HTML/ショートコード系（li内句点・btnのclass/rel・_table・アンカー・H2/img/H3カウント等）は
+#     blockquote の外にしか現れないため $FILE のまま据え置き（25箇所）。
+#   - 検証: articles/_regression/ng-corpus.txt の機械検出 20/37 で改修前と同値（デグレなし）。
+#     公開済み記事20本のERROR行は改修前後とも78行で完全一致（新規0・消失0＝挙動不変）。
+#     blockquote内のみ検出が消えることは実サンプルで確認済み。
 #
 # v3.0変更点（2026-04-24）:
 #   - 「こと」「〜しましょう」チェックを削除（OK化）
@@ -23,6 +37,10 @@ set -uo pipefail
 
 FILE="$1"
 if [[ ! -f "$FILE" ]]; then echo "ERROR: ファイルが見つかりません: $FILE"; exit 1; fi
+
+# 口コミ(blockquote)内は原文ママで改変できないため、本文のみを対象にする(行番号は保持するため空行で潰す)
+# 各種チェックより先に定義する（$BODYを参照するチェックが後段に複数あるため）
+BODY=$(awk '/<blockquote/{inbq=1} {if(inbq) print ""; else print} /<\/blockquote>/{inbq=0}' "$FILE")
 
 # === カウンター: 追記式（サブシェル対策・macOS bash 3.x対応） ===
 ERR_FILE=$(mktemp)
@@ -47,9 +65,9 @@ echo ""
 # ============================================
 # 1. 表記揺れ・冗長表現（カテゴリF）
 # ============================================
-echo "--- 表記揺れ ---"
+echo "--- 表記揺れ（口コミ原文=blockquoteは改変禁止のため除外） ---"
 for P in "様々" "行なう" "行なっ" "是非" "下さい" "頂く" "頂き" "致します"; do
-  grep -n "$P" "$FILE" | while read -r l; do error "変換必須「${P}」: $l"; done || true
+  echo "$BODY" | grep -n "$P" | while read -r l; do error "変換必須「${P}」: $l"; done || true
 done
 
 # ============================================
@@ -57,7 +75,7 @@ done
 # ============================================
 echo "--- AI表現 レイヤー2 ---"
 for P in "大きな魅力" "充実しています" "ぴったりの" "ぴったりです" "ぴったりな" "への第一歩" "を両立" "の強みです" "魅力のひとつ" "仕上がり" "仕上げられ" "選ばれています" "把握しておけば" "リスクを減らせ" "OKです" "代表です" "代表格" "払拭" "疑問視" "レストラン品質" "手作りした" "手作りの" "候補です" "選択肢に入" "試してほしい" "さまざまなメリット" "多くのメリット"; do
-  grep -n "$P" "$FILE" | while read -r l; do error "AI表現「${P}」: $l"; done || true
+  echo "$BODY" | grep -n "$P" | while read -r l; do error "AI表現「${P}」: $l"; done || true
 done
 
 # ============================================
@@ -65,7 +83,7 @@ done
 # ============================================
 echo "--- AI表現 レイヤー4（文末・文型定型） ---"
 for P in "と言えるでしょう" "と言っても過言" "に他なりません" "と考えられます" "と思われます" "と言っても良い" "してみてはいかがでしょう" "しておきましょう" "といいです" "ためです。"; do
-  grep -n "$P" "$FILE" | while read -r l; do warning "レイヤー4「${P}」要確認: $l"; done || true
+  echo "$BODY" | grep -n "$P" | while read -r l; do warning "レイヤー4「${P}」要確認: $l"; done || true
 done
 
 # ============================================
@@ -73,7 +91,7 @@ done
 # ============================================
 echo "--- AI表現 レイヤー5（導入・結論定型） ---"
 for P in "本記事" "いかがでしたでしょうか" "いかがでしたか" "参考になれば幸い" "お役に立てれば" "一助となれば" "最後までお読みいただき"; do
-  grep -n "$P" "$FILE" | while read -r l; do error "レイヤー5「${P}」: $l"; done || true
+  echo "$BODY" | grep -n "$P" | while read -r l; do error "レイヤー5「${P}」: $l"; done || true
 done
 
 # ============================================
@@ -81,7 +99,7 @@ done
 # ============================================
 echo "--- AI表現 レイヤー6（訴求・推奨） ---"
 for P in "に最適" "理想的な" "を叶え" "をかなえ" "を実現" "をサポート" "に応えてくれ" "を提供してくれ" "注目を集め" "話題となって" "人気を集め" "高い評価を得" "信頼されて"; do
-  grep -n "$P" "$FILE" | while read -r l; do error "レイヤー6「${P}」: $l"; done || true
+  echo "$BODY" | grep -n "$P" | while read -r l; do error "レイヤー6「${P}」: $l"; done || true
 done
 
 # ============================================
@@ -121,7 +139,7 @@ done
 # ============================================
 echo "--- AI表現 レイヤー14（背中押し） ---"
 for P in "後悔のない選択" "失敗しないために" "賢い選択" "一歩踏み出して" "今こそ" "理想の.*を手に入れ"; do
-  grep -nE "$P" "$FILE" | while read -r l; do warning "レイヤー14「${P}」要確認: $l"; done || true
+  echo "$BODY" | grep -nE "$P" | while read -r l; do warning "レイヤー14「${P}」要確認: $l"; done || true
 done
 
 # ============================================
@@ -129,7 +147,7 @@ done
 # ============================================
 echo "--- AI臭いナンバリング ---"
 for P in "[0-9]つのポイント" "[0-9]つのメリット" "[0-9]つの注意点" "[0-9]つの特徴" "[0-9]点を" "[0-9]点に"; do
-  grep -nE "$P" "$FILE" | while read -r l; do error "AI臭いナンバリング: $l"; done || true
+  echo "$BODY" | grep -nE "$P" | while read -r l; do error "AI臭いナンバリング: $l"; done || true
 done
 
 # ============================================
@@ -137,34 +155,32 @@ done
 # ============================================
 echo "--- 比喩表現 ---"
 for P in "跳ね上が" "ふくらむ" "広がる" "広がり" "近づく" "近づけ" "絞られ" "狭まる" "かみ合" "目を向け" "分かれ目" "道が開け" "判断材料" "検討材料" "参考材料" "材料にして" "材料として"; do
-  grep -n "$P" "$FILE" | while read -r l; do error "比喩「${P}」: $l"; done || true
+  echo "$BODY" | grep -n "$P" | while read -r l; do error "比喩「${P}」: $l"; done || true
 done
 
 # ============================================
 # 13. 後述系（カテゴリB）
 # ============================================
 for P in "後ほど紹介" "前述の通り" "上記で触れ"; do
-  grep -n "$P" "$FILE" | while read -r l; do error "後述系: $l"; done || true
+  echo "$BODY" | grep -n "$P" | while read -r l; do error "後述系: $l"; done || true
 done
 
 # ============================================
 # 14. 冗長表現（レイヤー1）
 # ============================================
 echo "--- 冗長表現 ---"
-grep -n "という" "$FILE" | while read -r l; do warning "「という」要確認（できれば具体的に）: $l"; done || true
-grep -n "といった" "$FILE" | while read -r l; do warning "「といった」要確認（できれば「〜や〜など」に）: $l"; done || true
-grep -n "として" "$FILE" | while read -r l; do warning "「として」要確認: $l"; done || true
-grep -n "することができます" "$FILE" | while read -r l; do error "冗長「することができます」: $l"; done || true
+echo "$BODY" | grep -n "という" | while read -r l; do warning "「という」要確認（できれば具体的に）: $l"; done || true
+echo "$BODY" | grep -n "といった" | while read -r l; do warning "「といった」要確認（できれば「〜や〜など」に）: $l"; done || true
+echo "$BODY" | grep -n "として" | while read -r l; do warning "「として」要確認: $l"; done || true
+echo "$BODY" | grep -n "することができます" | while read -r l; do error "冗長「することができます」: $l"; done || true
 
 # ============================================
 # 15. 指示語（レイヤー1）
 # ============================================
 echo "--- 指示語（口コミ除外・ERROR） ---"
-# 口コミ(blockquote)内は原文ママで改変できないため、本文のみを対象にする(行番号は保持するため空行で潰す)
-BODY=$(awk '/<blockquote/{inbq=1} {if(inbq) print ""; else print} /<\/blockquote>/{inbq=0}' "$FILE")
 echo "$BODY" | grep -n "この" | grep -v "この記事\|この口コミ" | while read -r l; do error "指示語「この」(具体名詞に。例外:この記事では/この口コミ): $l"; done || true
 echo "$BODY" | grep -n "その" | grep -v "そのまま\|そのもの\|そのため" | while read -r l; do error "指示語「その」(具体名詞に): $l"; done || true
-echo "$BODY" | grep -n "これ[はをがも]" | while read -r l; do error "指示語「これ」(具体名詞に): $l"; done || true
+echo "$BODY" | grep -nE "これ(は|を|が|も)" | grep -v "これまで" | while read -r l; do error "指示語「これ」(具体名詞に): $l"; done || true
 echo "$BODY" | grep -n "それ" | grep -v "それぞれ\|それでも\|それなり\|それとも" | while read -r l; do error "指示語「それ」(具体名詞に): $l"; done || true
 echo "$BODY" | grep -n "こうした\|そうした" | while read -r l; do error "指示語「こうした/そうした」(具体名詞に): $l"; done || true
 
@@ -193,7 +209,7 @@ echo "$BODY" | grep -n "「" | while read -r l; do warning "「」使用（会�
 # ============================================
 echo "--- 記号・HTML ---"
 LC_ALL=C.UTF-8 grep -nP '<h2>.*[【】]' "$FILE" | while read -r l; do error "H2に【】: $l"; done || true
-grep -n "!" "$FILE" | grep -v "href\|class\|src\|alt\|style\|rel\|target\|<" | while read -r l; do warning "半角!: $l"; done || true
+echo "$BODY" | grep -n "!" | grep -v "href\|class\|src\|alt\|style\|rel\|target\|<" | while read -r l; do warning "半角!: $l"; done || true
 grep -n "<li>.*。</li>" "$FILE" | while read -r l; do error "li内に句点: $l"; done || true
 grep -n "<tr><tr>\|<td><td>" "$FILE" | while read -r l; do error "タグ二重: $l"; done || true
 
@@ -212,8 +228,8 @@ grep -n "gad_campaignid\|gbraid\|gclid" "$FILE" | while read -r l; do error "Goo
 # 18. 追加NG表現（v4.0強化）
 # ============================================
 echo "--- 追加NG ---"
-grep -n "あなた" "$FILE" | while read -r l; do error "「あなた」: $l"; done || true
-grep -n "かどうかを" "$FILE" | while read -r l; do warning "間接疑問文: $l"; done || true
+echo "$BODY" | grep -n "あなた" | while read -r l; do error "「あなた」: $l"; done || true
+echo "$BODY" | grep -n "かどうかを" | while read -r l; do warning "間接疑問文: $l"; done || true
 grep -n "知恵袋\|Yahoo知恵袋\|2ch\|5ch" "$FILE" | while read -r l; do error "外部情報源引用: $l"; done || true
 
 # ============================================
@@ -237,13 +253,32 @@ done
 # 「都県」は単独名詞のみERROR（「8都県」等の数詞付きエリア数表記は正当な用法・2026-07-31検証）
 echo "$BODY" | grep -n "都県" | grep -vE '[0-9０-９]都県' | while read -r l; do error "カテゴリA「都県」(単独名詞は「地域」に): $l"; done || true
 # 「設計です」は「献立設計」を除いて検出
-grep -n "設計です" "$FILE" | grep -v "献立設計" | while read -r l; do error "カテゴリA「設計です」: $l"; done || true
+echo "$BODY" | grep -n "設計です" | grep -v "献立設計" | while read -r l; do error "カテゴリA「設計です」: $l"; done || true
 # 「向き不向き」は口コミ原文（blockquote）を除いて検出
 echo "$BODY" | grep -n "向き不向き" | while read -r l; do error "カテゴリA「向き不向き」: $l"; done || true
 # 「有無」はテーブル行を除いて検出
-grep -n "有無" "$FILE" | grep -v "<th\|<td" | while read -r l; do error "カテゴリA「有無」: $l"; done || true
+echo "$BODY" | grep -n "有無" | grep -v "<th\|<td" | while read -r l; do error "カテゴリA「有無」: $l"; done || true
+
+# ============================================
+# 20b-2. ら抜き・い抜き言葉（2026-08-06新規・サマリー文言は検査済みと自称していたが実装が無かった）
+# ============================================
+echo ""
+echo "--- ら抜き・い抜き言葉（口コミ原文=blockquoteは改変禁止のため除外） ---"
+for P in "見れる" "食べれる" "入れれる" "届けれる" "出れる" "来れる" "してる" "使ってる"; do
+  echo "$BODY" | grep -n "$P" | while read -r l; do error "変換必須(ら抜き/い抜き)「${P}」: $l"; done || true
+done
+
+# ============================================
+# 20c. ヤマダイ固有カテゴリD：景表法・薬機法リスク表現（2026-08-06新規・文書化されていたが未実装だった）
+# ============================================
+echo ""
+echo "--- カテゴリD：景表法・薬機法リスク表現（根拠のない優良/有利誤認） ---"
+for P in "コスパの良さ" "最安クラス" "圧倒的" "大幅割引" "低価格" "No\\.1" "格安" "一流" "本格的"; do
+  echo "$BODY" | grep -n "$P" | while read -r l; do error "カテゴリD「${P}」(根拠なしは景表法リスク・具体的な価格/数字で書く): $l"; done || true
+done
+echo "$BODY" | grep -nE "最大[0-9０-９]+%割引" | while read -r l; do error "カテゴリD「最大○%割引」: 制度区分・対象要件・上限を明記: $l"; done || true
 # 「よね」（〜ですよね・〜ますよね）
-grep -n "よね[。、]" "$FILE" | while read -r l; do warning "「よね」要確認（共感文では可）: $l"; done || true
+echo "$BODY" | grep -n "よね[。、]" | while read -r l; do warning "「よね」要確認（共感文では可）: $l"; done || true
 
 # ============================================
 # 21. ヤマダイ固有 - テーブル5行チェック
@@ -355,7 +390,7 @@ grep -nE "を実施。|に対応。|を実現。|を提供。" "$FILE" | while r
 # ============================================
 # 26. 「〜い。」で終わるアドバイス文
 # ============================================
-grep -n "[やすにくほし]い。" "$FILE" | grep -v "<\|>\|\[" | while read -r l; do warning "「〜い。」で終わるアドバイス文: $l"; done || true
+echo "$BODY" | grep -n "[やすにくほし]い。" | grep -v "<\|>\|\[" | while read -r l; do warning "「〜い。」で終わるアドバイス文: $l"; done || true
 
 # ============================================
 # 27. strongタグの過剰使用（1行に2箇所以上）
@@ -400,20 +435,20 @@ echo "--- 一文一改行チェック（2026-07-31 実装・§E-3） ---"
 # 1行に句点が2つ以上＝文が改行されていない。タグ行・※行・口コミ(BODY除外済み)は対象外
 echo "$BODY" | grep -n "。.*。" | grep -vE '^[0-9]+:(<|※)' | while read -r l; do error "一文一改行(1行に複数文・§E-3): $l"; done || true
 
-echo "--- 法令セーフ変換チェック（v4.0新規） ---"
+echo "--- 法令セーフ変換チェック（v4.0新規・口コミ原文=blockquoteは改変禁止のため除外） ---"
 for P in "管理栄養士が監修" "専門医の指導のもと" "栄養バランスの整った食事がとれ" "初回半額" "制限食" "食事制限向け" "国産食材100" "無添加" "ダイエット向け" "筋力アップ向け" "レストラン品質" "一流シェフ" "全額返金保証"; do
-  grep -n "$P" "$FILE" | while read -r l; do error "法令セーフ変換未適用「${P}」: $l"; done || true
+  echo "$BODY" | grep -n "$P" | while read -r l; do error "法令セーフ変換未適用「${P}」: $l"; done || true
 done
 
 # 「〇〇%OFF」単独（条件併記がない可能性）
-grep -nE "[0-9]+%OFF" "$FILE" | while read -r l; do
+echo "$BODY" | grep -nE "[0-9]+%OFF" | while read -r l; do
   if ! echo "$l" | grep -qE "条件|定期|対象|公式"; then
     warning "「%OFF」に条件併記がない可能性: $l"
   fi
 done || true
 
 # 「送料無料」単独（条件併記がない可能性）
-grep -n "送料無料" "$FILE" | while read -r l; do
+echo "$BODY" | grep -n "送料無料" | while read -r l; do
   if ! echo "$l" | grep -qE "条件|定期|対象|公式"; then
     warning "「送料無料」に条件併記がない可能性: $l"
   fi
@@ -455,12 +490,12 @@ done < "$FILE"
 echo ""
 echo "--- strong締めの品質チェック ---"
 for P in "公式サイトで確認してから申し込めば" "想定外の出費を避けられます" "安心して利用できます" "後悔せずに済みます" "不満が残らずに済みます"; do
-  grep -n "$P" "$FILE" | while read -r l; do warning "情報ゼロのstrong締め候補: $l"; done || true
+  echo "$BODY" | grep -n "$P" | while read -r l; do warning "情報ゼロのstrong締め候補: $l"; done || true
 done
 # strong締め末尾の「〜を防げます／防ぎます」は定型のため禁止（2026-06-29・本文中の具体的な「防げます」は対象外）
 # 2026-07-30: WARNING → ERROR に格上げ（§E-2補足は明確な禁止だが、WARNING埋もれで見落としが発生したため）
 # 2026-07-30: 「〜を減らせます」も同じ定型のため追加（Manabuさん指摘）
-grep -nE "(防げます|防ぎます|減らせます|減らせる)。</strong>" "$FILE" | while read -r l; do error "strong締め「〜を防げます／〜を減らせます」は禁止（§E-2補足）。具体的な行動・状態に言い換えるか、締め自体を削除する: $l"; done || true
+echo "$BODY" | grep -nE "(防げます|防ぎます|減らせます|減らせる)。</strong>" | while read -r l; do error "strong締め「〜を防げます／〜を減らせます」は禁止（§E-2補足）。具体的な行動・状態に言い換えるか、締め自体を削除する: $l"; done || true
 
 # ============================================
 # 30d. 誘導文の重複チェック（2026-05新規）
@@ -468,7 +503,7 @@ grep -nE "(防げます|防ぎます|減らせます|減らせる)。</strong>" 
 echo ""
 echo "--- 誘導文の重複チェック ---"
 for P in "まとめました" "次の通りです" "以下の通りです" "下記の通りです"; do
-  COUNT=$(grep -c "$P" "$FILE" || true)
+  COUNT=$(echo "$BODY" | grep -c "$P" || true)
   if [[ "$COUNT" -ge 3 ]]; then
     warning "誘導文「${P}」が${COUNT}回出現（3回以上は分散させる）"
   fi
@@ -480,14 +515,14 @@ done
 echo ""
 echo "--- 情報ゼロ文パターン ---"
 for P in "のも事実です" "人それぞれ" "安心感があります" "楽にしてくれます" "工夫が必要です" "が魅力です" "が大切です" "が重要です" "といいでしょう"; do
-  grep -n "$P" "$FILE" | while read -r l; do warning "情報ゼロ文の候補「${P}」（消しても意味が変わらないなら削除・§E-12）: $l"; done || true
+  echo "$BODY" | grep -n "$P" | while read -r l; do warning "情報ゼロ文の候補「${P}」（消しても意味が変わらないなら削除・§E-12）: $l"; done || true
 done
 # 口コミのメタ説明定型（feedback_writing 学び35）
 for P in "声が寄せられています" "声が目立ちます" "声も見られます" "声が見られます"; do
-  grep -n "$P" "$FILE" | while read -r l; do warning "口コミのメタ説明定型「${P}」（事実を直接書く・学び35）: $l"; done || true
+  echo "$BODY" | grep -n "$P" | while read -r l; do warning "口コミのメタ説明定型「${P}」（事実を直接書く・学び35）: $l"; done || true
 done
 # 口コミの呼称（§A-7: 「悪い口コミ」は「気になる口コミ」に）
-grep -n "悪い口コミ\|悪い評判" "$FILE" | while read -r l; do warning "「悪い口コミ/悪い評判」は「気になる口コミ」に言い換える（§A-7）: $l"; done || true
+echo "$BODY" | grep -n "悪い口コミ\|悪い評判" | while read -r l; do warning "「悪い口コミ/悪い評判」は「気になる口コミ」に言い換える（§A-7）: $l"; done || true
 
 # ============================================
 # 31. H2情報
@@ -502,7 +537,7 @@ echo "  H2数: ${H2_COUNT} / imgタグ数: ${IMG_COUNT}"
 echo ""
 echo "--- 頻出表現チェック ---"
 for PHRASE in "に合わせて選べます" "に向いています" "で安心" "が魅力です" "に定評があります" "を楽しめます" "が特徴です" "で届きます" "気軽に始められます"; do
-  COUNT=$(grep -c "$PHRASE" "$FILE" 2>/dev/null || true)
+  COUNT=$(echo "$BODY" | grep -c "$PHRASE" 2>/dev/null || true)
   COUNT=${COUNT:-0}; COUNT=$(echo "$COUNT" | head -1 | tr -d '[:space:]')
   if [[ "$COUNT" -ge 3 ]]; then
     warning "「${PHRASE}」が${COUNT}回出現（3回以上は分散させる）"
@@ -511,7 +546,7 @@ done
 
 # 条件付き許容レイヤー7-B（3回以上で警告）
 for PHRASE in "あらゆる" "効率的に" "効率的な" "トータルで"; do
-  COUNT=$(grep -c "$PHRASE" "$FILE" 2>/dev/null || true)
+  COUNT=$(echo "$BODY" | grep -c "$PHRASE" 2>/dev/null || true)
   COUNT=${COUNT:-0}; COUNT=$(echo "$COUNT" | head -1 | tr -d '[:space:]')
   if [[ "$COUNT" -ge 3 ]]; then
     warning "「${PHRASE}」が${COUNT}回出現（条件付き許容・3回以上で警告）"
@@ -522,7 +557,7 @@ done
 while IFS= read -r line; do
   LN="${line%%:*}"; TXT="${line#*:}"
   error "完全禁止「効果的」（→おすすめです/役立ちます/具体的に）: ${LN}:${TXT}"
-done < <(grep -nE "効果的" "$FILE" 2>/dev/null || true)
+done < <(echo "$BODY" | grep -nE "効果的" 2>/dev/null || true)
 
 # ============================================
 # 33. サービス紹介の書き出しパターン単調チェック
