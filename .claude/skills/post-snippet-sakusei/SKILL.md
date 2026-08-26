@@ -1,6 +1,6 @@
 ---
 name: post-snippet-sakusei
-description: 新しく提携したサービスのPost Snippets（CTAボタン用 `[サービス名]` と 画像＋テーブル用 `[サービス名_table]`）の中身を作る。既存の提携社の描画結果から逆算した形式に、修正済み記事の画像・テーブル実物と公式で裏取りした数値を流し込む。「ポストスニペット作って」「新しく提携したのでショートコード用意して」「_tableの中身作って」等でトリガー。WordPressへの登録自体はREST非公開のため人が貼る。
+description: 新しく提携したサービスのPost Snippets（CTAボタン用 `[サービス名]` と 画像＋テーブル用 `[サービス名_table]`）の中身を作る。既存の提携社の描画結果から逆算した形式に、修正済み記事の画像・テーブル実物と公式で裏取りした数値を流し込む。「ポストスニペット作って」「新しく提携したのでショートコード用意して」「_tableの中身作って」等でトリガー。WordPressへの登録・更新はREST非公開だが、Playwrightでwp-adminを操作すれば私が実行できる。
 ---
 
 # ポストスニペット作成（post-snippet-sakusei）
@@ -11,11 +11,23 @@ description: 新しく提携したサービスのPost Snippets（CTAボタン用
 
 ---
 
-## 先に把握しておくこと：登録は私にはできない
+## 先に把握しておくこと：RESTでは無理だが、Playwrightなら私が登録・更新できる
 
-Post Snippets プラグインは REST API に公開されていない。**Claudeからは作成も読み取りもできない。** 中身を作ってチャットに出し、貼り付けはManabuさんに依頼する。
+Post Snippets プラグインは REST API に公開されていない。**REST（`wpsrc.py` / wp_* MCP）からは作成も読み取りもできない。**
 
-「登録しておきます」と言わない。着手時に下記を実行して、状況が変わっていないか毎回確かめる（グローバル §3.2.1）。
+**ただし「だから人が貼る」ではない（2026-08-26 訂正）。** Playwright MCP で wp-admin にログインすれば、私が中身の読み取り・書き換え・保存まで実行できる。実際に `MITSUBOSHI_table` の配送エリア行へ広告主指定の注記を追加し、公開ページへの反映まで確認済み。**「REST非公開なので貼っておいてください」と案内しない。**
+
+### Playwrightでの操作手順（実測・2026-08-26）
+
+1. `browser_navigate` で `https://www.super-yamadai.co.jp/article/wp-admin/` を開く（未ログインなら wp-login にリダイレクトされるので、その画面でManabuさんにログインしてもらう。**Keychainの認証情報はREST用アプリケーションパスワードで、wp-login.phpには使えない**）
+2. 一覧は `admin.php?page=post-snippets`。**`options-general.php?page=post-snippets/post-snippets.php` は403になる**（旧スラッグ）
+3. 一覧表 `table.psp_all_snippets` の行から編集リンク（`?page=post-snippets-edit&action=edit&snippet={ID}&_wpnonce=...`）を取る。**行の1セル目はチェックボックスなのでタイトルは `tr.textContent` で拾う**
+4. 本文は **CodeMirror**。`document.querySelector('.CodeMirror').CodeMirror.getValue()` で読み、`setValue()` で書く。書いたら `cm.save()` とtextarea同期を確認する
+5. 置換前に**出現1件をassert**し、**書き換え前の全文をチャットに出してバックアップ**にする
+6. 保存は `input#submit[name="submit"]`
+7. 保存後は**編集画面を開き直して保存値を確認**し、さらに**公開ページをcurlして描画を確認**する（画面遷移だけで完了と言わない）
+
+なお REST に snippet 系の投稿タイプが無いことは、着手時に下記で毎回確かめる（グローバル §3.2.1）。
 
 ```bash
 curl -s -m 20 "https://www.super-yamadai.co.jp/article/wp-json/wp/v2/types" \
