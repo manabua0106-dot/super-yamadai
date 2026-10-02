@@ -138,6 +138,7 @@ Codex第三者レビュー: `Agent(subagent_type="codex-reviewer")` は使わな
 **⚡ 既定は write-pipeline（2026-10-02 Manabuさん承認・使用量対策）。** 構成が確定したら `Workflow({scriptPath: "/Users/manasimac/Projects/super-yamadai/.claude/skills/kosei-sakusei/write-pipeline.js", args: "ターゲットKW"})` で起動する（骨格→横断dedupe→全H2と導入文を並列で文章化→4レンズ検証→修正→最終lint）。掲載社の公式情報が最近確認されていないときは、起動前に `service-freshness` で鮮度（価格改定・販売終了）を確かめる。write-pipeline は公式サイトを取り直さず、service-info.md の値を使う。
 実測（過去の実行ログ）：write-pipeline は1本あたり約28エージェント・約5Mトークン・約30分。下の「各H2の執筆フロー」（H2ごとに writer→iron-rule→kw→editor を最大3周）は、2026-09-18 の4本で1本あたり約26M・約150エージェントかかったため**例外**にする。例外にするのは、Workflow が使えないとき／特定のH2だけ直すとき／Manabuさんが全文の再反論0件までの徹底を指示したときだけ。
 本体ループが担当する残り：意味レビュー1周・ゲート5（納品前チェックリスト）・口コミの実URLの確認・チャット報告。完成報告はゲート5通過後のみ。
+台帳（`outline.md` の `## 情報台帳`）がある構成は、`args: {kw: "ターゲットKW", lean: true}` で骨格+横断dedupeを省ける（約12エージェント・約2.4M・約4分の見込み）。**最初の1本は骨格ありと品質を見比べてから、既定にするか決める。**
 **service-info.md は自動では読み込まれない**（約200KB。先頭の `paths:` で外してある）。載せる社の節だけを、`grep -n "^### "` で位置を探して Read の offset/limit で読む。
 
 以下は例外のときのH2ごとのフロー。

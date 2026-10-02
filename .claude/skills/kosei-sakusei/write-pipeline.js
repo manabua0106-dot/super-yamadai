@@ -5,6 +5,7 @@
 // 従来は検証レンズ「KW・共起語」がLLM判断だけで、機械で数える工程が無かった（学び60と同じ型の穴）。
 // 2026-10-02 使用量対策（Manabuさん承認）：①service-info.md（約200KB）は自動では読み込まれなくなったので、各エージェントは自分の社の節だけ読む（RULES_COMMON）
 //   ②2026-09-17〜18の再開用ワークフロー yamadai-write-resume で実際に指摘された教訓18項目を LESSONS として全エージェント・全検証レンズに渡す（既定をこのパイプラインに切り替えても品質を落とさないため）
+//   ④情報台帳（outline.md の「## 情報台帳」）があれば全担当に渡す。args に {kw, lean: true} で、骨格と横断dedupeを省ける（台帳がある構成だけ。台帳が置き場所を先に決めているため）
 //   ③導入文をH2の並列執筆と同じバッチで書く（従来は全H2のあとに直列で約3分）。従来どおり全H2のあとに書くときは args に {kw, introLast: true}
 // 本体ループの担当: 実行前のoutline確定確認／完成後の意味レビュー（空文・重複・薄さ・硬さの一読）・納品前チェックリスト（CLAUDE.md §G-5）・口コミ実URLの最終確認・チャット報告。
 export const meta = {
@@ -21,6 +22,7 @@ export const meta = {
 const INPUT = (args && typeof args === 'object') ? args : { kw: args }
 const KW = (INPUT.kw && String(INPUT.kw).trim()) ? String(INPUT.kw).trim() : ''
 if (!KW) throw new Error('args にターゲットKWを渡してください（例: Workflow({scriptPath, args: "らでぃっしゅぼーや お試し"})）')
+const LEAN = !!INPUT.lean   // 台帳がある構成だけ。骨格と横断dedupeを省く（約12エージェント）
 const ROOT = '/Users/manasimac/Projects/super-yamadai'
 const DIR = ROOT + '/articles/' + KW
 const OUTLINE = DIR + '/outline.md'
@@ -58,11 +60,13 @@ const RULES_COMMON = '【全エージェント共通・最優先ルール（詳�
   '- pタグ絶対禁止（WordPressが自動付与）。一文一改行（「。」の直後に空行）・1文60字以内\n' +
   '- 推測で数値を書かない。テーブル・画像・CTA・価格は ' + ROOT + '/.claude/rules/service-info.md からコピペ（1文字も変えない）。_table登録済み社はショートコード必須\n' +
   '- 【使用量の節約・2026-10-02】service-info.md は約1,750行・200KBあり、自動では読み込まれない。全文を読まない。`grep -n "^### " ' + ROOT + '/.claude/rules/service-info.md` で節の位置を出し、自分のH2で使う社の節だけを Read の offset/limit で読む（1社の節は、次の「### 」または「## 」の直前まで）\n' +
+  '- 【情報台帳・2026-10-02】' + OUTLINE + ' に「## 情報台帳」の節があるときは、自分のH2・H3が置き場所の行だけを書く。他のH3が置き場所の情報と、台帳で「入れない」の情報は書かない（同じ情報を2か所に書かない）。台帳が無い構成には適用しない\n' +
   '- 口コミは outline.md の「口コミ素材」節の実URL・原文ママのみ使用（blockquote＋cite・writing-manual.md §6）。素材がない口コミH3は書かずにopenIssuesへ（捏造絶対禁止）\n' +
   '- ミニ免責は本文で繰り返さず末尾免責に集約。法令セーフ変換表（writing-manual.md 付録：法令セーフ変換）を執筆段階で適用（writing-manual.md §8）\n' +
   '- 1文ごとに自己検算する（消しても意味が変わらない文は書かない・当たり前の総括禁止・中学生が一読で像が浮かぶ・既出と重複しない）\n' +
   LESSONS
 
+const LEAN_SKELETON = '（lean実行のため骨格ファイルは無い）' + OUTLINE + ' の自分のH2の「約束：」行・配下のH3・「## 情報台帳」の自分が置き場所の行・「執筆時の要裏取り」を骨格として使う。H3ごとに、結論の1文目・根拠・具体（数値は service-info.md の該当社の節の値だけ）・使うパーツ（ul/表/ショートコード）を決めてから書く。台帳で他のH3が置き場所の情報は書かない'
 const PLAN_SCHEMA = { type: 'object', additionalProperties: false, properties: {
   h2s: { type: 'array', items: { type: 'object', additionalProperties: false, properties: {
     index: { type: 'integer' }, heading: { type: 'string' }, promise: { type: 'string' },
@@ -73,7 +77,8 @@ const PLAN_SCHEMA = { type: 'object', additionalProperties: false, properties: {
   cooccurrencePlanMarkdown: { type: 'string', description: 'ゲート1: 共起語→配置先H2/H3の計画（保存用Markdown）' },
   intro: { type: 'string', description: '導入文の設計メモ（PASONA・メインKW1文目）' },
   notes: { type: 'string' },
-}, required: ['h2s', 'cooccurrencePlanMarkdown'] }
+  hasLedger: { type: 'boolean', description: 'outline.md に「## 情報台帳」の節があるか' },
+}, required: ['h2s', 'cooccurrencePlanMarkdown', 'hasLedger'] }
 
 const SKELETON_SCHEMA = { type: 'object', additionalProperties: false, properties: {
   index: { type: 'integer' }, heading: { type: 'string' },
@@ -111,20 +116,21 @@ const FINAL_SCHEMA = { type: 'object', additionalProperties: false, properties: 
 
 // ---- 準備 ----
 phase('準備')
-const plan = await agent(RULES_COMMON + '\n\n対象KW=「' + KW + '」。執筆準備をする。\n(1) ' + OUTLINE + ' と（あれば）' + RESEARCH + ' をRead。\n(2) 全H2を構造化して返す（見出し・約束・配下H3・タイプ判定。サービス紹介H2は掲載社を訴求順に列挙）。導入文・まとめも h2s に含める（導入文は index=0・type=導入文）。\n(3) 共起語配置計画（ゲート1）: research/outlineの共起語リストを各H2/H3に分配し、保存用Markdownを cooccurrencePlanMarkdown に入れる（このMarkdownは ' + DIR + '/cooccurrence-plan.md にあなたがWriteで保存する）。\n(4) サービス紹介H2がある場合、service-info.md の該当社のショートコード有無（_table登録）を確認して notes に書く。', { schema: PLAN_SCHEMA, phase: '準備', label: '準備:計画', effort: 'medium' })
+const plan = await agent(RULES_COMMON + '\n\n対象KW=「' + KW + '」。執筆準備をする。\n(1) ' + OUTLINE + ' と（あれば）' + RESEARCH + ' をRead。\n(2) 全H2を構造化して返す（見出し・約束・配下H3・タイプ判定。サービス紹介H2は掲載社を訴求順に列挙）。導入文・まとめも h2s に含める（導入文は index=0・type=導入文）。\n(3) 共起語配置計画（ゲート1）: **' + DIR + '/cooccurrence.json（構成フェーズでラッコ co-occurrence の実測を保存したもの）をReadし、siteCountTotal の高い語から**各H2/H3に分配し、**Tier A（競合の全媒体が本文で使う語）は全語を必ず配置先に割り当てる**。割り当てられない語は「配置しない語」節に理由を書く（後段の check-body-kw.py がこの表と本文を突合する）。cooccurrence.json が無い場合はその旨を notes に書き、LLMの推測で共起語リストを作らない。保存用Markdownを cooccurrencePlanMarkdown に入れる（このMarkdownは ' + DIR + '/cooccurrence-plan.md にあなたがWriteで保存する）。\n(4) サービス紹介H2がある場合、service-info.md の該当社のショートコード有無（_table登録）を確認して notes に書く。\n(5) ' + OUTLINE + ' に「## 情報台帳」の節があるかを hasLedger に true/false で返す。', { schema: PLAN_SCHEMA, phase: '準備', label: '準備:計画', effort: 'medium' })
+if (LEAN && plan && !plan.hasLedger) throw new Error('lean は outline.md に「## 情報台帳」がある構成でだけ使えます。台帳が無い構成は lean なしで実行してください')
 if (!plan || !plan.h2s || !plan.h2s.length) throw new Error('outline.md からH2計画を作れませんでした。outlineの確定を確認してください')
 
 // ---- 骨格（全H2並列） ----
 phase('骨格')
 const writable = plan.h2s.filter(function (h) { return h.type !== '導入文' })
-const skeletons = (await parallel(writable.map(function (h) {
+const skeletons = LEAN ? [] : (await parallel(writable.map(function (h) {
   return function () {
-    return agent(RULES_COMMON + '\n\n対象KW=「' + KW + '」。H2「' + h.heading + '」（タイプ=' + h.type + '・約束=' + (h.promise || 'outline参照') + '）の骨格を作る。\n- ' + ROOT + '/references/h3-templates.md をReadしH3タイプ別骨格に従う。\n- 各H3のPREP骨格（結論1文目・根拠・具体・strong締め候補の有無）、使用パーツ（ul/表/ショートコード/blockquote）、書く数値とその裏取り元（service-info.md / outline要裏取りリスト）を skeletonMarkdown に。\n- 骨格は ' + DIR + '/skeleton-h2' + h.index + '.md にWriteで保存する（ゲート2）。\n- claims にこのH2で述べる論点を1行ずつ列挙（他H2との重複検出に使う）。\n【このH2のoutline抜粋】\n' + JSON.stringify(h, null, 2), { schema: SKELETON_SCHEMA, phase: '骨格', label: '骨格:' + h.heading.slice(0, 12), effort: 'medium' })
+    return agent(RULES_COMMON + '\n\n対象KW=「' + KW + '」。H2「' + h.heading + '」（タイプ=' + h.type + '・約束=' + (h.promise || 'outline参照') + '）の骨格を作る。\n- ' + ROOT + '/references/h3-templates.md をReadしH3タイプ別骨格に従う。\n- 各H3のPREP骨格（結論1文目・根拠・具体・strong締め候補の有無）、使用パーツ（ul/表/ショートコード/blockquote）、書く数値とその裏取り元（service-info.md / outline要裏取りリスト）を skeletonMarkdown に。\n- 骨格は ' + DIR + '/skeleton-h2' + h.index + '.md にWriteで保存する（ゲート2）。\n- OUTLINEに「## 情報台帳」があれば、このH2の各H3が置き場所の行を「このH3で初めて出す新情報」として骨格に書く。台帳で他のH3が置き場所の情報は書かない。\n- claims にこのH2で述べる論点を1行ずつ列挙（他H2との重複検出に使う）。\n【このH2のoutline抜粋】\n' + JSON.stringify(h, null, 2), { schema: SKELETON_SCHEMA, phase: '骨格', label: '骨格:' + h.heading.slice(0, 12), effort: 'medium' })
   }
 }))).filter(Boolean)
 
 // ---- 横断dedupe（barrier: 全骨格が必要） ----
-const dedupe = await agent('対象KW=「' + KW + '」。全H2の骨格の論点リストを横断し、同じ事実・同じ論点が複数H2に出ていないか検出する（writing-manual §G-3・1事実1箇所）。重複ごとに「どのH2が書くか（owner）・どのH2から削るか（dropFrom）」を決めて返す。角度が本当に違う（選び方=判断基準/注意点=失敗と対策）ものは重複としない。\n【全骨格のclaims】\n' + JSON.stringify(skeletons.map(function (s) { return { heading: s.heading, claims: s.claims } }), null, 2), { schema: DEDUPE_SCHEMA, phase: '骨格', label: '横断dedupe', effort: 'high' })
+const dedupe = LEAN ? null : await agent('対象KW=「' + KW + '」。全H2の骨格の論点リストを横断し、同じ事実・同じ論点が複数H2に出ていないか検出する（1事実1箇所の原則）。重複ごとに「どのH2が書くか（owner）・どのH2から削るか（dropFrom）」を決めて返す。角度が本当に違う（選び方=判断基準/注意点=失敗と対策）ものは重複としない。\n【全骨格のclaims】\n' + JSON.stringify(skeletons.map(function (s) { return { heading: s.heading, claims: s.claims } }), null, 2), { schema: DEDUPE_SCHEMA, phase: '骨格', label: '横断dedupe', effort: 'high' })
 
 // ---- 文章化（全H2並列・各自lint） ----
 phase('文章化')
@@ -134,13 +140,13 @@ const sectionTasks = writable.map(function (h) {
     const myDedupe = (dedupe && dedupe.decisions ? dedupe.decisions : []).filter(function (d) {
       return d.owner === h.heading || (d.dropFrom || []).indexOf(h.heading) !== -1
     })
-    return agent(RULES_COMMON + '\n\n対象KW=「' + KW + '」。H2「' + h.heading + '」を文章化する。\n手順:\n(1) writing-manual.md の該当節（' + h.type + '＝§A/B/D/E該当箇所）と gold-example-style.md をRead。\n(2) 骨格に従いHTMLで執筆（pタグなし・一文一改行・strongは§D-5の5パターンのみ）。サービス紹介は3〜5社ずつ内部で分割して書き結合（service-info.mdコピペ・_table社はショートコード）。口コミH2はoutlineの口コミ素材（実URL）のみ・blockquote＋cite形式。\n(3) dedupe指示に従う: owner=自分の論点は書く。dropFrom=自分の論点は書かない（別H2が担当）。\n(4) ' + DIR + '/draft-h2-' + h.index + '.html にWriteで保存 → bash で cd ' + JSON.stringify(ROOT) + ' && bash scripts/lint.sh "articles/' + KW + '/draft-h2-' + h.index + '.html" を実行（使い方が違えば scripts/lint.sh の冒頭をReadして確認）→ ERRORを自己修正して再実行（最大3周・ERROR 0まで）。\n(5) §E-12-a の意味自己検算を1周（情報ゼロ文・当たり前の総括・既出の言い換えを削除）。\n最終の lintエラー数・保存パス・自力で解決できなかった点（要裏取り・素材不足等）を返す。\n【骨格】\n' + (skel ? skel.skeletonMarkdown : 'skeleton-h2' + h.index + '.md をReadせよ') + '\n【dedupe指示（自分に関係する分）】\n' + JSON.stringify(myDedupe, null, 2), { schema: SECTION_SCHEMA, phase: '文章化', label: '執筆:' + h.heading.slice(0, 12), effort: 'high' })
+    return agent(RULES_COMMON + '\n\n対象KW=「' + KW + '」。H2「' + h.heading + '」を文章化する。\n手順:\n(1) writing-manual.md（該当タイプ=' + h.type + '）と article-structure.md（該当セクション）と gold-example-style.md をRead。\n(2) 骨格に従いHTMLで執筆（pタグなし・一文一改行・strongはwriting-manual.md §5の3パターンのみ：サービス紹介の1文目／CTA直前の価格訴求／まとめの行動促し）。サービス紹介は3〜5社ずつ内部で分割して書き結合（service-info.mdコピペ・_table社はショートコード）。口コミH2はoutlineの口コミ素材（実URL）のみ・blockquote＋cite形式。\n(3) dedupe指示に従う: owner=自分の論点は書く。dropFrom=自分の論点は書かない（別H2が担当）。\n(4) ' + DIR + '/draft-h2-' + h.index + '.html にWriteで保存 → bash で cd ' + JSON.stringify(ROOT) + ' && bash scripts/lint.sh "articles/' + KW + '/draft-h2-' + h.index + '.html" を実行（使い方が違えば scripts/lint.sh の冒頭をReadして確認）→ ERRORを自己修正して再実行（最大3周・ERROR 0まで）。\n(5) 意味自己検算を1周（情報ゼロ文・当たり前の総括・既出の言い換えを削除）。\n最終の lintエラー数・保存パス・自力で解決できなかった点（要裏取り・素材不足等）を返す。\n【骨格】\n' + (skel ? skel.skeletonMarkdown : (LEAN ? LEAN_SKELETON : 'skeleton-h2' + h.index + '.md をReadせよ')) + '\n【dedupe指示（自分に関係する分）】\n' + JSON.stringify(myDedupe, null, 2), { schema: SECTION_SCHEMA, phase: '文章化', label: '執筆:' + h.heading.slice(0, 12), effort: 'high' })
   }
 })
 
 // ---- 導入文（2026-10-02から、H2の並列執筆と同じバッチで書く。args の introLast:true で従来の「全H2のあと」に戻せる） ----
 const introTask = function () {
-  const claimsText = JSON.stringify(skeletons.map(function (s) { return { heading: s.heading, claims: s.claims } }), null, 2)
+  const claimsText = LEAN ? '（骨格を作らない実行のため省略。' + OUTLINE + ' の各H2の「約束：」行と「## 情報台帳」を読む）' : JSON.stringify(skeletons.map(function (s) { return { heading: s.heading, claims: s.claims } }), null, 2)
   const when = INPUT.introLast
     ? '全H2の本文が ' + DIR + '/draft-h2-*.html に揃った。まとめ直前までの整合を確認しつつ、'
     : '各H2の本文は別の担当が並行して書いている（まだ揃っていない）。下の「各H2が扱う論点」だけを前提にし、各H2が担当する事実を導入文で先取りして書かない。'
@@ -156,7 +162,7 @@ const introSec = INPUT.introLast ? await introTask() : written[1]
 phase('検証')
 const assembleNote = 'draft-h2-0.html（導入文）→ index順の全draft-h2-N.html を結合したものが記事全文。'
 const lenses = [
-  { key: '重複・情報ゼロ文', p: 'セクション間の同一論点重複（1事実1箇所）・情報ゼロ文（消しても意味が変わらない文・当たり前の総括・既出の言い換え）・strong締めと本文の重複を、全draftファイルをReadして検出する。導入文は各H2と並行して書いているため、導入文が各H2の事実を先取りして重複していないか、導入1文目とまとめ1文目の一致率が0.5未満かも見る。' },
+  { key: '重複・情報ゼロ文', p: 'セクション間の同一論点重複（1事実1箇所）・情報ゼロ文（消しても意味が変わらない文・当たり前の総括・既出の言い換え）・strong締めと本文の重複を、全draftファイルをReadして検出する。' + OUTLINE + ' に「## 情報台帳」があれば、台帳の置き場所以外に同じ情報が書かれていないかも見る。導入文は各H2と並行して書いているため、導入文が各H2の事実を先取りして重複していないか、導入1文目とまとめ1文目の一致率が0.5未満かも見る。' },
   { key: '表現・お手本', p: 'gold-example-style.md と prohibited-words.md のレイヤー8/10/13（文脈判断系）・付録2カテゴリA（硬い漢語）・AIメタ説明（学び35）・「〜済みます」等、lintで拾えない文脈違反を検出する。書き出しパターンの偏り（同型3回以上）も見る。' },
   { key: 'KW・共起語', p: 'cooccurrence-plan.md をReadし、メインKW配置（§F-1: 導入1文目・各H2・まとめ）・共起語の計画どおりの配置・過剰反復（スパム）を検証する。' },
   { key: 'PREP・論理', p: '各H3の1文目が結論か・主述一致・見出しと本文の整合・olリストとH3の完全一致・テーブル5行・H2タグ重複なし、を検証する。' },
