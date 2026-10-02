@@ -103,7 +103,7 @@ Codex第三者レビュー: `Agent(subagent_type="codex-reviewer")` は使わな
 | 台帳 | `articles/H2台帳.md` | 公開55記事のH2 398本。カニバリ照合用（`scripts/check-cannibal.sh`） |
 | ルール | `.claude/rules/prohibited-words.md` | 禁止語・変換ルール |
 | ルール | `.claude/rules/shortcodes.md` | ショートコード・HTMLテンプレート |
-| ルール | `.claude/rules/service-info.md` | 各サービスのスペック情報 |
+| ルール | `.claude/rules/service-info.md` | 各サービスのスペック情報（自動読み込みなし。載せる社の節だけ読む） |
 | ルール | `.claude/rules/appeal-ranking.md` | カテゴリ別の基本ランキング（デフォルト訴求順位） |
 | ルール | `.claude/rules/internal-links.md` | 内部リンクリスト |
 | ルール | `.claude/rules/feedback_writing.md` | 未昇格の文体FB一時記録 |
@@ -135,13 +135,20 @@ Codex第三者レビュー: `Agent(subagent_type="codex-reviewer")` は使わな
 
 ### セッション2: 本文執筆
 
+**⚡ 既定は write-pipeline（2026-10-02 Manabuさん承認・使用量対策）。** 構成が確定したら `Workflow({scriptPath: "/Users/manasimac/Projects/super-yamadai/.claude/skills/kosei-sakusei/write-pipeline.js", args: "ターゲットKW"})` で起動する（骨格→横断dedupe→全H2と導入文を並列で文章化→4レンズ検証→修正→最終lint）。掲載社の公式情報が最近確認されていないときは、起動前に `service-freshness` で鮮度（価格改定・販売終了）を確かめる。write-pipeline は公式サイトを取り直さず、service-info.md の値を使う。
+実測（過去の実行ログ）：write-pipeline は1本あたり約28エージェント・約5Mトークン・約30分。下の「各H2の執筆フロー」（H2ごとに writer→iron-rule→kw→editor を最大3周）は、2026-09-18 の4本で1本あたり約26M・約150エージェントかかったため**例外**にする。例外にするのは、Workflow が使えないとき／特定のH2だけ直すとき／Manabuさんが全文の再反論0件までの徹底を指示したときだけ。
+本体ループが担当する残り：意味レビュー1周・ゲート5（納品前チェックリスト）・口コミの実URLの確認・チャット報告。完成報告はゲート5通過後のみ。
+**service-info.md は自動では読み込まれない**（約200KB。先頭の `paths:` で外してある）。載せる社の節だけを、`grep -n "^### "` で位置を探して Read の offset/limit で読む。
+
+以下は例外のときのH2ごとのフロー。
+
 ```
 ⚠️ 一気書き禁止: 1回の出力はH2を1つだけ。サービス紹介は3〜5社ずつ分割。
 ⚠️ セクション完了ごとにチェックリスト全項目パスしないと次のH2に進めない。
 
 開始前の準備:
-  ├── 共起語配置計画を作成 → articles/{KW}/cooccurrence-plan.md（ゲート1）
-  ├── service-info.mdの全サービスデータを読み込む
+  ├── 共起語配置計画を作成 → articles/{KW}/cooccurrence-plan.md（ゲート1・cooccurrence.jsonの実測から）
+  ├── service-info.md は自動では読み込まれない。載せる社の節だけを grep -n "^### " で探して読む（全文は約200KB）
   └── 構成案のH2/H3見出しを確認し、変更しないことを宣言
 
 ステップ1: @writer → H2単位で分割執筆
