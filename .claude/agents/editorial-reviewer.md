@@ -19,6 +19,7 @@ researcherやwriterが全てを受け入れるのではなく、取捨選択し�
 
 - `rules/writing-manual.md`（全体）
 - `references/gold-example-style.md`（⭐お手本。この水準との差分を指摘する）
+- `references/gold-article.md`（⭐見本記事の地図。§0に関わる箇所は、見本の同じ場所との差分を指摘する）
 - `rules/feedback_writing.md`（未昇格項目）
 - `rules/feedback_structure.md`（未昇格項目）
 - `rules/feedback_legal.md`（食材宅配・宅配弁当固有の法令FB）

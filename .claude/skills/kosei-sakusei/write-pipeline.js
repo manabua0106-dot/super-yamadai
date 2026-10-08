@@ -1,6 +1,6 @@
 // 確定済み構成（articles/{KW}/outline.md）から本文執筆を並列実行するパイプライン（ヤマダイ版）。
 // 実行: Workflow({scriptPath: "<このファイル>", args: "KW"})。前提: outline.md が確定済み（未確定なら先に kosei-sakusei / pipeline.js）。
-// フロー: 準備(共起語計画) → 骨格(全H2並列) → 横断dedupe → 文章化(全H2並列・各自lint.sh) → 結合 → 検証4レンズ並列 → 修正 → 最終lint + check-body-kw.py。
+// フロー: 準備(共起語計画) → 骨格(全H2並列) → 横断dedupe → 文章化(全H2並列・各自lint.sh) → 結合 → 検証5レンズ並列 → 修正 → 最終lint + check-body-kw.py。
 // 2026-09-09: 本文のKW・共起語を competitor 比で採点する scripts/check-body-kw.py を最終ゲートに追加した。
 // 従来は検証レンズ「KW・共起語」がLLM判断だけで、機械で数える工程が無かった（学び60と同じ型の穴）。
 // 2026-10-02 使用量対策（Manabuさん承認）：①service-info.md（約200KB）は自動では読み込まれなくなったので、各エージェントは自分の社の節だけ読む（RULES_COMMON）
@@ -15,7 +15,7 @@ export const meta = {
     { title: '準備', detail: 'outline読込・共起語配置計画・サービスデータ抽出' },
     { title: '骨格', detail: '全H2の骨格を並列生成（ゲート2相当）' },
     { title: '文章化', detail: '横断dedupe→全H2と導入文を並列で文章化・各自lint.sh ERROR 0まで' },
-    { title: '検証', detail: '結合→重複/表現/KW/論理の4レンズ並列→修正→最終lint' },
+    { title: '検証', detail: '結合→重複/表現/KW/論理/日本語の一読の5レンズ並列→修正→最終lint' },
   ],
 }
 
@@ -41,9 +41,9 @@ const LESSONS = [
   '7. 1文60字以内。書き直した文は必ず数え直す（出典リンクのカッコは除いて数える）。<p>タグは書かない。一文ごとに空行',
   '8. H2直下の予告文は ol の全項目を受ける。リスク文は実在するリスクがあるときだけ（学び88の検算）。H3の1文目は見出しに答え、見出しの条件（「月曜から」等）を入れる',
   '9. 見出しの主張と関係ない公式情報を足さない（§9-g）。「公式サイトは〜にすすめています」には目的語（コース名など）を入れる。理由の文は「〜ため、〜」で結論とのつながりを文の中で言う',
-  '10. 同じ文型を3回以上続けない。「次の通りです」「下記の通りです」は記事全体でそれぞれ2回まで。表記は「の通り」（「のとおり」にしない）・「%」半角',
+  '10. 同じ文型を3回以上続けない。ただし「〜は以下のとおりです。」は表・箇条書きへ渡す標準の文（最上位ルール0-14）なので回数の上限はない。それ以外の誘導文は記事全体で2回まで。表記は「のとおり」（「の通り」にしない。2026-10-08 に統一）・「%」半角',
   '11. 「問い合わせてください」「近くの〇〇に聞いてください」の誘導は、公式に情報がないときだけ。記事全体で3回まで',
-  '12. 導入文の1文目に記事の価値（安さ・条件）を入れる。まとめの1文目は導入1文目・本文と一致率0.5未満の別の角度（数字＋条件など）。まとめで新しい事実を出さない',
+  '12. 導入は article-structure.md §2 の型に固定（「悩み」2行を「」で囲む→こんなお悩みはありませんか。→共感1文→この記事では〜をわかりやすく解説します。）。まとめの1文目は導入の悩み・本文と一致率0.5未満の別の角度（数字＋条件など）。まとめで新しい事実を出さない',
   '13. FAQの回答は1文目で質問に答える（できる／できない／公式に記載がない）',
   '14. 公開済みの同ブランド記事（articles/完成済み/ 配下）と同じ文・ほぼ同じ文を書かない。確認（Python の difflib.SequenceMatcher で一致率0.6以上の文が無いこと）は最終の修正・結合の担当が記事全体で1回だけ行う。各H2の担当は確認せず、完成済みの記事の文をそのまま使わない',
   '【2026-09-18 追加：並列の本文執筆で過去に指摘された欠陥】',
@@ -55,8 +55,9 @@ const LESSONS = [
 
 // 2026-08-06修正：writing-manual v5.0（製本方式）刷新で旧§A-L番号体系が全廃されたのに追随していなかった（write-pipeline.jsは実行コードのため、放置すると廃止済みPASONA法等が本文執筆のたびに実際に発火する）。article-structure.mdをRead対象に追加（writing-manual.mdと「2つで1組」の骨格正本だったが今まで一度も参照されていなかった）。
 const RULES_COMMON = '【全エージェント共通・最優先ルール（詳細は writing-manual.md＋article-structure.md が正本・2つで1組）】\n' +
-  '- 執筆前に必ずReadする: ' + ROOT + '/.claude/rules/writing-manual.md（文の書き方）、' + ROOT + '/.claude/rules/article-structure.md（記事の骨格・導入文/サービス紹介/まとめの型）、' + ROOT + '/references/gold-example-style.md（お手本・丸パクリ禁止）、' + OUTLINE + '\n' +
+  '- 執筆前に必ずReadする: ' + ROOT + '/.claude/rules/writing-manual.md（文の書き方）、' + ROOT + '/.claude/rules/article-structure.md（記事の骨格・導入文/サービス紹介/まとめの型）、' + ROOT + '/references/gold-example-style.md（お手本・丸パクリ禁止）、' + ROOT + '/references/gold-article.md（見本記事の地図。§0を満たしてフィックス済みの記事。自分が書くパーツと同じ場所だけを、見出しの位置を grep -n で探して Read の offset/limit で読む。全文は読まない・丸パクリ禁止・サービス固有の事実は写さない）、' + OUTLINE + '\n' +
   '- 構成案のH2/H3見出しは1文字も変えない（変更が必要ならopenIssuesに書く・勝手に変えない）\n' +
+  '- 【最上位ルール・2026-10-08（他のどのルールより優先）】' + ROOT + '/.claude/rules/writing-manual.md の §0（0-1〜0-19）を守る。要点：①主語・目的語を省かず、1文で何の話か分かるように書く（ol・ul・表の直前の文にはメインKWの語幹を入れる）。ただし同じ書き出しを3回続けず、前の文の新しい情報を主題にして受ける ②「型」だけで言わず「宅配型のウォーターサーバーは」と書く ③読者の行動を「決めます」と言い切らず「決めましょう」 ④サービス名・機種名は文章・箇条書きに書かず表にし、表の行頭にジャンプリンク（例外：サービス紹介H3の中・表のセル・口コミの出典を紹介する行） ⑤表・箇条書きへは「〜は以下のとおりです。」で渡し、「表にまとめます」と宣言しない ⑥「社」単体・「社名」を使わない（サービス・サービス名） ⑦注意書き・免責・断り書きは本文に書かず記事末尾の「※」に集約 ⑧「案内している」型の伝聞を書かない ⑨同じ行の表を同じ見出しに置かない ⑩おすすめを紹介するサービス紹介H3に解約・休止・手数料などのデメリットを書かない ⑪サービス紹介H3は <h3 id="1a">→[xxx_table]→strong1文目→本文→CTA [xxx] の宅食と同じ構造（<a id>・[btn]を使わない） ⑫導入は「悩み」2行を「」で囲む型（＃は書かない・strongなし） ⑬表は全セル（thとtd）に style=\"width: N%;\" を付け、列の合計を100%・全行で同じ幅にする（内容が長い列を広く） ⑭「確かめましょう」「公式サイトで確認してください」「FAQで見てみましょう」のように確かめる先を示すだけの文を書かない（何を基準にどれを選ぶかを書く。末尾の※免責だけ可） ⑮口コミ・投稿を紹介する文で書き手を「使う人」と書かず「使っている人」「使った人」と書く ⑯数字・場面の具体例を出す文は「たとえば」「具体的には」を頭に付ける（サービス名・機種名の例は表にする）。lint.sh は check-subject-object.py を内蔵しているので、ERROR 0にしてから返す\n' +
   '- pタグ絶対禁止（WordPressが自動付与）。一文一改行（「。」の直後に空行）・1文60字以内\n' +
   '- 推測で数値を書かない。テーブル・画像・CTA・価格は ' + ROOT + '/.claude/rules/service-info.md からコピペ（1文字も変えない）。_table登録済み社はショートコード必須\n' +
   '- 【使用量の節約・2026-10-02】service-info.md は約1,750行・200KBあり、自動では読み込まれない。全文を読まない。`grep -n "^### " ' + ROOT + '/.claude/rules/service-info.md` で節の位置を出し、自分のH2で使う社の節だけを Read の offset/limit で読む（1社の節は、次の「### 」または「## 」の直前まで）\n' +
@@ -75,7 +76,7 @@ const PLAN_SCHEMA = { type: 'object', additionalProperties: false, properties: {
     services: { type: 'array', items: { type: 'string' }, description: 'サービス紹介H2のみ: 掲載社を訴求順に' },
   }, required: ['index', 'heading', 'h3s', 'type'] } },
   cooccurrencePlanMarkdown: { type: 'string', description: 'ゲート1: 共起語→配置先H2/H3の計画（保存用Markdown）' },
-  intro: { type: 'string', description: '導入文の設計メモ（PASONA・メインKW1文目）' },
+  intro: { type: 'string', description: '導入の設計メモ（article-structure.md §2の型：「悩み」2行を「」で囲む→こんなお悩みはありませんか。→共感1文→この記事では〜解説します。・悩み1にメインKW）' },
   notes: { type: 'string' },
   hasLedger: { type: 'boolean', description: 'outline.md に「## 情報台帳」の節があるか' },
 }, required: ['h2s', 'cooccurrencePlanMarkdown', 'hasLedger'] }
@@ -140,7 +141,7 @@ const sectionTasks = writable.map(function (h) {
     const myDedupe = (dedupe && dedupe.decisions ? dedupe.decisions : []).filter(function (d) {
       return d.owner === h.heading || (d.dropFrom || []).indexOf(h.heading) !== -1
     })
-    return agent(RULES_COMMON + '\n\n対象KW=「' + KW + '」。H2「' + h.heading + '」を文章化する。\n手順:\n(1) writing-manual.md（該当タイプ=' + h.type + '）と article-structure.md（該当セクション）と gold-example-style.md をRead。\n(2) 骨格に従いHTMLで執筆（pタグなし・一文一改行・strongはwriting-manual.md §5の3パターンのみ：サービス紹介の1文目／CTA直前の価格訴求／まとめの行動促し）。サービス紹介は3〜5社ずつ内部で分割して書き結合（service-info.mdコピペ・_table社はショートコード）。口コミH2はoutlineの口コミ素材（実URL）のみ・blockquote＋cite形式。\n(3) dedupe指示に従う: owner=自分の論点は書く。dropFrom=自分の論点は書かない（別H2が担当）。\n(4) ' + DIR + '/draft-h2-' + h.index + '.html にWriteで保存 → bash で cd ' + JSON.stringify(ROOT) + ' && bash scripts/lint.sh "articles/' + KW + '/draft-h2-' + h.index + '.html" を実行（使い方が違えば scripts/lint.sh の冒頭をReadして確認）→ ERRORを自己修正して再実行（最大3周・ERROR 0まで）。\n(5) 意味自己検算を1周（情報ゼロ文・当たり前の総括・既出の言い換えを削除）。\n最終の lintエラー数・保存パス・自力で解決できなかった点（要裏取り・素材不足等）を返す。\n【骨格】\n' + (skel ? skel.skeletonMarkdown : (LEAN ? LEAN_SKELETON : 'skeleton-h2' + h.index + '.md をReadせよ')) + '\n【dedupe指示（自分に関係する分）】\n' + JSON.stringify(myDedupe, null, 2), { schema: SECTION_SCHEMA, phase: '文章化', label: '執筆:' + h.heading.slice(0, 12), effort: 'high' })
+    return agent(RULES_COMMON + '\n\n対象KW=「' + KW + '」。H2「' + h.heading + '」を文章化する。\n手順:\n(1) writing-manual.md（該当タイプ=' + h.type + '）と article-structure.md（該当セクション）と gold-example-style.md と見本記事の同じ種類のパーツ（gold-article.md の地図で場所を確認）をRead。\n(2) 骨格に従いHTMLで執筆（pタグなし・一文一改行・strongはwriting-manual.md §5の3パターンのみ：サービス紹介の1文目／CTA直前の価格訴求／まとめの行動促し）。サービス紹介は3〜5社ずつ内部で分割して書き結合（service-info.mdコピペ・_table社はショートコード）。口コミH2はoutlineの口コミ素材（実URL）のみ・blockquote＋cite形式。\n(3) dedupe指示に従う: owner=自分の論点は書く。dropFrom=自分の論点は書かない（別H2が担当）。\n(4) ' + DIR + '/draft-h2-' + h.index + '.html にWriteで保存 → bash で cd ' + JSON.stringify(ROOT) + ' && bash scripts/lint.sh "articles/' + KW + '/draft-h2-' + h.index + '.html" を実行（使い方が違えば scripts/lint.sh の冒頭をReadして確認）→ ERRORを自己修正して再実行（最大3周・ERROR 0まで）。\n(5) 意味自己検算を1周（情報ゼロ文・当たり前の総括・既出の言い換えを削除）。\n最終の lintエラー数・保存パス・自力で解決できなかった点（要裏取り・素材不足等）を返す。\n【骨格】\n' + (skel ? skel.skeletonMarkdown : (LEAN ? LEAN_SKELETON : 'skeleton-h2' + h.index + '.md をReadせよ')) + '\n【dedupe指示（自分に関係する分）】\n' + JSON.stringify(myDedupe, null, 2), { schema: SECTION_SCHEMA, phase: '文章化', label: '執筆:' + h.heading.slice(0, 12), effort: 'high' })
   }
 })
 
@@ -150,7 +151,7 @@ const introTask = function () {
   const when = INPUT.introLast
     ? '全H2の本文が ' + DIR + '/draft-h2-*.html に揃った。まとめ直前までの整合を確認しつつ、'
     : '各H2の本文は別の担当が並行して書いている（まだ揃っていない）。下の「各H2が扱う論点」だけを前提にし、各H2が担当する事実を導入文で先取りして書かない。'
-  return agent(RULES_COMMON + '\n\n対象KW=「' + KW + '」。' + when + '導入文（H2なし・article-structure.md §2の4文構成：事実→リスク→この記事の内容→strong行動促し）を書いて ' + DIR + '/draft-h2-0.html に保存する。1文目にメインKW・末尾にstrong行動促し1文。直後のH2と内容を重複させない。lint.sh も同様に回して ERROR 0 に。\n【設計メモ】\n' + (plan.intro || 'outline参照') + '\n【各H2が扱う論点（骨格のclaims）】\n' + claimsText, { schema: SECTION_SCHEMA, phase: '文章化', label: '執筆:導入文', effort: 'high' })
+  return agent(RULES_COMMON + '\n\n対象KW=「' + KW + '」。' + when + '導入（H2なし・article-structure.md §2の型：「読者の悩み」2行をそれぞれ「」で囲んで続けて置く／空行／こんなお悩みはありませんか。／空行／共感の1文（〜ですよね。）／空行／この記事では、〜をわかりやすく解説します。。＃は書かない・strongは置かない）を書いて ' + DIR + '/draft-h2-0.html に保存する。悩み1にメインKWを入れる。直後のH2と内容を重複させない。lint.sh も同様に回して ERROR 0 に。\n【設計メモ】\n' + (plan.intro || 'outline参照') + '\n【各H2が扱う論点（骨格のclaims）】\n' + claimsText, { schema: SECTION_SCHEMA, phase: '文章化', label: '執筆:導入文', effort: 'high' })
 }
 const written = await parallel(INPUT.introLast
   ? [function () { return parallel(sectionTasks) }]
@@ -158,13 +159,18 @@ const written = await parallel(INPUT.introLast
 const sections = (written[0] || []).filter(Boolean)
 const introSec = INPUT.introLast ? await introTask() : written[1]
 
-// ---- 検証（結合→4レンズ並列） ----
+// ---- 検証（結合→5レンズ並列） ----
 phase('検証')
 const assembleNote = 'draft-h2-0.html（導入文）→ index順の全draft-h2-N.html を結合したものが記事全文。'
 const lenses = [
-  { key: '重複・情報ゼロ文', p: 'セクション間の同一論点重複（1事実1箇所）・情報ゼロ文（消しても意味が変わらない文・当たり前の総括・既出の言い換え）・strong締めと本文の重複を、全draftファイルをReadして検出する。' + OUTLINE + ' に「## 情報台帳」があれば、台帳の置き場所以外に同じ情報が書かれていないかも見る。導入文は各H2と並行して書いているため、導入文が各H2の事実を先取りして重複していないか、導入1文目とまとめ1文目の一致率が0.5未満かも見る。' },
-  { key: '表現・お手本', p: 'gold-example-style.md と prohibited-words.md のレイヤー8/10/13（文脈判断系）・付録2カテゴリA（硬い漢語）・AIメタ説明（学び35）・「〜済みます」等、lintで拾えない文脈違反を検出する。書き出しパターンの偏り（同型3回以上）も見る。' },
-  { key: 'KW・共起語', p: 'cooccurrence-plan.md をReadし、メインKW配置（§F-1: 導入1文目・各H2・まとめ）・共起語の計画どおりの配置・過剰反復（スパム）を検証する。' },
+  { key: '重複・情報ゼロ文', p: 'セクション間の同一論点重複（1事実1箇所）・情報ゼロ文（消しても意味が変わらない文・当たり前の総括・既出の言い換え）・strong締めと本文の重複を、全draftファイルをReadして検出する。' + OUTLINE + ' に「## 情報台帳」があれば、台帳の置き場所以外に同じ情報が書かれていないかも見る。導入文は各H2と並行して書いているため、導入文が各H2の事実を先取りして重複していないか、導入の悩み1とまとめ1文目の一致率が0.5未満かも見る。' },
+  { key: '表現・お手本', p: 'gold-example-style.md・見本記事（gold-article.md の地図）と prohibited-words.md のレイヤー8/10/13（文脈判断系）・付録2カテゴリA（硬い漢語）・AIメタ説明（学び35）・「〜済みます」等、lintで拾えない文脈違反を検出する。書き出しパターンの偏り（同型3回以上）も見る。あわせて writing-manual.md §0（最上位ルール）のうち機械で見られない部分を全文で検証する：各文を単独で読んで何の話か分かるか（0-1）、主語を毎回書いて羅列になっていないか（0-10）、読者の行動を言い切っていないか（0-3）、サービス名が文章・箇条書きに出ていないか（0-12）、表への渡しが「表にまとめます」の宣言になっていないか（0-14）。' },
+  { key: 'KW・共起語', p: 'まず機械で数える。bash で cd <ROOT> && python3 scripts/check-body-kw.py "articles/<KW>/cooccurrence.json" "articles/<KW>/competitor.json" "articles/<KW>/article.html" "<メインKW>" "articles/<KW>/cooccurrence-plan.md" を実行し、出力をそのまま根拠として引用する（実行できない場合はその旨を明記し、目視だけで合格と書かない）。'
+    + '判定基準: Tier A（競合の全媒体が本文で使う語）のカバー率が100%（入れない語は cooccurrence-plan.md の「配置しない語」に理由を書けば合格に数える）で合格・理由なしの未達はWARN・80%未満はERROR。メインKWの密度が競合平均を下回ったらERROR（上限は設けない）。cooccurrence-plan.md に書いたのに本文に無い語があればERROR。'
+    + 'そのうえで cooccurrence-plan.md をReadし、メインKW配置（導入の悩み1・各H2・まとめ）・共起語の計画どおりの配置・過剰反復（スパム）を検証する。'
+    + '⚠️ 語を入れ替えたら3検査を通す（auto-memory midashi-jitsuzai-kensa）＝(a)実在検査: 見出しや本文で名詞として使う語がサービスに実在するか。実在しないなら名詞で貼らず動詞形にする（「お試しセット」が存在しないのに名詞で貼った事故） (b)入れ替え後の音読: 差し替えた後の文を読み直す (c)前提検査: 競合が持っていて自社ブランドに無い商品・機能の語はカバー率のために貼らない。'
+    + '⚠️ 語を機械的にねじ込ませない。入らない語は(1)そのトピックを本文で扱っていない＝構成の抜け (2)使わないと決めた＝cooccurrence-plan.md の「配置しない語」節に理由を書く、のどちらかで解消する。埋めるために文を足すと writing-manual §9「削る8パターン」に触れる。' },
+  { key: '日本語の一読', p: 'ルール適合ではなく、全draftファイルを頭から1文ずつ声に出して読み、日本語ネイティブの読者が引っかかる不自然な箇所を挙げる（ルールや過去の指摘に引きずられず、読んでの違和感を優先する）。観点：時制・アスペクトのずれ（実際に使っている人の投稿を「Xを使う人の投稿」と書くなど）、主語と述語がかみ合わない文、主語が省かれて何の話か分からない文、助詞の不自然さ、読者が日常で使わない硬い語、何を指すか曖昧な名詞、近接した同語の繰り返し。口コミ引用の中身は原文ママなので対象外。事実の正誤は見ない。各指摘に直した文の案を付ける。' },
   { key: 'PREP・論理', p: '各H3の1文目が結論か・主述一致・見出しと本文の整合・olリストとH3の完全一致・テーブル5行・H2タグ重複なし、を検証する。' },
 ]
 const verifications = (await parallel(lenses.map(function (L) {
@@ -174,7 +180,7 @@ const verifications = (await parallel(lenses.map(function (L) {
 }))).filter(Boolean)
 
 // ---- 修正→結合→最終lint ----
-const finalOut = await agent(RULES_COMMON + '\n\n対象KW=「' + KW + '」。検証指摘を反映して記事を完成させる。\n(1) 検証のmajor指摘を全て・minorは妥当なものを、該当draftファイルにEditで反映する（H2/H3見出しは1文字も変えない）。\n(2) draft-h2-0.html → index順に全draftを結合し ' + DIR + '/article.html に保存。末尾免責ブロック（価格時点・%OFF/送料無料/返金保証の条件集約・§E-11）を確認、なければ追加。\n(3) bash で cd ' + JSON.stringify(ROOT) + ' && bash scripts/lint.sh "articles/' + KW + '/article.html" | tee "articles/' + KW + '/lint-final.txt" を実行し ERROR 0 まで修正（ゲート4）。\n(4) 対応できなかった指摘・人の判断が要る点（口コミ素材不足・要裏取り数値・法令の際どい表現）を openIssues に列挙。\n【検証指摘】\n' + JSON.stringify(verifications, null, 2) + '\n【各セクションのopenIssues】\n' + JSON.stringify(sections.concat(introSec ? [introSec] : []).map(function (s) { return { heading: s.heading, openIssues: s.openIssues || [] } }), null, 2), { schema: FINAL_SCHEMA, phase: '検証', label: '修正・結合・最終lint', effort: 'high' })
+const finalOut = await agent(RULES_COMMON + '\n\n対象KW=「' + KW + '」。検証指摘を反映して記事を完成させる。\n(1) 検証のmajor指摘を全て・minorは妥当なものを、該当draftファイルにEditで反映する（H2/H3見出しは1文字も変えない）。\n(2) draft-h2-0.html → index順に全draftを結合し ' + DIR + '/article.html に保存。末尾免責ブロック（価格時点・%OFF/送料無料/返金保証の条件集約・writing-manual.md §8）を、記事末尾の「※」の行にまとめて確認、なければ追加（注意書きを本文に書かない・§0 0-7）。\n(3) bash で cd ' + JSON.stringify(ROOT) + ' && bash scripts/lint.sh "articles/' + KW + '/article.html" | tee "articles/' + KW + '/lint-final.txt" を実行し ERROR 0 まで修正（ゲート4）。\n(3b) 続けて cd ' + JSON.stringify(ROOT) + ' && python3 scripts/check-body-kw.py "articles/' + KW + '/cooccurrence.json" "articles/' + KW + '/competitor.json" "articles/' + KW + '/article.html" "' + KW + '" "articles/' + KW + '/cooccurrence-plan.md" | tee "articles/' + KW + '/body-kw-final.txt" を実行し **ERROR 0 かつ Tier A 100%（入れない語は「配置しない語」に理由を書けば合格に数える）**にする。足りない語は本文で扱うか、cooccurrence-plan.md の「配置しない語」節に理由を書く。**語をねじ込んで埋めない**。\n(4) 対応できなかった指摘・人の判断が要る点（口コミ素材不足・要裏取り数値・法令の際どい表現）を openIssues に列挙。\n【検証指摘】\n' + JSON.stringify(verifications, null, 2) + '\n【各セクションのopenIssues】\n' + JSON.stringify(sections.concat(introSec ? [introSec] : []).map(function (s) { return { heading: s.heading, openIssues: s.openIssues || [] } }), null, 2), { schema: FINAL_SCHEMA, phase: '検証', label: '修正・結合・最終lint', effort: 'high' })
 
 return {
   kw: KW,
@@ -183,5 +189,5 @@ return {
   sections: sections.map(function (s) { return { heading: s.heading, lintErrors: s.lintErrors } }),
   verificationsSummary: verifications.map(function (v) { return { lens: v.lens, pass: v.pass, majors: v.issues.filter(function (i) { return i.severity === 'major' }).length } }),
   openIssues: (finalOut && finalOut.openIssues) || [],
-  note: '本体ループの残タスク: §E-12-b意味レビュー1周・ゲート5（法令チェックリスト§G-5）・チャット報告。完成報告はゲート5通過後のみ。',
+  note: '本体ループの残タスク: 意味レビュー1周（空文・重複・薄さ・硬さの一読）・CLAUDE.md ゲート5（納品前チェックリスト）・チャット報告。完成報告はゲート5通過後のみ。',
 }

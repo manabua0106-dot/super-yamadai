@@ -26,6 +26,7 @@ super-yamadai/
 │   └── reviews/                       ← スキル・パイプラインの点検記録
 ├── references/
 │   ├── gold-example-style.md          ← ⭐文体・トンマナのお手本（執筆前に毎回参照・丸パクリ禁止）
+│   ├── gold-article.md                ← ⭐見本記事（最上位ルール準拠・フィックス済み）の地図。同じパーツの場所を見比べる
 │   ├── h3-templates.md                ← H3タイプ別の骨格テンプレート（情報インベントリ方式・v5）
 │   ├── style-examples.md              ← NG→OK対比集（実レビューで直された失敗パターン・v5）
 │   └── structure-examples.md          ← H2/H3構成パターンの合格例

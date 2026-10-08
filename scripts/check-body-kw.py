@@ -144,6 +144,38 @@ def plan_words(path):
     return words
 
 
+def load_excused(path):
+    """cooccurrence-plan.md の「## 配置しない語」節に、理由つきで書いた語を返す。
+    形式：「- 語・語・1位〜9位：理由」の箇条書き、または「| 語 | 理由 |」の表の1列目。
+    「1位〜9位」のような連番は「1位」「2位」…に展開する。"""
+    if not path or not os.path.exists(path):
+        return set()
+    txt = io.open(path, encoding='utf-8').read()
+    m = re.search(r'^##\s*配置しない語[^\n]*\n(.*?)(?=^##\s|\Z)', txt, re.S | re.M)
+    if not m:
+        return set()
+    words = set()
+    for line in m.group(1).split('\n'):
+        t = line.strip()
+        mm = re.match(r'^[-*]\s*(.+?)[：:]', t)
+        if mm:
+            head = mm.group(1)
+        elif t.startswith('|') and not t.startswith('|---'):
+            head = t.strip('|').split('|')[0]
+        else:
+            continue
+        for w in re.split(r'[／/・、,\s]+', head):
+            w = w.strip().strip('*` ')
+            if not w or w in ('語', '共起語'):
+                continue
+            r = re.match(r'^(\d+)(\D+?)〜(\d+)\2$', w)
+            if r:
+                for i in range(int(r.group(1)), int(r.group(3)) + 1):
+                    words.add('%d%s' % (i, r.group(2)))
+            words.add(w)
+    return words
+
+
 def main():
     if len(sys.argv) < 5:
         print(__doc__)
@@ -228,12 +260,18 @@ def main():
 
     hitA = [w for w, _ in tierA if w in body]
     missA = [w for w, _ in tierA if w not in body]
-    rateA = len(hitA) / len(tierA) * 100
+    excused = load_excused(ppath)
+    excA = [w for w in missA if w in excused]
+    rawA = len(hitA) / len(tierA) * 100
+    rateA = (len(hitA) + len(excA)) / len(tierA) * 100   # 理由を書いた語は合格に数える（docstringどおり）
     hitB = [w for w, _ in tierB if w in body]
     rateB = len(hitB) / len(tierB) * 100 if tierB else 0
 
     print('■ Tier A ＝ 競合の全媒体（%d本）が本文で使う語 … 本文の必須語' % n_media)
-    print('   %d/%d語 = %.1f%%' % (len(hitA), len(tierA), rateA))
+    if excA:
+        print('   %d/%d語 = %.1f%%（本文にある語だけ）／理由を書いた%d語を合格に数えると %.1f%%' % (len(hitA), len(tierA), rawA, len(excA), rateA))
+    else:
+        print('   %d/%d語 = %.1f%%' % (len(hitA), len(tierA), rateA))
     if rateA >= PASS_A:
         print('   判定: 合格（%.0f%%以上）' % PASS_A)
     elif rateA >= WARN_A:
@@ -243,9 +281,12 @@ def main():
     else:
         print('   判定: ERROR（%.0f%%未満＝本文が薄い）' % WARN_A)
         err += 1
-    if missA:
-        print('   本文に無い語: %s' % ' / '.join(missA))
-        print('   → 扱っていないトピックなら構成の問題。使わないと決めた語なら理由を残す')
+    unexA = [w for w in missA if w not in excused]
+    if excA:
+        print('   理由を書いて入れなかった語（%d語）: %s' % (len(excA), ' / '.join(excA)))
+    if unexA:
+        print('   本文に無く、理由も書いていない語: %s' % ' / '.join(unexA))
+        print('   → 扱っていないトピックなら構成の問題。使わないと決めた語なら cooccurrence-plan.md の「配置しない語」節に理由を書く')
     print()
 
     if tierB:
@@ -277,7 +318,7 @@ def main():
             print('   OK 計画の語はすべて本文にある')
         print()
 
-    print('check-body-kw: ERROR=%d WARN=%d／Tier A %.1f%%（合格ライン %.0f%%）' % (err, warn, rateA, PASS_A))
+    print('check-body-kw: ERROR=%d WARN=%d／Tier A %.1f%%（理由つき免除%d語を含む。本文にある語だけなら %.1f%%）／合格ライン %.0f%%' % (err, warn, rateA, len(excA), rawA, PASS_A))
     print()
     print('── Tier A の上げ方は2つ。どちらかを必ずやる ──')
     print('  1. その語が指すトピックを本文で扱う（扱っていないなら構成の抜け。構成に戻る）')
