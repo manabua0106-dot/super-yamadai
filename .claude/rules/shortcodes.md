@@ -53,6 +53,45 @@
 - `[magokorokea]`（まごころケア食。**link-A案件**・2026-09-08 登録。運営は株式会社シルバーライフで `[lifemeal]` のライフミールと同じ会社だが別ブランド）
 - `[健康直球便]`（健康直球便。**A8案件・サイトID 013「スーパーヤマダイ」**・2026-09-25 登録）
 
+#### 口コミあり版（ランキング1〜5位・商標記事の目次上のCTA用）
+
+会社ごとに、口コミなし `[X]`（従来）と口コミあり `[X_kuchikomi_slide]` を持つ（2026-10-09〜13 作成）。`[X]` は書き換えない。口コミ枠は「Xの埋め込み2件の横スライド → CTA」の順で、1ページに何本入ってもCSS・スクリプトは1回だけ動く。ボタンは `[btn]` ではなく独自の `a.cm-main`・`a.cm-sub`（見た目は元のボタンに近いが、角丸・矢印などが少し違う）。
+
+| 会社 | 口コミなし（従来） | 旧・戻し用（CTA→口コミ→CTA） | 現行（口コミ横スライド→CTA） |
+|---|---|---|---|
+| ライフミール | `[lifemeal]` | `[lifemeal_kuchikomi]`（ID 64） | `[lifemeal_kuchikomi_slide]`（ID 69） |
+| ワタミの宅食ダイレクト | `[watamidirect]` | `[watamidirect_kuchikomi]`（ID 65） | `[watamidirect_kuchikomi_slide]`（ID 70） |
+| ウェルネスダイニング | `[wellness-dining]` | `[wellness-dining_kuchikomi]`（ID 66） | `[wellness-dining_kuchikomi_slide]`（ID 71） |
+| ワタミの宅食 | `[ワタミ]` | `[ワタミ_kuchikomi]`（ID 67） | `[ワタミ_kuchikomi_slide]`（ID 72） |
+| 筋肉食堂DELI | `[筋肉食堂DELI]` | `[筋肉食堂DELI_kuchikomi]`（ID 68） | `[筋肉食堂DELI_kuchikomi_slide]`（ID 73） |
+| ヨシケイ | `[ヨシケイ]` | — | `[ヨシケイ_kuchikomi_slide]`（ID 74） |
+| コープデリ | `[コープデリ]` | — | `[コープデリ_kuchikomi_slide]`（ID 75） |
+| Oisix | `[Oisix]` | — | `[Oisix_kuchikomi_slide]`（ID 76） |
+| らでぃっしゅぼーや | `[ラディッシュボーヤ]` | — | `[ラディッシュボーヤ_kuchikomi_slide]`（ID 77） |
+| 坂ノ途中 | `[sakanototyu_vegetable]` | — | `[sakanototyu_vegetable_kuchikomi_slide]`（ID 78） |
+| Green Beans | `[GreenBeans]` | — | `[GreenBeans_kuchikomi_slide]`（ID 79） |
+| パルシステム | `[palsystem]` | — | `[palsystem_kuchikomi_slide]`（ID 80） |
+| PAKU MOGU | `[pakumogu]` | — | `[pakumogu_kuchikomi_slide]`（ID 81） |
+| あっ！とごはん | `[attogohan]` | — | `[attogohan_kuchikomi_slide]`（ID 82） |
+| ツクリオ | `[tsukurio]` | — | `[tsukurio_kuchikomi_slide]`（ID 83） |
+| Dr.つるかめキッチン | `[Dr.ツルガメキッチン]` | — | `[Dr.ツルガメキッチン_kuchikomi_slide]`（ID 84） |
+| 三ツ星ファーム | `[MITSUBOSHI]` | — | `[MITSUBOSHI_kuchikomi_slide]`（ID 85） |
+| DELIPICKS | `[DELIPICKS]` | — | `[DELIPICKS_kuchikomi_slide]`（ID 86） |
+| マッスルデリ | `[MuscleDeli]` | — | `[MuscleDeli_kuchikomi_slide]`（ID 87） |
+| 宅配弁当Meals | `[Meals]` | — | `[Meals_kuchikomi_slide]`（ID 88） |
+| 楽天マート | （記事に直書きの公式サイトボタン） | — | `[楽天マート_kuchikomi_slide]`（ID 89） |
+| わんまいる | （記事に直書きの公式サイトボタン） | — | `[わんまいる_kuchikomi_slide]`（ID 90） |
+
+- 使い分けは `appeal-ranking.md`「5位以内に入る会社が変わるとき」。
+- 口コミの本文（Xの実在の公開投稿）は、スニペットの中に入っている。投稿は消える・非公開になることがあるので、定期的に表示を確認する。
+- 宅配弁当のタイヘイ（`[タイヘイ_kuchikomi_slide]`・ID 91）：3年以内の好意的な個人投稿が無く、2021年の投稿2件で用意した（記事には未反映。1〜5位に入る記事ができたら、新しい投稿を探し直してから使う）。
+- 未作成：オイシエの宅配弁当（1〜5位に入る記事が無い・案件の疑いがある投稿のみ）。
+- 楽天マート・わんまいるは提携外の公式サイトボタンのため、枠線のボタン（`cm-sub`）1つだけ。記事656（楽天マート）・157（わんまいる）では、記事に直書きだった公式サイトの `[btn]` をこの口コミ版に置き換えた（2026-10-13）。
+- **⚠ 前方一致の落とし穴**：記事に未登録のタグ（例：`[ワタミダイレクト]`。登録済みは `[watamidirect]`）があり、同じ記事に `[ワタミ]` もあるとき、WordPressは `[ワタミダイレクト]` を `[ワタミ]` ＋ 文字「ダイレクト]」として読む。記事内の `[ワタミ]` を**すべて** `[ワタミ_kuchikomi_slide]` に置き換えると、`[ワタミダイレクト]` が文字のまま表示される。置き換える前に、記事内の未登録タグが置き換え対象のタグ名で始まっていないかを確かめる。記事671・762はこの理由でワタミの置き換えを見送った（2026-10-13時点。公開ページで文字のままの `[ワタミダイレクト]` は0件）。
+- **口コミ枠が入っていない記事**（2026-10-13時点・規則どおりの位置を判定ロジックで確かめた結果）：
+  - 記事1296（食のそよ風）・1315（健康直球便）・1327（まごころケア食）：規則の位置は「目次の上の最初のCTA」の1か所だけで、その会社の口コミあり版が未作成のため入っていない（CTA本体 `[shokunosoyokaze]`・`[健康直球便]`・`[magokorokea]` はある）。口コミあり版を作れば入れられる
+  - 記事546：本文のCTAが `[X]` ではなく `[X_table]` とおすすめ枠（`fv-rank_btn` のボタン）で組まれており、規則の位置が0件。入れるなら、先にCTAを `[X]` に置き換える
+
 #### ウォーターサーバー（登録予定・2026-10-08）
 
 **WordPress の Post Snippets には、まだ登録していない。** 記事「ウォーターサーバー おすすめ」（`articles/ウォーターサーバー おすすめ/article.html`）は、下の名前で書いてある。**この名前を正として、あとから Post Snippets に登録する**（Manabuさん指示 2026-10-08）。登録するまで、WordPress に貼ると `[every-frecious]` などの文字がそのまま表示される。ASPのアフィリエイトURLは未取得（2026-10-08時点）。
